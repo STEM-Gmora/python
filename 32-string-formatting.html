@@ -820,6 +820,11 @@ txt = <span class="f">f</span><span class="s">"The price is {price:.2f} dollars"
         
         await pyodide.runPythonAsync(codeText);
         
+        // Remove the extra trailing newline added by the batched callback
+        if (outLine.textContent.endsWith('\\n')) {
+          outLine.textContent = outLine.textContent.slice(0, -1);
+        }
+        
       } catch (err) {
         outLine.textContent += String(err);
       } finally {

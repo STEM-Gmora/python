@@ -810,6 +810,11 @@ thisdict[<span class="s">"year"</span>] = 2018</code></pre>
         
         await pyodide.runPythonAsync(codeText);
         
+        // Remove the extra trailing newline added by the batched callback
+        if (outLine.textContent.endsWith('\\n')) {
+          outLine.textContent = outLine.textContent.slice(0, -1);
+        }
+        
       } catch (err) {
         outLine.textContent += String(err);
       } finally {
