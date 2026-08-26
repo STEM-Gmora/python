@@ -67,7 +67,7 @@
     display:flex;
     align-items:center;
     gap:16px;
-    padding:16px clamp(20px, 6vw, 90px) 12px;
+    padding:16px clamp(25px, 7.5vw, 113px) 12px;
     flex:0 0 auto;
     max-width:1120px;
     margin:0 auto;
@@ -79,7 +79,7 @@
     gap:8px;
     font-family:'Space Grotesk',sans-serif;
     font-weight:600;
-    font-size:14px;
+    font-size:18px;
     color:var(--blue);
     white-space:nowrap;
   }
@@ -98,7 +98,7 @@
     transition:width .4s var(--ease);
   }
   .step-counter{
-    font-size:12px;
+    font-size:15px;
     color:var(--muted);
     white-space:nowrap;
     min-width:64px;
@@ -118,7 +118,7 @@
     display:none;
     flex-direction:column;
     justify-content:center;
-    padding:20px clamp(20px, 6vw, 90px) 10px;
+    padding:20px clamp(25px, 7.5vw, 113px) 10px;
     opacity:0;
     max-width: 1120px;
     margin: 0 auto;
@@ -139,7 +139,7 @@
     align-items:center;
     gap:8px;
     font-family:'JetBrains Mono',monospace;
-    font-size:12px;
+    font-size:15px;
     font-weight:500;
     color:var(--gold);
     letter-spacing:.06em;
@@ -149,14 +149,14 @@
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
   .slide h2{
-    font-size:clamp(26px, 3.6vw, 42px);
+    font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
     max-width:16ch;
   }
   .slide .lede{
     margin-top:14px;
     font-family:'Virgil', cursive;
-    font-size:clamp(19px, 2vw, 24px);
+    font-size:clamp(24px, 2.5vw, 30px);
     font-weight:normal;
     color:var(--muted);
     max-width:62ch;
@@ -206,13 +206,13 @@
   }
   .card .k{
     font-family:'JetBrains Mono',monospace;
-    font-size:12px;
+    font-size:15px;
     color:var(--gold);
     margin-bottom:8px;
     display:block;
   }
-  .card h3{ font-size:16px; margin-bottom:6px; }
-  .card p{ margin:0; font-size:13.5px; color:var(--muted); line-height:1.5; }
+  .card h3{ font-size:20px; margin-bottom:6px; }
+  .card p{ margin:0; font-size:17px; color:var(--muted); line-height:1.5; }
 
   .steps-row{
     margin-top:26px;
@@ -227,31 +227,31 @@
     background:var(--blue-soft);
     border-radius:10px;
     padding:12px 16px;
-    font-size:13.5px;
+    font-size:17px;
     color:var(--blue);
     font-weight:500;
     max-width:200px;
   }
-  .arrow{ color:var(--muted); font-size:18px; }
+  .arrow{ color:var(--muted); font-size:23px; }
 
   .list-check{ margin-top:20px; display:flex; flex-direction:column; gap:10px; max-width:520px; }
   .list-check .item{
     position:relative;
     padding-left:30px;
-    font-size:15px; color:var(--ink);
+    font-size:19px; color:var(--ink);
     line-height: 1.5;
   }
   .list-check .item .tick{
     position:absolute; left:0; top:2px;
     width:20px; height:20px; border-radius:6px;
-    background:var(--gold); color:#fff; font-size:12px; font-weight:700;
+    background:var(--gold); color:#fff; font-size:15px; font-weight:700;
     display:flex; align-items:center; justify-content:center;
   }
 
   .pill{
     display:inline-block;
     font-family:'JetBrains Mono',monospace;
-    font-size:12.5px;
+    font-size:16px;
     background:var(--gold-soft);
     color:var(--gold);
     border-radius:6px;
@@ -281,12 +281,12 @@
   .terminal-bar span:nth-child(3){ background:#61c454; }
   .terminal-bar .fname{
     margin-left:10px; font-family:'JetBrains Mono',monospace;
-    font-size:11.5px; color:#8b93a3;
+    font-size:14px; color:#8b93a3;
   }
   .terminal-body{
     padding:18px 20px 20px;
     font-family:'JetBrains Mono',monospace;
-    font-size:14px;
+    font-size:18px;
     color:var(--code-ink);
     min-height:96px;
   }
@@ -319,7 +319,7 @@
     border-radius:8px;
     padding:10px 16px;
     font-family:'JetBrains Mono',monospace;
-    font-size:13px;
+    font-size:16px;
     cursor:pointer;
     transition:background .2s ease, transform .1s ease;
     width: 100%;
@@ -356,13 +356,13 @@
   .code-block .header .dots .green { background:#61c454; }
   .code-block .header .filename {
     margin-left:10px; font-family:'JetBrains Mono',monospace;
-    font-size:11.5px; color:#8b93a3;
+    font-size:14px; color:#8b93a3;
   }
   .code-block pre {
     margin: 0;
     padding:18px 20px 20px;
     font-family:'JetBrains Mono',monospace;
-    font-size:14px;
+    font-size:18px;
     color:var(--code-ink);
     min-height:96px;
     white-space: pre-wrap;
@@ -380,21 +380,21 @@
   /* ---------- cover slide specifics ---------- */
   .cover{ justify-content:center; align-items:center; text-align:center; }
   .cover h1{
-    font-size:clamp(38px, 6.5vw, 76px);
+    font-size:clamp(48px, 8.1vw, 95px);
     line-height:1.02;
   }
   .cover h1 .accent{ color:var(--gold); }
   .cover .sub{
     margin-top:18px;
     max-width:52ch;
-    font-size:clamp(15px, 1.6vw, 18px);
+    font-size:clamp(19px, 2.0vw, 23px);
     color:var(--muted);
     line-height:1.6;
   }
   .cover .prompt{
     margin-top:34px;
     font-family:'JetBrains Mono',monospace;
-    font-size:14px;
+    font-size:18px;
     color:var(--blue);
   }
   .cover .prompt .gt{ color:var(--gold); }
@@ -406,7 +406,7 @@
     align-items:center;
     justify-content:space-between;
     gap:20px;
-    padding:14px clamp(20px, 6vw, 90px) 22px;
+    padding:14px clamp(25px, 7.5vw, 113px) 22px;
     border-top:1px solid var(--line);
     max-width:1120px;
     margin:0 auto;
@@ -424,7 +424,7 @@
   .watermark{
     flex: 1;
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 13px;
+    font-size:16px;
     font-weight: 600;
     color: var(--muted);
   }
@@ -436,7 +436,7 @@
     background:#fff;
     color:var(--ink);
     font-family:'Inter',sans-serif;
-    font-size:14px;
+    font-size:18px;
     font-weight:500;
     padding:9px 16px;
     border-radius:9px;
@@ -458,7 +458,7 @@
       flex-direction: column; 
       gap: 20px; 
     }
-    .watermark{ order: 3; text-align: center; margin-top: -6px; font-size: 12px; }
+    .watermark{ order: 3; text-align: center; margin-top: -6px; font-size:15px; }
     .nav-buttons{ width: 100%; flex-wrap: wrap; }
     .nav-buttons button, .nav-buttons a.btn{ flex: 1; min-width: 30%; padding: 12px; }
 
@@ -589,7 +589,7 @@
         </div>
       </div>
       <button class="run-btn fragment" id="runBtn">▶ Run hello.py</button>
-      <p class="lede fragment" style="margin-top:14px; font-size:14px;"><span class="pill">print()</span> simply displays whatever is inside the parentheses on the screen.</p>
+      <p class="lede fragment" style="margin-top:14px; font-size:18px;"><span class="pill">print()</span> simply displays whatever is inside the parentheses on the screen.</p>
     </section>
 
     <!-- SLIDE 8 — Recap -->
