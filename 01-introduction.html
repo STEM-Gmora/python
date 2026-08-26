@@ -823,7 +823,13 @@
       
       // Get the raw python text
       const codeEl = codeBlock.querySelector('code');
-      const codeText = codeEl ? codeEl.textContent : '';
+      let codeText = '';
+      if (codeEl) {
+        codeText = codeEl.textContent;
+      } else {
+        const lines = codeBlock.querySelectorAll('.code-line');
+        lines.forEach(l => { codeText += l.textContent + '\\n'; });
+      }
       
       let outLine = codeBlock.querySelector('.out-line');
       if (!outLine) {
