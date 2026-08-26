@@ -379,8 +379,8 @@
   }
 
   .nav-buttons{ display:flex; gap:10px; flex:1; justify-content:flex-end; }
-  .nav-buttons button{
-    display:flex; align-items:center; gap:6px;
+  .nav-buttons button, .nav-buttons a.btn{
+    display:flex; align-items:center; justify-content:center; gap:6px;
     border:1px solid var(--line);
     background:#fff;
     color:var(--ink);
@@ -391,12 +391,13 @@
     border-radius:9px;
     cursor:pointer;
     transition:border-color .2s ease, background .2s ease;
+    text-decoration:none;
   }
-  .nav-buttons button:hover:not(:disabled){ border-color:var(--blue); }
+  .nav-buttons button:hover:not(:disabled), .nav-buttons a.btn:hover{ border-color:var(--blue); }
   .nav-buttons button:disabled{ opacity:.35; cursor:default; }
   .nav-buttons .primary{ background:var(--blue); color:#fff; border-color:var(--blue); }
   .nav-buttons .primary:hover:not(:disabled){ background:#152845; }
-  button:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+  button:focus-visible, a.btn:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
 
   @media (max-width: 640px){
     .hide-mobile{ display: none; }
@@ -407,8 +408,8 @@
       gap: 20px; 
     }
     .watermark{ order: 3; text-align: center; margin-top: -6px; font-size: 12px; }
-    .nav-buttons{ width: 100%; }
-    .nav-buttons button{ flex: 1; justify-content: center; padding: 12px; }
+    .nav-buttons{ width: 100%; flex-wrap: wrap; }
+    .nav-buttons button, .nav-buttons a.btn{ flex: 1; min-width: 30%; padding: 12px; }
 
     .slide {
       justify-content: flex-start;
@@ -501,6 +502,7 @@ b = Bank()
     <div class="watermark">STEM Gmora</div>
     <div class="dots" id="dots"></div>
     <div class="nav-buttons">
+      <a href="index.html" class="btn">🏠 Home</a>
       <button id="prevBtn">← Prev</button>
       <button id="nextBtn" class="primary">Next →</button>
     </div>
