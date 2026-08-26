@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>STEM Gmora · Python Series</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:            #ffffff;
+      --bg-alt:        #f8f9fa;
+      --ink:           #14171a;
+      --muted:         #667085;
+      --line:          #e6e8ec;
+      --blue:          #1d3557;
+      --blue-soft:     #eef2f8;
+      --gold:          #b9790a;
+      --gold-soft:     #fff6e0;
+      --radius:        14px;
+      --shadow:        0 1px 2px rgba(20,23,26,.04), 0 8px 24px rgba(20,23,26,.06);
+      --shadow-hover:  0 12px 32px rgba(20,23,26,.08);
+      --ease:          cubic-bezier(.2,.7,.2,1);
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      background:var(--bg-alt);
+      color:var(--ink);
+      font-family:'Inter',system-ui,sans-serif;
+      -webkit-font-smoothing:antialiased;
+    }
+    h1,h2,h3,h4{
+      font-family:'Space Grotesk',sans-serif;
+      margin:0;
+      letter-spacing:-0.01em;
+    }
+    .header{
+      background:var(--bg);
+      border-bottom:1px solid var(--line);
+      padding:60px 20px;
+      text-align:center;
+    }
+    .header h1{
+      font-size: clamp(32px, 5vw, 48px);
+      color: var(--blue);
+      margin-bottom: 16px;
+    }
+    .header h1 span{ color: var(--gold); }
+    .header p{
+      color:var(--muted);
+      font-size: clamp(16px, 2vw, 18px);
+      max-width:600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .container{
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
+    .section-title{
+      font-size: 24px;
+      margin-bottom: 30px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--line);
+      display:flex;
+      align-items:center;
+      gap: 12px;
+    }
+    .section-title span{
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 14px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-bottom: 80px;
+    }
+    .card{
+      background: var(--bg);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s var(--ease);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--gold);
+    }
+    .card.disabled{
+      opacity: 0.6;
+      pointer-events: none;
+      filter: grayscale(1);
+    }
+    .card .num{
+      font-family:'Space Grotesk',sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+    .card h3{
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+    .card p{
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      flex-grow: 1;
+    }
+    .card .status{
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .status.ready{ color: var(--blue); }
+    .status.pending{ color: var(--muted); }
+    
+    .footer{
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <h1>STEM Gmora <span>Python Series</span></h1>
+  <p>Interactive, self-contained HTML presentations for learning Python from scratch. Download any lesson and run it offline.</p>
+</header>
+
+<div class="container">
+  
+  <h2 class="section-title">Python Tutorial <span>Lessons 1 - 35</span></h2>
+  <div class="grid">
+
+    <a href="01-introduction.html" class="card ">
+      <div class="num">LESSON 01</div>
+      <h3>Introduction to Python</h3>
+      <p>What Python actually is, why so many people choose it, and the first line of code you'll ever write.</p>
+      <div class="status ready">✓ Ready</div>
+    </a>
+    <a href="02-get-started.html" class="card disabled">
+      <div class="num">LESSON 02</div>
+      <h3>Get Started</h3>
+      <p>Setting up your environment and writing your first script.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="03-syntax.html" class="card disabled">
+      <div class="num">LESSON 03</div>
+      <h3>Syntax</h3>
+      <p>Indentation, basic rules, and structure of Python code.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="04-output.html" class="card disabled">
+      <div class="num">LESSON 04</div>
+      <h3>Output</h3>
+      <p>Using the print function effectively.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="05-comments.html" class="card disabled">
+      <div class="num">LESSON 05</div>
+      <h3>Comments</h3>
+      <p>Documenting your code.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="06-variables.html" class="card disabled">
+      <div class="num">LESSON 06</div>
+      <h3>Variables</h3>
+      <p>Storing data in memory.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="07-data-types.html" class="card disabled">
+      <div class="num">LESSON 07</div>
+      <h3>Data Types</h3>
+      <p>Strings, ints, floats, and more.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="08-numbers.html" class="card disabled">
+      <div class="num">LESSON 08</div>
+      <h3>Numbers</h3>
+      <p>Numeric operations and types.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="09-casting.html" class="card disabled">
+      <div class="num">LESSON 09</div>
+      <h3>Casting</h3>
+      <p>Converting between data types.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="10-strings.html" class="card disabled">
+      <div class="num">LESSON 10</div>
+      <h3>Strings</h3>
+      <p>Text manipulation and methods.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="11-booleans.html" class="card disabled">
+      <div class="num">LESSON 11</div>
+      <h3>Booleans</h3>
+      <p>True, False, and logical logic.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="12-operators.html" class="card disabled">
+      <div class="num">LESSON 12</div>
+      <h3>Operators</h3>
+      <p>Arithmetic, assignment, and comparison.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="13-lists.html" class="card disabled">
+      <div class="num">LESSON 13</div>
+      <h3>Lists</h3>
+      <p>Ordered, mutable collections.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="14-tuples.html" class="card disabled">
+      <div class="num">LESSON 14</div>
+      <h3>Tuples</h3>
+      <p>Ordered, immutable collections.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="15-sets.html" class="card disabled">
+      <div class="num">LESSON 15</div>
+      <h3>Sets</h3>
+      <p>Unordered collections of unique items.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="16-dictionaries.html" class="card disabled">
+      <div class="num">LESSON 16</div>
+      <h3>Dictionaries</h3>
+      <p>Key-value pairs.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="17-if-else.html" class="card disabled">
+      <div class="num">LESSON 17</div>
+      <h3>If...Else</h3>
+      <p>Conditional execution.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="18-match.html" class="card disabled">
+      <div class="num">LESSON 18</div>
+      <h3>Match</h3>
+      <p>Structural pattern matching.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="19-while-loops.html" class="card disabled">
+      <div class="num">LESSON 19</div>
+      <h3>While Loops</h3>
+      <p>Repeating code based on a condition.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="20-for-loops.html" class="card disabled">
+      <div class="num">LESSON 20</div>
+      <h3>For Loops</h3>
+      <p>Iterating over sequences.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="21-functions.html" class="card disabled">
+      <div class="num">LESSON 21</div>
+      <h3>Functions</h3>
+      <p>Reusable blocks of code.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="22-range.html" class="card disabled">
+      <div class="num">LESSON 22</div>
+      <h3>Range</h3>
+      <p>Generating sequences of numbers.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="23-arrays.html" class="card disabled">
+      <div class="num">LESSON 23</div>
+      <h3>Arrays</h3>
+      <p>Using lists as arrays.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="24-iterators.html" class="card disabled">
+      <div class="num">LESSON 24</div>
+      <h3>Iterators</h3>
+      <p>Iterators and iterables.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="25-modules.html" class="card disabled">
+      <div class="num">LESSON 25</div>
+      <h3>Modules</h3>
+      <p>Importing and creating modules.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="26-dates.html" class="card disabled">
+      <div class="num">LESSON 26</div>
+      <h3>Dates</h3>
+      <p>Working with dates and time.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="27-math.html" class="card disabled">
+      <div class="num">LESSON 27</div>
+      <h3>Math</h3>
+      <p>Built-in math functions and the math module.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="28-json.html" class="card disabled">
+      <div class="num">LESSON 28</div>
+      <h3>JSON</h3>
+      <p>Parsing and generating JSON.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="29-regex.html" class="card disabled">
+      <div class="num">LESSON 29</div>
+      <h3>RegEx</h3>
+      <p>Regular expressions for pattern matching.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="30-pip.html" class="card disabled">
+      <div class="num">LESSON 30</div>
+      <h3>PIP</h3>
+      <p>The Python package manager.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="31-try-except.html" class="card disabled">
+      <div class="num">LESSON 31</div>
+      <h3>Try...Except</h3>
+      <p>Error and exception handling.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="32-string-formatting.html" class="card disabled">
+      <div class="num">LESSON 32</div>
+      <h3>String Formatting</h3>
+      <p>F-strings and format().</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="33-none.html" class="card disabled">
+      <div class="num">LESSON 33</div>
+      <h3>None</h3>
+      <p>The None keyword and null values.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="34-user-input.html" class="card disabled">
+      <div class="num">LESSON 34</div>
+      <h3>User Input</h3>
+      <p>Getting input from the console.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="35-virtualenv.html" class="card disabled">
+      <div class="num">LESSON 35</div>
+      <h3>VirtualEnv</h3>
+      <p>Managing project environments.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+  </div>
+
+  <h2 class="section-title">Python Classes (OOP) <span>Lessons 36 - 45</span></h2>
+  <div class="grid">
+
+    <a href="36-oop-intro.html" class="card disabled">
+      <div class="num">LESSON 36</div>
+      <h3>OOP Intro</h3>
+      <p>Object-Oriented Programming concepts.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="37-classes-objects.html" class="card disabled">
+      <div class="num">LESSON 37</div>
+      <h3>Classes/Objects</h3>
+      <p>Creating classes and instances.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="38-init-method.html" class="card disabled">
+      <div class="num">LESSON 38</div>
+      <h3>__init__ Method</h3>
+      <p>Constructors in Python.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="39-self-parameter.html" class="card disabled">
+      <div class="num">LESSON 39</div>
+      <h3>Self Parameter</h3>
+      <p>Understanding the self reference.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="40-class-properties.html" class="card disabled">
+      <div class="num">LESSON 40</div>
+      <h3>Class Properties</h3>
+      <p>Class vs instance attributes.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="41-class-methods.html" class="card disabled">
+      <div class="num">LESSON 41</div>
+      <h3>Class Methods</h3>
+      <p>Static and class methods.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="42-inheritance.html" class="card disabled">
+      <div class="num">LESSON 42</div>
+      <h3>Inheritance</h3>
+      <p>Extending classes.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="43-polymorphism.html" class="card disabled">
+      <div class="num">LESSON 43</div>
+      <h3>Polymorphism</h3>
+      <p>Overriding and polymorphism.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="44-encapsulation.html" class="card disabled">
+      <div class="num">LESSON 44</div>
+      <h3>Encapsulation</h3>
+      <p>Private properties and methods.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+    <a href="45-inner-classes.html" class="card disabled">
+      <div class="num">LESSON 45</div>
+      <h3>Inner Classes</h3>
+      <p>Classes within classes.</p>
+      <div class="status pending">Coming Soon</div>
+    </a>
+  </div>
+  
+</div>
+
+<footer class="footer">
+  STEM Gmora &copy; 2026. Open source educational resources.
+</footer>
+
+</body>
+</html>
