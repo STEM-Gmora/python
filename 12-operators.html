@@ -308,23 +308,74 @@
   @keyframes blink{ 50%{ opacity:0; } }
 
   .run-btn{
-    margin-top:16px;
-    display:inline-flex;
+    margin-top:8px;
+    display:flex;
     align-items:center;
+    justify-content:flex-start;
     gap:8px;
-    background:var(--blue);
+    background:#1f2e45; /* Dark blue to match image */
     color:#fff;
     border:none;
     border-radius:8px;
-    padding:9px 16px;
+    padding:10px 16px;
     font-family:'JetBrains Mono',monospace;
     font-size:13px;
     cursor:pointer;
     transition:background .2s ease, transform .1s ease;
+    width: 100%;
+    max-width: 560px;
   }
-  .run-btn:hover{ background:#152845; }
-  .run-btn:active{ transform:scale(.97); }
+  .run-btn:hover{ background:#2a3d59; }
+  .run-btn:active{ transform:scale(.99); }
   .run-btn:disabled{ opacity:.5; cursor:default; }
+
+  /* ---------- Code Blocks (Auto Generated) ---------- */
+  .code-block {
+    margin-top:22px;
+    max-width:560px;
+    background:var(--code-bg);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .code-block .header {
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:10px 14px;
+    background:rgba(255,255,255,.04);
+  }
+  .code-block .header .dots {
+    display: flex; gap: 6px;
+  }
+  .code-block .header .dots span {
+    width:10px; height:10px; border-radius:50%;
+  }
+  .code-block .header .dots .red { background:#ef6a5f; }
+  .code-block .header .dots .yellow { background:#f4bf50; }
+  .code-block .header .dots .green { background:#61c454; }
+  .code-block .header .filename {
+    margin-left:10px; font-family:'JetBrains Mono',monospace;
+    font-size:11.5px; color:#8b93a3;
+  }
+  .code-block pre {
+    margin: 0;
+    padding:18px 20px 20px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:14px;
+    color:var(--code-ink);
+    min-height:96px;
+    white-space: pre-wrap;
+  }
+  .code-block code {
+    font-family: inherit;
+  }
+  .code-block .c { color:var(--code-comment); }
+  .code-block .k { color:#7aa2ff; }
+  .code-block .f { color:#7aa2ff; }
+  .code-block .s { color:var(--code-success); }
+  .code-block .n { color:#f4bf50; }
+  .code-block .o { color:#e7ecf3; }
 
   /* ---------- cover slide specifics ---------- */
   .cover{ justify-content:center; align-items:center; text-align:center; }
@@ -469,6 +520,7 @@
 <span class="f">print</span>(10 / 5) <span class="c"># Division</span>
 <span class="f">print</span>(10 % 3) <span class="c"># Modulus (Remainder) -> 1</span></code></pre>
       </div>
+      <button class="run-btn fragment">▶ Run file</button>
     </section>
     
     <section class="slide" data-index="2">
@@ -486,6 +538,7 @@ x += 3   <span class="c"># Same as x = x + 3</span>
 x -= 3   <span class="c"># Same as x = x - 3</span>
 x *= 3   <span class="c"># Same as x = x * 3</span></code></pre>
       </div>
+      <button class="run-btn fragment">▶ Run file</button>
     </section>
     
     <section class="slide" data-index="3">
@@ -502,6 +555,7 @@ x *= 3   <span class="c"># Same as x = x * 3</span></code></pre>
 <span class="f">print</span>(x > y)  <span class="c"># Greater than</span>
 <span class="f">print</span>(x <= y) <span class="c"># Less than or equal to</span></code></pre>
       </div>
+      <button class="run-btn fragment">▶ Run file</button>
     </section>
     
     <section class="slide" data-index="4">
@@ -701,26 +755,36 @@ x *= 3   <span class="c"># Same as x = x * 3</span></code></pre>
     if (e.key === 'End') goToSlide(slides.length - 1, true);
   });
 
-  /* ---------- the one "live" interactive element: the Run button ---------- */
-  const runBtn = document.getElementById('runBtn');
-  const outLine = document.getElementById('outLine');
-  if (runBtn) {
-    runBtn.addEventListener('click', () => {
-      runBtn.disabled = true;
-      outLine.textContent = '';
-      const text = 'Hello, World!';
-      let i = 0;
-      const timer = setInterval(() => {
-        outLine.textContent += text[i];
-        i++;
-        if (i >= text.length) {
-          clearInterval(timer);
-          runBtn.disabled = false;
-          runBtn.textContent = '↻ Run again';
-        }
-      }, 45);
+  /* ---------- all Run buttons ---------- */
+  const runBtns = document.querySelectorAll('.run-btn');
+  runBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = 'Running...';
+      
+      const outLine = btn.previousElementSibling ? btn.previousElementSibling.querySelector('.out-line') : null;
+      if (outLine) {
+        outLine.textContent = '';
+        const text = 'Hello, World!';
+        let i = 0;
+        const timer = setInterval(() => {
+          outLine.textContent += text[i];
+          i++;
+          if (i >= text.length) {
+            clearInterval(timer);
+            btn.disabled = false;
+            btn.textContent = '↻ Run again';
+          }
+        }, 45);
+      } else {
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.textContent = '↻ Run again';
+        }, 800);
+      }
     });
-  }
+  });
 
   render();
 })();
