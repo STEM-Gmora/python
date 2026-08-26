@@ -366,6 +366,8 @@
     font-size:18px;
     color:var(--code-ink);
     min-height:96px;
+    max-height:50vh;
+    overflow-y:auto;
     white-space: pre-wrap;
   }
   .code-block code {
@@ -812,6 +814,9 @@ x = datetime.datetime.now()
         outLine.style.color = '#ff6b6b';
         outLine.textContent += String(err);
       } finally {
+        // Auto-scroll the code block to show the output
+        const container = codeBlock.querySelector('pre') || codeBlock.querySelector('.terminal-body');
+        if (container) container.scrollTop = container.scrollHeight;
         btn.disabled = false;
         btn.textContent = '↻ Run again';
       }
