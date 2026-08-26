@@ -781,6 +781,7 @@ b = Bank()
       }
       
       outLine.textContent = 'Initializing Python engine...';
+      outLine.style.color = 'var(--code-success)';
       outLine.style.display = 'block';
 
       try {
@@ -801,6 +802,7 @@ b = Bank()
         }
         
       } catch (err) {
+        outLine.style.color = '#ff6b6b';
         outLine.textContent += String(err);
       } finally {
         btn.disabled = false;

@@ -807,6 +807,7 @@ y = json.dumps(x)
       }
       
       outLine.textContent = 'Initializing Python engine...';
+      outLine.style.color = 'var(--code-success)';
       outLine.style.display = 'block';
 
       try {
@@ -827,6 +828,7 @@ y = json.dumps(x)
         }
         
       } catch (err) {
+        outLine.style.color = '#ff6b6b';
         outLine.textContent += String(err);
       } finally {
         btn.disabled = false;

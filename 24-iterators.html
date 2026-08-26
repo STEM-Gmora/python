@@ -790,6 +790,7 @@ myit = <span class="f">iter</span>(mytuple)
       }
       
       outLine.textContent = 'Initializing Python engine...';
+      outLine.style.color = 'var(--code-success)';
       outLine.style.display = 'block';
 
       try {
@@ -810,6 +811,7 @@ myit = <span class="f">iter</span>(mytuple)
         }
         
       } catch (err) {
+        outLine.style.color = '#ff6b6b';
         outLine.textContent += String(err);
       } finally {
         btn.disabled = false;

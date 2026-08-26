@@ -783,6 +783,7 @@ b = <span class="f">str</span>(2)     <span class="c"># b will be "2"</span></co
       }
       
       outLine.textContent = 'Initializing Python engine...';
+      outLine.style.color = 'var(--code-success)';
       outLine.style.display = 'block';
 
       try {
@@ -803,6 +804,7 @@ b = <span class="f">str</span>(2)     <span class="c"># b will be "2"</span></co
         }
         
       } catch (err) {
+        outLine.style.color = '#ff6b6b';
         outLine.textContent += String(err);
       } finally {
         btn.disabled = false;
