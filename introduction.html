@@ -6,8 +6,15 @@
 <title>Lesson 01 · Introduction to Python</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
+  @font-face {
+    font-family: 'Virgil';
+    src: url('https://cdn.jsdelivr.net/npm/@excalidraw/excalidraw/dist/excalidraw-assets/Virgil.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
   /* ============================================================
      DESIGN TOKENS
      A white-background deck built around Python's own two brand
@@ -148,10 +155,24 @@
   }
   .slide .lede{
     margin-top:14px;
-    font-size:clamp(15px, 1.5vw, 18px);
+    font-family:'Virgil', cursive;
+    font-size:clamp(19px, 2vw, 24px);
+    font-weight:normal;
     color:var(--muted);
     max-width:62ch;
-    line-height:1.6;
+    line-height:1.5;
+  }
+  .slide .lede .hw-cursor{
+    display:inline-block;
+    width:2px;
+    height:1em;
+    background:var(--blue);
+    margin-left:2px;
+    vertical-align:text-bottom;
+    animation:blink-caret .6s step-end infinite;
+  }
+  @keyframes blink-caret{
+    50%{ background:transparent; }
   }
 
   /* ---------- fragments (click-to-reveal content) ---------- */
@@ -431,7 +452,6 @@
       <div class="eyebrow"><span class="num">01</span> Python Programming Series</div>
       <h1>Introduction to <span class="accent">Python</span></h1>
       <p class="sub">What Python actually is, why so many people choose it, and the first line of code you'll ever write — together.</p>
-      <div class="prompt"><span class="gt">&gt;&gt;&gt;</span> import antigravity<span class="cursor"></span></div>
     </section>
 
     <!-- SLIDE 2 — What is Python -->
@@ -538,7 +558,7 @@
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">
-    <div class="watermark">stem Gmora</div>
+    <div class="watermark">STEM Gmora</div>
     <div class="dots" id="dots"></div>
     <div class="nav-buttons">
       <button id="prevBtn">← Prev</button>
@@ -606,9 +626,50 @@
     type();
   }
 
-  function render() {
-    slides.forEach((s, i) => s.classList.toggle('active', i === currentSlide));
+  let prevSlide = -1;
 
+  function handwriteLede(slideEl) {
+    const lede = slideEl.querySelector('.lede:not(.fragment)');
+    if (!lede) return;
+    if (lede.dataset.hwDone) return;
+    const html = lede.dataset.originalHtml || lede.innerHTML;
+    if (!lede.dataset.originalHtml) lede.dataset.originalHtml = html;
+    lede.dataset.hwDone = 'true';
+    lede.innerHTML = '<span class="hw-cursor"></span>';
+    let i = 0, isTag = false, text = '';
+    function tick() {
+      if (i < html.length) {
+        if (html.charAt(i) === '<') isTag = true;
+        text += html.charAt(i);
+        if (html.charAt(i) === '>') isTag = false;
+        lede.innerHTML = text + '<span class="hw-cursor"></span>';
+        i++;
+        if (isTag) tick();
+        else setTimeout(tick, 22);
+      } else {
+        // Remove cursor after a short pause
+        setTimeout(() => { lede.innerHTML = text; }, 1200);
+      }
+    }
+    tick();
+  }
+
+  function resetLede(slideEl) {
+    const lede = slideEl.querySelector('.lede:not(.fragment)');
+    if (!lede || !lede.dataset.hwDone) return;
+    lede.innerHTML = lede.dataset.originalHtml;
+    lede.dataset.hwDone = '';
+  }
+
+  function render() {
+    slides.forEach((s, i) => {
+      s.classList.toggle('active', i === currentSlide);
+      if (i !== currentSlide && i === prevSlide) resetLede(s);
+    });
+    if (currentSlide !== prevSlide) {
+      handwriteLede(slides[currentSlide]);
+      prevSlide = currentSlide;
+    }
     const activeSlide = slides[currentSlide];
     const frags = fragmentsOf(activeSlide);
     frags.forEach((f, i) => {
