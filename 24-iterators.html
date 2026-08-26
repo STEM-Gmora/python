@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 24 · Iterators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  @font-face {
+    font-family: 'Virgil';
+    src: url('https://cdn.jsdelivr.net/npm/@excalidraw/excalidraw/dist/excalidraw-assets/Virgil.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+  /* ============================================================
+     DESIGN TOKENS
+     A white-background deck built around Python's own two brand
+     colors (deep blue + amber gold) instead of a generic theme.
+     ============================================================ */
+  :root{
+    --bg:            #ffffff;
+    --ink:           #14171a;
+    --muted:         #667085;
+    --line:          #e6e8ec;
+    --blue:          #1d3557;
+    --blue-soft:     #eef2f8;
+    --gold:          #b9790a;
+    --gold-soft:     #fff6e0;
+    --code-bg:       #10141d;
+    --code-ink:      #e7ecf3;
+    --code-comment:  #7c8797;
+    --code-success:  #6fce8a;
+    --radius:        14px;
+    --shadow:        0 1px 2px rgba(20,23,26,.04), 0 8px 24px rgba(20,23,26,.06);
+    --ease:          cubic-bezier(.2,.7,.2,1);
+  }
+
+  *{ box-sizing:border-box; }
+  html,body{ height:100%; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow:hidden;
+  }
+  h1,h2,h3{
+    font-family:'Space Grotesk',sans-serif;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  code, .mono{ font-family:'JetBrains Mono',monospace; }
+
+  /* ---------- deck shell ---------- */
+  .deck{
+    height:100%;
+    height:100dvh;
+    display:flex;
+    flex-direction:column;
+  }
+
+  .deck-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+    padding:16px clamp(20px, 6vw, 90px) 12px;
+    flex:0 0 auto;
+    max-width:1120px;
+    margin:0 auto;
+    width:100%;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Space Grotesk',sans-serif;
+    font-weight:600;
+    font-size:14px;
+    color:var(--blue);
+    white-space:nowrap;
+  }
+  .brand .dot{ width:7px; height:7px; border-radius:50%; background:var(--gold); }
+  .progress-track{
+    flex:1;
+    height:4px;
+    background:var(--line);
+    border-radius:2px;
+    overflow:hidden;
+  }
+  .progress-fill{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg, var(--blue), var(--gold));
+    transition:width .4s var(--ease);
+  }
+  .step-counter{
+    font-size:12px;
+    color:var(--muted);
+    white-space:nowrap;
+    min-width:64px;
+    text-align:right;
+  }
+
+  /* ---------- slide area ---------- */
+  #slides{
+    flex:1 1 auto;
+    position:relative;
+    overflow:hidden;
+    width:100%;
+  }
+  .slide{
+    position:absolute;
+    inset:0;
+    display:none;
+    flex-direction:column;
+    justify-content:center;
+    padding:20px clamp(20px, 6vw, 90px) 10px;
+    opacity:0;
+    max-width: 1120px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  .slide.active{
+    display:flex;
+    opacity:1;
+    animation:slideIn .45s var(--ease);
+  }
+  @keyframes slideIn{
+    from{ opacity:0; transform:translateY(10px); }
+    to{ opacity:1; transform:translateY(0); }
+  }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    font-weight:500;
+    color:var(--gold);
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    margin-bottom:14px;
+  }
+  .eyebrow .num{ color:var(--blue); font-weight:600; }
+
+  .slide h2{
+    font-size:clamp(26px, 3.6vw, 42px);
+    line-height:1.15;
+    max-width:16ch;
+  }
+  .slide .lede{
+    margin-top:14px;
+    font-family:'Virgil', cursive;
+    font-size:clamp(19px, 2vw, 24px);
+    font-weight:normal;
+    color:var(--muted);
+    max-width:62ch;
+    line-height:1.5;
+  }
+  .slide .lede .hw-cursor{
+    display:inline-block;
+    width:2px;
+    height:1em;
+    background:var(--blue);
+    margin-left:2px;
+    vertical-align:text-bottom;
+    animation:blink-caret .6s step-end infinite;
+  }
+  @keyframes blink-caret{
+    50%{ background:transparent; }
+  }
+
+  /* ---------- fragments (click-to-reveal content) ---------- */
+  .fragment{
+    opacity:0;
+    transform:translateY(10px);
+    transition:opacity .5s var(--ease), transform .5s var(--ease);
+  }
+  .fragment.visible{
+    opacity:1;
+    transform:translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .fragment, .slide.active{ transition:none; animation:none; }
+  }
+
+  /* ---------- reusable pieces ---------- */
+  .card-grid{
+    margin-top:22px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:14px;
+    max-width:900px;
+  }
+  .card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 20px;
+    background:#fff;
+    box-shadow:var(--shadow);
+  }
+  .card .k{
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;
+    color:var(--gold);
+    margin-bottom:8px;
+    display:block;
+  }
+  .card h3{ font-size:16px; margin-bottom:6px; }
+  .card p{ margin:0; font-size:13.5px; color:var(--muted); line-height:1.5; }
+
+  .steps-row{
+    margin-top:26px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px;
+    max-width:920px;
+  }
+  .step-box{
+    border:1px solid var(--line);
+    background:var(--blue-soft);
+    border-radius:10px;
+    padding:12px 16px;
+    font-size:13.5px;
+    color:var(--blue);
+    font-weight:500;
+    max-width:200px;
+  }
+  .arrow{ color:var(--muted); font-size:18px; }
+
+  .list-check{ margin-top:20px; display:flex; flex-direction:column; gap:10px; max-width:520px; }
+  .list-check .item{
+    position:relative;
+    padding-left:30px;
+    font-size:15px; color:var(--ink);
+    line-height: 1.5;
+  }
+  .list-check .item .tick{
+    position:absolute; left:0; top:2px;
+    width:20px; height:20px; border-radius:6px;
+    background:var(--gold); color:#fff; font-size:12px; font-weight:700;
+    display:flex; align-items:center; justify-content:center;
+  }
+
+  .pill{
+    display:inline-block;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12.5px;
+    background:var(--gold-soft);
+    color:var(--gold);
+    border-radius:6px;
+    padding:2px 8px;
+    margin:0 2px;
+  }
+
+  /* ---------- terminal component ---------- */
+  .terminal{
+    margin-top:22px;
+    max-width:560px;
+    background:var(--code-bg);
+    border-radius:var(--radius);
+    overflow:hidden;
+    box-shadow:var(--shadow);
+  }
+  .terminal-bar{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:10px 14px;
+    background:rgba(255,255,255,.04);
+  }
+  .terminal-bar span{ width:10px; height:10px; border-radius:50%; }
+  .terminal-bar span:nth-child(1){ background:#ef6a5f; }
+  .terminal-bar span:nth-child(2){ background:#f4bf50; }
+  .terminal-bar span:nth-child(3){ background:#61c454; }
+  .terminal-bar .fname{
+    margin-left:10px; font-family:'JetBrains Mono',monospace;
+    font-size:11.5px; color:#8b93a3;
+  }
+  .terminal-body{
+    padding:18px 20px 20px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:14px;
+    color:var(--code-ink);
+    min-height:96px;
+  }
+  .terminal-body .comment{ color:var(--code-comment); display:block; margin-bottom:6px; }
+  .terminal-body .code-line{ display:block; white-space:pre; }
+  .terminal-body .code-line .fn{ color:#7aa2ff; }
+  .terminal-body .code-line .str{ color:var(--code-success); }
+  .out-line{
+    display:block;
+    margin-top:10px;
+    color:var(--code-success);
+    min-height:20px;
+  }
+  .cursor{
+    display:inline-block; width:8px; height:16px;
+    background:var(--gold); margin-left:2px; vertical-align:-3px;
+    animation:blink 1s steps(1) infinite;
+  }
+  @keyframes blink{ 50%{ opacity:0; } }
+
+  .run-btn{
+    margin-top:16px;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--blue);
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    padding:9px 16px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:13px;
+    cursor:pointer;
+    transition:background .2s ease, transform .1s ease;
+  }
+  .run-btn:hover{ background:#152845; }
+  .run-btn:active{ transform:scale(.97); }
+  .run-btn:disabled{ opacity:.5; cursor:default; }
+
+  /* ---------- cover slide specifics ---------- */
+  .cover{ justify-content:center; align-items:center; text-align:center; }
+  .cover h1{
+    font-size:clamp(38px, 6.5vw, 76px);
+    line-height:1.02;
+  }
+  .cover h1 .accent{ color:var(--gold); }
+  .cover .sub{
+    margin-top:18px;
+    max-width:52ch;
+    font-size:clamp(15px, 1.6vw, 18px);
+    color:var(--muted);
+    line-height:1.6;
+  }
+  .cover .prompt{
+    margin-top:34px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:14px;
+    color:var(--blue);
+  }
+  .cover .prompt .gt{ color:var(--gold); }
+
+  /* ---------- footer / controls ---------- */
+  .controls{
+    flex:0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    padding:14px clamp(20px, 6vw, 90px) 22px;
+    border-top:1px solid var(--line);
+    max-width:1120px;
+    margin:0 auto;
+    width:100%;
+  }
+  .dots{ display:flex; gap:7px; }
+  .dots button{
+    width:8px; height:8px; border-radius:50%;
+    border:none; background:var(--line); cursor:pointer;
+    padding:0; transition:background .2s ease, transform .2s ease;
+  }
+  .dots button.active{ background:var(--blue); transform:scale(1.3); }
+  .dots button:focus-visible{ outline:2px solid var(--gold); outline-offset:3px; }
+  
+  .watermark{
+    flex: 1;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--muted);
+  }
+
+  .nav-buttons{ display:flex; gap:10px; flex:1; justify-content:flex-end; }
+  .nav-buttons button{
+    display:flex; align-items:center; gap:6px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:14px;
+    font-weight:500;
+    padding:9px 16px;
+    border-radius:9px;
+    cursor:pointer;
+    transition:border-color .2s ease, background .2s ease;
+  }
+  .nav-buttons button:hover:not(:disabled){ border-color:var(--blue); }
+  .nav-buttons button:disabled{ opacity:.35; cursor:default; }
+  .nav-buttons .primary{ background:var(--blue); color:#fff; border-color:var(--blue); }
+  .nav-buttons .primary:hover:not(:disabled){ background:#152845; }
+  button:focus-visible{ outline:2px solid var(--gold); outline-offset:2px; }
+
+  @media (max-width: 640px){
+    .hide-mobile{ display: none; }
+    .deck-header{ padding:14px 18px 10px; }
+    .controls{ 
+      padding:16px 18px 22px; 
+      flex-direction: column; 
+      gap: 20px; 
+    }
+    .watermark{ order: 3; text-align: center; margin-top: -6px; font-size: 12px; }
+    .nav-buttons{ width: 100%; }
+    .nav-buttons button{ flex: 1; justify-content: center; padding: 12px; }
+
+    .slide {
+      justify-content: flex-start;
+      overflow-y: auto;
+      padding: 30px 20px 40px; 
+    }
+    .slide h2 { max-width: none; }
+    
+    .steps-row {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .step-box {
+      max-width: none;
+      text-align: center;
+    }
+    .arrow {
+      transform: rotate(90deg);
+      text-align: center;
+      margin: 4px 0;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="deck">
+
+  <!-- ============ HEADER: brand + progress ============ -->
+  <header class="deck-header">
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series · </span>Lesson 01</div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="step-counter" id="stepCounter">1 / 8</div>
+  </header>
+
+  <!-- ============ SLIDES ============ -->
+  <main id="slides">
+
+    <section class="slide cover" data-index="0">
+      <div class="eyebrow"><span class="num">24</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Iterators</span></h1>
+      <p class="sub">The engine that powers Python's for loops.</p>
+    </section>
+    
+    <section class="slide" data-index="1">
+      <div class="eyebrow"><span class="num">24</span> Iterator vs Iterable</div>
+      <h2>What is it?</h2>
+      <p class="lede">An iterator is an object that contains a countable number of values. You can traverse through it.</p>
+      <div class="step-flow fragment">
+        <div class="step">
+          <div class="circle">1</div>
+          <div class="content">
+            <h4>Iterable</h4>
+            <p>Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable containers.</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="circle">2</div>
+          <div class="content">
+            <h4>Iterator</h4>
+            <p>You can get an iterator from an iterable container using the <code>iter()</code> function.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="slide" data-index="2">
+      <div class="eyebrow"><span class="num">24</span> Next</div>
+      <h2>The next() function</h2>
+      <p class="lede">Once you have an iterator, you can get its values one by one using <code>next()</code>.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">iter.py</div>
+        </div>
+        <pre><code>mytuple = (<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>)
+myit = <span class="f">iter</span>(mytuple)
+
+<span class="f">print</span>(<span class="f">next</span>(myit)) <span class="c"># apple</span>
+<span class="f">print</span>(<span class="f">next</span>(myit)) <span class="c"># banana</span>
+<span class="f">print</span>(<span class="f">next</span>(myit)) <span class="c"># cherry</span></code></pre>
+      </div>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">24</span> Summary</div>
+      <h2>Recap</h2>
+      <div class="list-check">
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>for</code> loops actually create an iterator object under the hood.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They call the <code>next()</code> function automatically.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They catch the StopIteration error when the sequence is done.</span></div>
+      </div>
+      <p class="lede fragment" style="margin-top:24px; color:var(--gold); font-weight:600;">Next lesson: Modules →</p>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER: navigation ============ -->
+  <footer class="controls">
+    <div class="watermark">STEM Gmora</div>
+    <div class="dots" id="dots"></div>
+    <div class="nav-buttons">
+      <button id="prevBtn">← Prev</button>
+      <button id="nextBtn" class="primary">Next →</button>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+/* ================================================================
+   LESSON DECK ENGINE
+   Vanilla JS, no build step, no dependencies — fork this freely.
+
+   Model:
+   - Each <section class="slide"> is one slide.
+   - Inside a slide, elements with class "fragment" are hidden until
+     the student clicks Next, revealing them one at a time before
+     the deck advances to the following slide.
+   ================================================================ */
+
+(function () {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const dotsWrap = document.getElementById('dots');
+  const nextBtn = document.getElementById('nextBtn');
+  const prevBtn = document.getElementById('prevBtn');
+  const progressFill = document.getElementById('progressFill');
+  const stepCounter = document.getElementById('stepCounter');
+
+  let currentSlide = 0;
+  let currentFrag = 0; // how many fragments of the current slide are shown
+
+  // Build the dot navigation (one dot per slide).
+  slides.forEach((_, i) => {
+    const b = document.createElement('button');
+    b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+    b.addEventListener('click', () => goToSlide(i, true));
+    dotsWrap.appendChild(b);
+  });
+  const dotEls = Array.from(dotsWrap.children);
+
+  function fragmentsOf(slideEl) {
+    return Array.from(slideEl.querySelectorAll('.fragment'));
+  }
+
+  function typeHTML(element, speed = 15) {
+    if (element.typingTimer) clearTimeout(element.typingTimer);
+    const html = element.dataset.originalHtml || element.innerHTML;
+    if (!element.dataset.originalHtml) element.dataset.originalHtml = html;
+    element.innerHTML = '';
+    element.dataset.typed = 'true';
+    let i = 0, isTag = false, text = '';
+    function type() {
+      if (!element.dataset.typed) return;
+      if (i < html.length) {
+        if (html.charAt(i) === '<') isTag = true;
+        text += html.charAt(i);
+        if (html.charAt(i) === '>') isTag = false;
+        element.innerHTML = text;
+        i++;
+        if (isTag) type();
+        else element.typingTimer = setTimeout(type, speed);
+      }
+    }
+    type();
+  }
+
+  let prevSlide = -1;
+
+  function handwriteLede(slideEl) {
+    const lede = slideEl.querySelector('.lede:not(.fragment)');
+    if (!lede) return;
+    if (lede.dataset.hwDone) return;
+    const html = lede.dataset.originalHtml || lede.innerHTML;
+    if (!lede.dataset.originalHtml) lede.dataset.originalHtml = html;
+    lede.dataset.hwDone = 'true';
+    lede.innerHTML = '<span class="hw-cursor"></span>';
+    let i = 0, isTag = false, text = '';
+    function tick() {
+      if (i < html.length) {
+        if (html.charAt(i) === '<') isTag = true;
+        text += html.charAt(i);
+        if (html.charAt(i) === '>') isTag = false;
+        lede.innerHTML = text + '<span class="hw-cursor"></span>';
+        i++;
+        if (isTag) tick();
+        else setTimeout(tick, 22);
+      } else {
+        // Remove cursor after a short pause
+        setTimeout(() => { lede.innerHTML = text; }, 1200);
+      }
+    }
+    tick();
+  }
+
+  function resetLede(slideEl) {
+    const lede = slideEl.querySelector('.lede:not(.fragment)');
+    if (!lede || !lede.dataset.hwDone) return;
+    lede.innerHTML = lede.dataset.originalHtml;
+    lede.dataset.hwDone = '';
+  }
+
+  function render() {
+    slides.forEach((s, i) => {
+      s.classList.toggle('active', i === currentSlide);
+      if (i !== currentSlide && i === prevSlide) resetLede(s);
+    });
+    if (currentSlide !== prevSlide) {
+      handwriteLede(slides[currentSlide]);
+      prevSlide = currentSlide;
+    }
+    const activeSlide = slides[currentSlide];
+    const frags = fragmentsOf(activeSlide);
+    frags.forEach((f, i) => {
+      const isVisible = i < currentFrag;
+      f.classList.toggle('visible', isVisible);
+      
+      const typeEl = f.querySelector('.type-text');
+      if (typeEl) {
+        if (isVisible && !typeEl.dataset.typed) {
+          typeHTML(typeEl);
+        } else if (!isVisible && typeEl.dataset.typed) {
+          if (typeEl.typingTimer) clearTimeout(typeEl.typingTimer);
+          typeEl.dataset.typed = '';
+          typeEl.innerHTML = '';
+        }
+      }
+    });
+
+    dotEls.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+
+    // Progress = how far through the whole deck, counting fragments as sub-steps.
+    const fragRatio = frags.length ? currentFrag / frags.length : 1;
+    const progress = ((currentSlide + fragRatio) / slides.length) * 100;
+    progressFill.style.width = progress + '%';
+
+    stepCounter.textContent = (currentSlide + 1) + ' / ' + slides.length;
+
+    prevBtn.disabled = currentSlide === 0 && currentFrag === 0;
+    const isLastStep = currentSlide === slides.length - 1 && currentFrag >= frags.length;
+    nextBtn.textContent = isLastStep ? '🎉 End of lesson' : 'Next →';
+    nextBtn.disabled = isLastStep;
+  }
+
+  function goToSlide(index, showAllFragments) {
+    currentSlide = Math.max(0, Math.min(slides.length - 1, index));
+    currentFrag = showAllFragments ? fragmentsOf(slides[currentSlide]).length : 0;
+    render();
+  }
+
+  function next() {
+    const frags = fragmentsOf(slides[currentSlide]);
+    if (currentFrag < frags.length) {
+      currentFrag++;
+    } else if (currentSlide < slides.length - 1) {
+      currentSlide++;
+      currentFrag = 0;
+    }
+    render();
+  }
+
+  function prev() {
+    if (currentFrag > 0) {
+      currentFrag--;
+    } else if (currentSlide > 0) {
+      currentSlide--;
+      currentFrag = fragmentsOf(slides[currentSlide]).length; // arrive with content shown
+    }
+    render();
+  }
+
+  nextBtn.addEventListener('click', next);
+  prevBtn.addEventListener('click', prev);
+
+  document.addEventListener('keydown', (e) => {
+    if (['ArrowRight', 'ArrowDown', ' '].includes(e.key)) { e.preventDefault(); next(); }
+    if (['ArrowLeft', 'ArrowUp'].includes(e.key)) { e.preventDefault(); prev(); }
+    if (e.key === 'Home') goToSlide(0, false);
+    if (e.key === 'End') goToSlide(slides.length - 1, true);
+  });
+
+  /* ---------- the one "live" interactive element: the Run button ---------- */
+  const runBtn = document.getElementById('runBtn');
+  const outLine = document.getElementById('outLine');
+  if (runBtn) {
+    runBtn.addEventListener('click', () => {
+      runBtn.disabled = true;
+      outLine.textContent = '';
+      const text = 'Hello, World!';
+      let i = 0;
+      const timer = setInterval(() => {
+        outLine.textContent += text[i];
+        i++;
+        if (i >= text.length) {
+          clearInterval(timer);
+          runBtn.disabled = false;
+          runBtn.textContent = '↻ Run again';
+        }
+      }, 45);
+    });
+  }
+
+  render();
+})();
+</script>
+
+</body>
+</html>
