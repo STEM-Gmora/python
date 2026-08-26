@@ -484,6 +484,7 @@
     }
   }
 </style>
+<script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
 </head>
 <body>
 
@@ -754,33 +755,68 @@ x = platform.system()
     if (e.key === 'End') goToSlide(slides.length - 1, true);
   });
 
-  /* ---------- all Run buttons ---------- */
+  /* ---------- all Run buttons (powered by Pyodide) ---------- */
+  let pyodideReadyPromise = null;
+  if (typeof loadPyodide !== 'undefined') {
+    pyodideReadyPromise = loadPyodide({
+      stdin: () => prompt("Python Input:") || ""
+    });
+  }
+
   const runBtns = document.querySelectorAll('.run-btn');
   runBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
       btn.disabled = true;
-      const originalText = btn.textContent;
       btn.textContent = 'Running...';
       
-      const outLine = btn.previousElementSibling ? btn.previousElementSibling.querySelector('.out-line') : null;
-      if (outLine) {
+      const codeBlock = btn.previousElementSibling;
+      if (!codeBlock) {
+        btn.textContent = '↻ Run again';
+        btn.disabled = false;
+        return;
+      }
+      
+      // Get the raw python text
+      const codeEl = codeBlock.querySelector('code');
+      const codeText = codeEl ? codeEl.textContent : '';
+      
+      let outLine = codeBlock.querySelector('.out-line');
+      if (!outLine) {
+        outLine = document.createElement('div');
+        outLine.className = 'out-line';
+        outLine.style.display = 'block';
+        outLine.style.marginTop = '10px';
+        outLine.style.color = 'var(--code-success)';
+        outLine.style.minHeight = '20px';
+        outLine.style.borderTop = '1px solid rgba(255,255,255,0.1)';
+        outLine.style.paddingTop = '10px';
+        outLine.style.whiteSpace = 'pre-wrap';
+        
+        // Append to the pre tag or terminal body
+        const container = codeBlock.querySelector('pre') || codeBlock.querySelector('.terminal-body');
+        if (container) container.appendChild(outLine);
+      }
+      
+      outLine.textContent = 'Initializing Python engine...';
+      outLine.style.display = 'block';
+
+      try {
+        if (!pyodideReadyPromise) throw new Error("Pyodide failed to load.");
+        const pyodide = await pyodideReadyPromise;
+        
         outLine.textContent = '';
-        const text = 'Hello, World!';
-        let i = 0;
-        const timer = setInterval(() => {
-          outLine.textContent += text[i];
-          i++;
-          if (i >= text.length) {
-            clearInterval(timer);
-            btn.disabled = false;
-            btn.textContent = '↻ Run again';
-          }
-        }, 45);
-      } else {
-        setTimeout(() => {
-          btn.disabled = false;
-          btn.textContent = '↻ Run again';
-        }, 800);
+        
+        // Capture output
+        pyodide.setStdout({ batched: (msg) => { outLine.textContent += msg + '\\n'; } });
+        pyodide.setStderr({ batched: (msg) => { outLine.textContent += msg + '\\n'; } });
+        
+        await pyodide.runPythonAsync(codeText);
+        
+      } catch (err) {
+        outLine.textContent += String(err);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = '↻ Run again';
       }
     });
   });
