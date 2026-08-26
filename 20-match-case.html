@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 27 · Math</title>
+<title>Lesson 20 · Match Case</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 27 - Math</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 20 - Match Case</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,65 +504,113 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">27</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Math</span></h1>
-      <p class="sub">Built-in math functions and the extensive math module.</p>
+      <div class="eyebrow"><span class="num">20</span> Python Programming Series</div>
+      <h1>Structural Pattern <span class="accent">Matching</span></h1>
+      <p class="sub">How to use the match-case statement (introduced in Python 3.10) for cleaner conditional logic.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">27</span> Built-in</div>
-      <h2>Built-in Math Functions</h2>
-      <p class="lede">Python has a few built-in math functions that you can use without importing anything.</p>
+      <div class="eyebrow"><span class="num">20</span> What is Match Case?</div>
+      <h2>Match Case Statement</h2>
+      <p class="lede">Similar to the <code>switch</code> statement in C, Java or JavaScript, the <code>match</code> statement takes an expression and compares its value to successive patterns given as one or more case blocks.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">math.py</div>
+          <div class="filename">match.py</div>
         </div>
-        <pre><code><span class="c"># Find min and max</span>
-x = <span class="f">min</span>(5, 10, 25)
-y = <span class="f">max</span>(5, 10, 25)
+        <pre><code>status = <span class="n">404</span>
 
-<span class="c"># Find absolute (positive) value</span>
-z = <span class="f">abs</span>(-7.25) <span class="c"># 7.25</span></code></pre>
+<span class="k">match</span> status:
+    <span class="k">case</span> <span class="n">200</span>:
+        <span class="f">print</span>(<span class="s">"OK"</span>)
+    <span class="k">case</span> <span class="n">400</span>:
+        <span class="f">print</span>(<span class="s">"Bad Request"</span>)
+    <span class="k">case</span> <span class="n">404</span>:
+        <span class="f">print</span>(<span class="s">"Not Found"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">27</span> The Math Module</div>
-      <h2>Advanced Math</h2>
-      <p class="lede">Python has also a built-in module called <code>math</code>, which extends the list of mathematical functions.</p>
+      <div class="eyebrow"><span class="num">20</span> The Default Case</div>
+      <h2>The Default Case (_)</h2>
+      <p class="lede">If an exact match is not confirmed, the last case, a wildcard <code>_</code>, is used as the matching case. Think of this as the "else" branch.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">module.py</div>
+          <div class="filename">default.py</div>
         </div>
-        <pre><code><span class="k">import</span> math
+        <pre><code>status = <span class="n">418</span>
 
-<span class="c"># Square root</span>
-x = math.sqrt(64) <span class="c"># 8.0</span>
-
-<span class="c"># Rounding</span>
-y = math.ceil(1.4)  <span class="c"># 2</span>
-z = math.floor(1.4) <span class="c"># 1</span>
-
-<span class="c"># Constants</span>
-p = math.pi <span class="c"># 3.141592653589793</span></code></pre>
+<span class="k">match</span> status:
+    <span class="k">case</span> <span class="n">200</span>:
+        <span class="f">print</span>(<span class="s">"OK"</span>)
+    <span class="k">case</span> <span class="n">404</span>:
+        <span class="f">print</span>(<span class="s">"Not Found"</span>)
+    <span class="k">case</span> _:
+        <span class="f">print</span>(<span class="s">"Something's wrong with the internet"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">27</span> Summary</div>
+      <div class="eyebrow"><span class="num">20</span> Combining Patterns</div>
+      <h2>Combining Patterns</h2>
+      <p class="lede">You can combine several literals in a single pattern using <code>|</code> ("or").</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">combine.py</div>
+        </div>
+        <pre><code>status = <span class="n">403</span>
+
+<span class="k">match</span> status:
+    <span class="k">case</span> <span class="n">401</span> | <span class="n">403</span>:
+        <span class="f">print</span>(<span class="s">"Authentication Error"</span>)
+    <span class="k">case</span> <span class="n">200</span>:
+        <span class="f">print</span>(<span class="s">"OK"</span>)
+    <span class="k">case</span> _:
+        <span class="f">print</span>(<span class="s">"Other"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">20</span> Advanced Matching</div>
+      <h2>Matching Lists & Tuples</h2>
+      <p class="lede">Match-case is extremely powerful because it can unpack values and match shapes of data.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">unpack.py</div>
+        </div>
+        <pre><code>point = (<span class="n">0</span>, <span class="n">5</span>)
+
+<span class="k">match</span> point:
+    <span class="k">case</span> (<span class="n">0</span>, <span class="n">0</span>):
+        <span class="f">print</span>(<span class="s">"Origin"</span>)
+    <span class="k">case</span> (<span class="n">0</span>, y):
+        <span class="f">print</span>(f<span class="s">"Y-axis, value is {y}"</span>)
+    <span class="k">case</span> (x, <span class="n">0</span>):
+        <span class="f">print</span>(f<span class="s">"X-axis, value is {x}"</span>)
+    <span class="k">case</span> (x, y):
+        <span class="f">print</span>(f<span class="s">"Point is at {x}, {y}"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">20</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>min()</code>, <code>max()</code>, and <code>abs()</code> natively.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import <code>math</code> for advanced calculations.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">The math module gives access to constants like pi and e.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>match variable:</code> initiates the match block.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>case pattern:</code> acts like an <code>elif</code> checking for equality.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>case _:</code> acts like an <code>else</code> statement for unmatched cases.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>|</code> to combine multiple matches into one case.</span></div>
       </div>
-      <a href="28-json.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: JSON →</a>
+      <a href="21-functions.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Functions →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

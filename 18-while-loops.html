@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 35 · VirtualEnv</title>
+<title>Lesson 18 · While Loops</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 35 - VirtualEnv</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 18 - While Loops</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,70 +504,100 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">35</span> Python Programming Series</div>
-      <h1>Virtual <span class="accent">Environments</span></h1>
-      <p class="sub">How to keep your Python projects and PIP dependencies isolated from each other.</p>
+      <div class="eyebrow"><span class="num">18</span> Python Programming Series</div>
+      <h1>Python <span class="accent">While Loops</span></h1>
+      <p class="sub">How to execute a set of statements as long as a condition is true.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">35</span> The Problem</div>
-      <h2>Dependency Hell</h2>
-      <p class="lede">By default, PIP installs packages globally. If Project A needs v1 of a library, and Project B needs v2, they will conflict.</p>
-      <div class="step-flow fragment">
-        <div class="step">
-          <div class="circle" style="background:var(--red); color:white;">!</div>
-          <div class="content">
-            <h4>Global Install Conflict</h4>
-            <p>You cannot have two different versions of the same package installed globally at once.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">35</span> The Solution</div>
-      <h2>Virtual Environments (venv)</h2>
-      <p class="lede">A virtual environment is a self-contained folder that holds a specific version of Python and its own isolated PIP packages.</p>
+      <div class="eyebrow"><span class="num">18</span> While Loops</div>
+      <h2>The while Loop</h2>
+      <p class="lede">With the <code>while</code> loop we can execute a set of statements as long as a condition is true.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">Terminal</div>
+          <div class="filename">while.py</div>
         </div>
-        <pre><code><span class="c"># Create a folder named 'venv' for your environment</span>
-python -m venv venv</code></pre>
+        <pre><code>i = <span class="n">1</span>
+<span class="k">while</span> i < <span class="n">6</span>:
+    <span class="f">print</span>(i)
+    i += <span class="n">1</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+      <p class="lede fragment" style="margin-top:14px; font-size:17px;"><strong>Warning:</strong> Remember to increment <code>i</code>, or else the loop will continue forever!</p>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="eyebrow"><span class="num">18</span> Break Statement</div>
+      <h2>The break Statement</h2>
+      <p class="lede">With the <code>break</code> statement we can stop the loop even if the while condition is true.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">break.py</div>
+        </div>
+        <pre><code>i = <span class="n">1</span>
+<span class="k">while</span> i < <span class="n">6</span>:
+    <span class="f">print</span>(i)
+    <span class="k">if</span> i == <span class="n">3</span>:
+        <span class="k">break</span>
+    i += <span class="n">1</span>
+<span class="f">print</span>(<span class="s">"Loop ended!"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">35</span> Activation</div>
-      <h2>Activating the Environment</h2>
-      <p class="lede">You must "activate" the environment before working on your project. Your terminal prompt will change to show it's active.</p>
+      <div class="eyebrow"><span class="num">18</span> Continue Statement</div>
+      <h2>The continue Statement</h2>
+      <p class="lede">With the <code>continue</code> statement we can stop the current iteration, and continue with the next.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">Terminal</div>
+          <div class="filename">continue.py</div>
         </div>
-        <pre><code><span class="c"># On Windows:</span>
-venv\Scripts\activate
-
-<span class="c"># On Mac/Linux:</span>
-source venv/bin/activate</code></pre>
+        <pre><code>i = <span class="n">0</span>
+<span class="k">while</span> i < <span class="n">6</span>:
+    i += <span class="n">1</span>
+    <span class="k">if</span> i == <span class="n">3</span>:
+        <span class="k">continue</span>
+    <span class="f">print</span>(i)
+<span class="c"># Notice that the number 3 is missing!</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="4">
-      <div class="eyebrow"><span class="num">35</span> Summary</div>
+      <div class="eyebrow"><span class="num">18</span> Else in While</div>
+      <h2>The else Statement</h2>
+      <p class="lede">With the <code>else</code> statement we can run a block of code once when the condition no longer is true.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">else.py</div>
+        </div>
+        <pre><code>i = <span class="n">1</span>
+<span class="k">while</span> i < <span class="n">6</span>:
+    <span class="f">print</span>(i)
+    i += <span class="n">1</span>
+<span class="k">else</span>:
+    <span class="f">print</span>(<span class="s">"i is no longer less than 6"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">18</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Always use a venv for new Python projects.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Create it: <code>python -m venv venv</code></span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Activate it before running <code>pip install</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>while condition:</code> loops as long as the condition is true.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Always ensure your condition will eventually become false.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>break</code> to exit the loop entirely.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>continue</code> to skip to the next iteration.</span></div>
       </div>
-      <a href="36-oop-intro.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: OOP Intro →</a>
+      <a href="19-for-loops.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: For Loops →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 17 · If...Else</title>
+<title>Lesson 17 · If/Else</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 17 - If...Else</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 17 - If/Else</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -505,39 +505,82 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">17</span> Python Programming Series</div>
-      <h1><span class="accent">If...Else</span> Statements</h1>
-      <p class="sub">How to run code only if certain conditions are met.</p>
+      <h1>Python <span class="accent">If...Else</span></h1>
+      <p class="sub">How to run different code depending on whether a condition is true or false.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">17</span> The If Statement</div>
-      <h2>Basic Conditions</h2>
-      <p class="lede">Python supports the usual logical conditions from mathematics. An "if statement" is written by using the <code>if</code> keyword.</p>
+      <div class="eyebrow"><span class="num">17</span> If Statement</div>
+      <h2>The if Statement</h2>
+      <p class="lede">An <code>if</code> statement is written by using the if keyword. The code block inside the if statement is only executed if the condition is True.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">if.py</div>
+          <div class="filename">if_stmt.py</div>
         </div>
-        <pre><code>a = 33
-b = 200
+        <pre><code>a = <span class="n">33</span>
+b = <span class="n">200</span>
 
 <span class="k">if</span> b > a:
     <span class="f">print</span>(<span class="s">"b is greater than a"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">17</span> Elif and Else</div>
-      <h2>Multiple Conditions</h2>
-      <p class="lede">Use <code>elif</code> (else if) for additional conditions, and <code>else</code> for a catch-all if nothing else is true.</p>
+      <div class="eyebrow"><span class="num">17</span> Indentation</div>
+      <h2>Indentation is Crucial</h2>
+      <p class="lede">Python relies on indentation (whitespace at the beginning of a line) to define scope in the code. Other languages often use curly brackets.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">indent.py</div>
+        </div>
+        <pre><code>a = <span class="n">33</span>
+b = <span class="n">200</span>
+
+<span class="c"># This will work:</span>
+<span class="k">if</span> b > a:
+    <span class="f">print</span>(<span class="s">"b is greater than a"</span>)
+    
+<span class="c"># This will throw an IndentationError:</span>
+<span class="c"># if b > a:</span>
+<span class="c"># print("b is greater than a")</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">17</span> Elif</div>
+      <h2>The elif Keyword</h2>
+      <p class="lede">The <code>elif</code> keyword is Python's way of saying "if the previous conditions were not true, then try this condition".</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
           <div class="filename">elif.py</div>
         </div>
-        <pre><code>a = 200
-b = 33
+        <pre><code>a = <span class="n">33</span>
+b = <span class="n">33</span>
+
+<span class="k">if</span> b > a:
+    <span class="f">print</span>(<span class="s">"b is greater than a"</span>)
+<span class="k">elif</span> a == b:
+    <span class="f">print</span>(<span class="s">"a and b are equal"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">17</span> Else</div>
+      <h2>The else Keyword</h2>
+      <p class="lede">The <code>else</code> keyword catches anything which isn't caught by the preceding conditions.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">else.py</div>
+        </div>
+        <pre><code>a = <span class="n">200</span>
+b = <span class="n">33</span>
 
 <span class="k">if</span> b > a:
     <span class="f">print</span>(<span class="s">"b is greater than a"</span>)
@@ -549,39 +592,40 @@ b = 33
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
-    <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">17</span> Logical Operators</div>
-      <h2>And / Or</h2>
-      <p class="lede">You can combine multiple conditions into a single statement using <code>and</code> and <code>or</code>.</p>
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">17</span> And / Or</div>
+      <h2>Logical Conditions</h2>
+      <p class="lede">You can combine multiple conditions using <code>and</code>, <code>or</code>, and <code>not</code>.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
           <div class="filename">logic.py</div>
         </div>
-        <pre><code>a = 200
-b = 33
-c = 500
+        <pre><code>a = <span class="n">200</span>
+b = <span class="n">33</span>
+c = <span class="n">500</span>
 
 <span class="k">if</span> a > b <span class="k">and</span> c > a:
     <span class="f">print</span>(<span class="s">"Both conditions are True"</span>)
-
+    
 <span class="k">if</span> a > b <span class="k">or</span> a > c:
-    <span class="f">print</span>(<span class="s">"At least one condition is True"</span>)</code></pre>
+    <span class="f">print</span>(<span class="s">"At least one of the conditions is True"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="4">
+
+    <section class="slide" data-index="6">
       <div class="eyebrow"><span class="num">17</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>if</code> to start a condition block.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Remember to indent the code inside the block!</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>elif</code> and <code>else</code> for fallback scenarios.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>if condition:</code> followed by indented code block.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>elif condition:</code> for additional conditions.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>else:</code> for the fallback block.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Indentation (spaces) is strictly required by Python to denote blocks.</span></div>
       </div>
-      <a href="18-match.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Match →</a>
+      <a href="18-while-loops.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: While Loops →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

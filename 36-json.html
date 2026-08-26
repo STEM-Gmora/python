@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 19 · While Loops</title>
+<title>Lesson 36 · JSON</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 19 - While Loops</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 36 - JSON</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,60 +504,92 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">19</span> Python Programming Series</div>
-      <h1><span class="accent">While</span> Loops</h1>
-      <p class="sub">How to execute a set of statements as long as a condition is true.</p>
+      <div class="eyebrow"><span class="num">36</span> Python Programming Series</div>
+      <h1>Python <span class="accent">JSON</span></h1>
+      <p class="sub">JSON is a syntax for storing and exchanging data. Python has a built-in package called json to work with JSON data.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">19</span> The While Loop</div>
-      <h2>Looping while True</h2>
-      <p class="lede">A <code>while</code> loop keeps running the same block of code over and over until the condition becomes False.</p>
+      <div class="eyebrow"><span class="num">36</span> Parse JSON</div>
+      <h2>JSON to Python</h2>
+      <p class="lede">If you have a JSON string, you can parse it by using the <code>json.loads()</code> method. The result will be a Python dictionary.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">while.py</div>
+          <div class="filename">parse.py</div>
         </div>
-        <pre><code>i = 1
+        <pre><code><span class="k">import</span> json
 
-<span class="k">while</span> i &lt; 6:
-    <span class="f">print</span>(i)
-    i += 1 <span class="c"># Remember to increment i, or it will loop forever!</span></code></pre>
+<span class="c"># some JSON string:</span>
+x =  <span class="s">'{ "name":"John", "age":30, "city":"New York"}'</span>
+
+<span class="c"># parse x:</span>
+y = json.loads(x)
+
+<span class="c"># the result is a Python dictionary:</span>
+<span class="f">print</span>(y[<span class="s">"age"</span>])</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">19</span> Breaking out</div>
-      <h2>The Break Statement</h2>
-      <p class="lede">With the <code>break</code> statement we can stop the loop even if the while condition is true.</p>
+      <div class="eyebrow"><span class="num">36</span> Convert to JSON</div>
+      <h2>Python to JSON</h2>
+      <p class="lede">If you have a Python object, you can convert it into a JSON string by using the <code>json.dumps()</code> method.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">break.py</div>
+          <div class="filename">convert.py</div>
         </div>
-        <pre><code>i = 1
-<span class="k">while</span> i &lt; 6:
-    <span class="f">print</span>(i)
-    <span class="k">if</span> i == 3:
-        <span class="k">break</span>
-    i += 1
-<span class="c"># Output: 1, 2, 3</span></code></pre>
+        <pre><code><span class="k">import</span> json
+
+<span class="c"># a Python object (dict):</span>
+x = {
+  <span class="s">"name"</span>: <span class="s">"John"</span>,
+  <span class="s">"age"</span>: <span class="n">30</span>,
+  <span class="s">"city"</span>: <span class="s">"New York"</span>
+}
+
+<span class="c"># convert into JSON:</span>
+y = json.dumps(x)
+
+<span class="c"># the result is a JSON string:</span>
+<span class="f">print</span>(y)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">19</span> Summary</div>
+      <div class="eyebrow"><span class="num">36</span> Formatting</div>
+      <h2>Format the Result</h2>
+      <p class="lede">The <code>json.dumps()</code> method has parameters to make it easier to read the result.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">format.py</div>
+        </div>
+        <pre><code><span class="k">import</span> json
+
+x = {<span class="s">"name"</span>: <span class="s">"John"</span>, <span class="s">"age"</span>: <span class="n">30</span>, <span class="s">"city"</span>: <span class="s">"New York"</span>}
+
+<span class="c"># use four indents to make it easier to read</span>
+<span class="f">print</span>(json.dumps(x, indent=<span class="n">4</span>))</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">36</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>while</code> loops repeat code as long as a condition is True.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Always ensure your condition will eventually become False!</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>break</code> to manually exit the loop early.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import the <code>json</code> module to work with JSON.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>json.loads()</code> to parse a JSON string into a Python Dictionary.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>json.dumps()</code> to convert a Python Dictionary into a JSON string.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use the <code>indent</code> parameter in dumps() for pretty-printing.</span></div>
       </div>
-      <a href="20-for-loops.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: For Loops →</a>
+      <a href="37-regex.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: RegEx →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

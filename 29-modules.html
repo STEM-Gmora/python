@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 40 · Class Properties</title>
+<title>Lesson 29 · Modules</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 40 - Class Properties</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 29 - Modules</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,58 +504,116 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">40</span> Python Programming Series</div>
-      <h1>Class <span class="accent">Properties</span></h1>
-      <p class="sub">How to store data inside objects and classes.</p>
+      <div class="eyebrow"><span class="num">29</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Modules</span></h1>
+      <p class="sub">Consider a module to be the same as a code library, a file containing a set of functions you want to include in your application.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">40</span> Properties</div>
-      <h2>Modifying Object Properties</h2>
-      <p class="lede">You can modify properties on objects like this:</p>
+      <div class="eyebrow"><span class="num">29</span> What is a Module?</div>
+      <h2>What is a Module?</h2>
+      <p class="lede">To create a module just save the code you want in a file with the file extension <code>.py</code>.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">modify.py</div>
+          <div class="filename">mymodule.py</div>
         </div>
-        <pre><code>p1 = Person(<span class="s">"John"</span>, 36)
-
-<span class="c"># Change the age</span>
-p1.age = 40
-<span class="f">print</span>(p1.age) <span class="c"># 40</span></code></pre>
+        <pre><code><span class="c"># Save this in mymodule.py</span>
+<span class="k">def</span> <span class="f">greeting</span>(name):
+    <span class="f">print</span>(<span class="s">"Hello, "</span> + name)
+    
+person1 = {
+  <span class="s">"name"</span>: <span class="s">"John"</span>,
+  <span class="s">"age"</span>: <span class="n">36</span>,
+  <span class="s">"country"</span>: <span class="s">"Norway"</span>
+}</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">40</span> Deleting</div>
-      <h2>Delete Object Properties</h2>
-      <p class="lede">You can delete properties on objects by using the <code>del</code> keyword.</p>
+      <div class="eyebrow"><span class="num">29</span> Importing Modules</div>
+      <h2>Using a Module</h2>
+      <p class="lede">Now we can use the module we just created, by using the <code>import</code> statement.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">delete.py</div>
+          <div class="filename">main.py</div>
         </div>
-        <pre><code><span class="c"># Delete the age property from p1</span>
-<span class="k">del</span> p1.age
+        <pre><code><span class="k">import</span> math
 
-<span class="c"># Or delete the entire object</span>
-<span class="k">del</span> p1</code></pre>
+<span class="c"># Here we import a built-in module 'math'</span>
+<span class="c"># But you would import 'mymodule' the exact same way!</span>
+
+<span class="f">print</span>(math.pi)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">40</span> Summary</div>
+      <div class="eyebrow"><span class="num">29</span> Renaming Modules</div>
+      <h2>Re-naming a Module</h2>
+      <p class="lede">You can create an alias when you import a module, by using the <code>as</code> keyword.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">alias.py</div>
+        </div>
+        <pre><code><span class="k">import</span> math <span class="k">as</span> m
+
+<span class="f">print</span>(m.pi)
+<span class="f">print</span>(m.sqrt(<span class="n">16</span>))</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">29</span> Built-in Modules</div>
+      <h2>Built-in Modules</h2>
+      <p class="lede">There are several built-in modules in Python, which you can import whenever you like. Like the <code>platform</code> module.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">platform_mod.py</div>
+        </div>
+        <pre><code><span class="k">import</span> platform
+
+x = platform.system()
+<span class="f">print</span>(<span class="s">"You are running on:"</span>, x)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">29</span> From... Import</div>
+      <h2>Import From Module</h2>
+      <p class="lede">You can choose to import only parts from a module, by using the <code>from</code> keyword.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">from.py</div>
+        </div>
+        <pre><code><span class="c"># Import just the pi variable from math</span>
+<span class="k">from</span> math <span class="k">import</span> pi
+
+<span class="f">print</span>(pi)
+<span class="c"># Notice we don't need to write math.pi anymore!</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="6">
+      <div class="eyebrow"><span class="num">29</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Properties belong to the specific instance (object).</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use dot notation (<code>object.property</code>) to read or write.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>del</code> to remove properties or entire objects from memory.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>import module_name</code> to bring in external code.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>import module as alias</code> to rename it for convenience.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>from module import specific_part</code> to import just one piece.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Any Python file you create can be imported as a module!</span></div>
       </div>
-      <a href="41-class-methods.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Class Methods →</a>
+      <a href="30-scope.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Scope →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

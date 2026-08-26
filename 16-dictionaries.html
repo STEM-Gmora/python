@@ -506,13 +506,13 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">16</span> Python Programming Series</div>
       <h1>Python <span class="accent">Dictionaries</span></h1>
-      <p class="sub">How to store data values in key:value pairs.</p>
+      <p class="sub">Dictionaries are used to store data values in key:value pairs.</p>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">16</span> Dictionaries</div>
-      <h2>Key:Value Pairs</h2>
-      <p class="lede">Dictionaries are written with curly brackets, and have keys and values.</p>
+      <h2>Creating Dictionaries</h2>
+      <p class="lede">A dictionary is a collection which is ordered (as of Python 3.7), changeable and do not allow duplicates. They are written with curly brackets, and have keys and values.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
@@ -521,52 +521,113 @@
         <pre><code>thisdict = {
   <span class="s">"brand"</span>: <span class="s">"Ford"</span>,
   <span class="s">"model"</span>: <span class="s">"Mustang"</span>,
-  <span class="s">"year"</span>: 1964
+  <span class="s">"year"</span>: <span class="n">1964</span>
 }
 <span class="f">print</span>(thisdict)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">16</span> Features</div>
-      <h2>Dictionary Characteristics</h2>
-      <p class="lede">Dictionaries are ordered (as of Python 3.7), changeable, and do not allow duplicate keys.</p>
-      <div class="list-check fragment">
-        <div class="item"><span class="tick">✓</span><span class="type-text"><strong>Changeable:</strong> We can change, add or remove items after the dictionary has been created.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text"><strong>No Duplicates:</strong> Keys must be unique. You cannot have two "brand" keys.</span></div>
-      </div>
-    </section>
 
-    <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">16</span> Access Items</div>
-      <h2>Using Keys</h2>
+    <section class="slide" data-index="2">
+      <div class="eyebrow"><span class="num">16</span> Accessing</div>
+      <h2>Accessing Items</h2>
       <p class="lede">You can access the items of a dictionary by referring to its key name, inside square brackets.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
           <div class="filename">access.py</div>
         </div>
-        <pre><code>x = thisdict[<span class="s">"model"</span>]
-<span class="f">print</span>(x) <span class="c"># Outputs: Mustang</span>
+        <pre><code>thisdict = {
+  <span class="s">"brand"</span>: <span class="s">"Ford"</span>,
+  <span class="s">"model"</span>: <span class="s">"Mustang"</span>,
+  <span class="s">"year"</span>: <span class="n">1964</span>
+}
 
-<span class="c"># Changing a value</span>
-thisdict[<span class="s">"year"</span>] = 2018</code></pre>
+x = thisdict[<span class="s">"model"</span>]
+<span class="f">print</span>(x)
+
+<span class="c"># or use the get() method:</span>
+y = thisdict.get(<span class="s">"year"</span>)
+<span class="f">print</span>(y)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
+    <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">16</span> Changing Values</div>
+      <h2>Changing Values</h2>
+      <p class="lede">You can change the value of a specific item by referring to its key name.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">change.py</div>
+        </div>
+        <pre><code>thisdict = {
+  <span class="s">"brand"</span>: <span class="s">"Ford"</span>,
+  <span class="s">"model"</span>: <span class="s">"Mustang"</span>,
+  <span class="s">"year"</span>: <span class="n">1964</span>
+}
+
+thisdict[<span class="s">"year"</span>] = <span class="n">2018</span>
+<span class="f">print</span>(thisdict)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
     <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">16</span> Adding Items</div>
+      <h2>Adding Items</h2>
+      <p class="lede">Adding an item to the dictionary is done by using a new index key and assigning a value to it.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">add.py</div>
+        </div>
+        <pre><code>thisdict = {
+  <span class="s">"brand"</span>: <span class="s">"Ford"</span>,
+  <span class="s">"model"</span>: <span class="s">"Mustang"</span>,
+  <span class="s">"year"</span>: <span class="n">1964</span>
+}
+
+thisdict[<span class="s">"color"</span>] = <span class="s">"red"</span>
+<span class="f">print</span>(thisdict)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">16</span> Removing Items</div>
+      <h2>Removing Items</h2>
+      <p class="lede">There are several methods to remove items from a dictionary, but <code>pop()</code> is the most common.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">remove.py</div>
+        </div>
+        <pre><code>thisdict = {
+  <span class="s">"brand"</span>: <span class="s">"Ford"</span>,
+  <span class="s">"model"</span>: <span class="s">"Mustang"</span>,
+  <span class="s">"year"</span>: <span class="n">1964</span>
+}
+
+thisdict.pop(<span class="s">"model"</span>)
+<span class="f">print</span>(thisdict)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="6">
       <div class="eyebrow"><span class="num">16</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Created with curly brackets <code>{}</code> using <code>key: value</code> pairs.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Access values using their key (e.g. <code>dict["key"]</code>).</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Keys must be unique strings or numbers.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Dictionaries are written with curly brackets, containing key-value pairs.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Access values using <code>my_dict["key"]</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Change values or add new items by assigning to a key: <code>my_dict["new_key"] = 5</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>pop("key")</code> to remove an item.</span></div>
       </div>
-      <a href="17-if-else.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: If...Else →</a>
+      <a href="17-if-else.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: If/Else →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

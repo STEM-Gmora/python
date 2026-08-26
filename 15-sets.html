@@ -506,39 +506,29 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">15</span> Python Programming Series</div>
       <h1>Python <span class="accent">Sets</span></h1>
-      <p class="sub">How to store multiple unique items in an unordered collection.</p>
+      <p class="sub">Sets are used to store multiple items, but they are unordered and do not allow duplicate values.</p>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">15</span> Sets</div>
-      <h2>Creating a Set</h2>
-      <p class="lede">Sets are written with curly brackets <code>{}</code>.</p>
+      <h2>Creating Sets</h2>
+      <p class="lede">Sets are written with curly brackets <code>{}</code>. They are unordered, unchangeable*, and unindexed.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">set.py</div>
+          <div class="filename">sets.py</div>
         </div>
-        <pre><code>myset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
-<span class="f">print</span>(myset)</code></pre>
+        <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
+<span class="f">print</span>(thisset)
+<span class="c"># Note: the items will appear in a random order!</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">15</span> Features</div>
-      <h2>Set Characteristics</h2>
-      <p class="lede">Sets are unordered, unchangeable, and do not allow duplicate values.</p>
-      <div class="list-check fragment">
-        <div class="item"><span class="tick">✓</span><span class="type-text"><strong>Unordered:</strong> Items appear in a random order. You cannot refer to them by index.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text"><strong>Unchangeable:</strong> You cannot change items, but you can add or remove items.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text"><strong>No Duplicates:</strong> Sets cannot have two items with the same value.</span></div>
-      </div>
-    </section>
 
-    <section class="slide" data-index="3">
+    <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">15</span> Duplicates</div>
-      <h2>Duplicate values will be ignored</h2>
-      <p class="lede">If you try to add a duplicate, Python simply ignores it.</p>
+      <h2>No Duplicates Allowed</h2>
+      <p class="lede">Sets cannot have two items with the same value. Duplicate values will be ignored.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
@@ -547,22 +537,80 @@
         <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"apple"</span>}
 
 <span class="f">print</span>(thisset)
-<span class="c"># Outputs: {'apple', 'banana'}</span></code></pre>
+<span class="c"># "apple" will only appear once</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
+    <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">15</span> Access Items</div>
+      <h2>Accessing Items</h2>
+      <p class="lede">You cannot access items in a set by referring to an index or a key. You must use a <code>for</code> loop.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">access.py</div>
+        </div>
+        <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
+
+<span class="k">for</span> x <span class="k">in</span> thisset:
+    <span class="f">print</span>(x)
+
+<span class="c"># Check if "banana" is in the set</span>
+<span class="f">print</span>(<span class="s">"banana"</span> <span class="k">in</span> thisset)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
     <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">15</span> Add Items</div>
+      <h2>Adding Items</h2>
+      <p class="lede">Once a set is created, you cannot change its items, but you can add new items using the <code>add()</code> method.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">add.py</div>
+        </div>
+        <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
+
+thisset.add(<span class="s">"orange"</span>)
+<span class="f">print</span>(thisset)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">15</span> Remove Items</div>
+      <h2>Removing Items</h2>
+      <p class="lede">To remove an item in a set, use the <code>remove()</code>, or the <code>discard()</code> method.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">remove.py</div>
+        </div>
+        <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
+
+thisset.remove(<span class="s">"banana"</span>)
+<span class="f">print</span>(thisset)
+
+thisset.discard(<span class="s">"apple"</span>)
+<span class="f">print</span>(thisset)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="6">
       <div class="eyebrow"><span class="num">15</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Created with curly brackets <code>{}</code>.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Items are unordered and have no index.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Great for removing duplicates from lists.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Sets are written with curly brackets <code>{}</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They are unordered (no index numbers) and do not allow duplicates.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>add()</code> to insert an item into a set.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>remove()</code> or <code>discard()</code> to take an item out.</span></div>
       </div>
       <a href="16-dictionaries.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Dictionaries →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

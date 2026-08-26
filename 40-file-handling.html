@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 45 · Inner Classes</title>
+<title>Lesson 40 · File Handling</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 45 - Inner Classes</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 40 - File Handling</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,55 +504,70 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">45</span> Python Programming Series</div>
-      <h1><span class="accent">Inner</span> Classes</h1>
-      <p class="sub">Creating classes inside other classes.</p>
+      <div class="eyebrow"><span class="num">40</span> Python Programming Series</div>
+      <h1>File <span class="accent">Handling</span></h1>
+      <p class="sub">File handling is an important part of any web application. Python has several functions for creating, reading, updating, and deleting files.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">45</span> Introduction</div>
-      <h2>Nesting Classes</h2>
-      <p class="lede">An inner class or nested class is a defined entirely within the body of another class.</p>
+      <div class="eyebrow"><span class="num">40</span> Open Function</div>
+      <h2>File Handling</h2>
+      <p class="lede">The key function for working with files in Python is the <code>open()</code> function. It takes two parameters: filename, and mode.</p>
+      <div class="card-grid fragment">
+        <div class="card">
+          <span class="k">"r"</span>
+          <h3>Read</h3>
+          <p>Default value. Opens a file for reading, error if the file does not exist.</p>
+        </div>
+        <div class="card">
+          <span class="k">"a"</span>
+          <h3>Append</h3>
+          <p>Opens a file for appending, creates the file if it does not exist.</p>
+        </div>
+        <div class="card">
+          <span class="k">"w"</span>
+          <h3>Write</h3>
+          <p>Opens a file for writing, creates the file if it does not exist.</p>
+        </div>
+        <div class="card">
+          <span class="k">"x"</span>
+          <h3>Create</h3>
+          <p>Creates the specified file, returns an error if the file exists.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="eyebrow"><span class="num">40</span> Syntax</div>
+      <h2>Syntax</h2>
+      <p class="lede">To open a file for reading it is enough to specify the name of the file, because "r" for read is the default mode.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">inner.py</div>
+          <div class="filename">open.py</div>
         </div>
-        <pre><code><span class="k">class</span> <span class="f">Student</span>:
-    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>, name, rollno):
-        <span class="k">self</span>.name = name
-        <span class="k">self</span>.rollno = rollno
-        <span class="k">self</span>.lap = <span class="k">self</span>.Laptop() <span class="c"># Instance of inner class</span>
+        <pre><code><span class="c"># This assumes demofile.txt exists in the same folder</span>
+<span class="c"># f = open("demofile.txt")</span>
 
-    <span class="k">class</span> <span class="f">Laptop</span>:
-        <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>):
-            <span class="k">self</span>.brand = <span class="s">"HP"</span></code></pre>
+<span class="c"># This is exactly the same as:</span>
+<span class="c"># f = open("demofile.txt", "rt")</span>
+
+<span class="f">print</span>(<span class="s">"Note: These files don't exist in our browser editor!"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
     
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">45</span> Why use them?</div>
-      <h2>Grouping Logic</h2>
-      <p class="lede">If a class is only useful to one other class, it is logical to embed it in that class and keep the two together.</p>
-      <div class="list-check fragment">
-        <div class="item"><span class="tick">✓</span><span class="type-text">It is a way of logically grouping classes that are only used in one place.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">It increases encapsulation.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">It can lead to more readable and maintainable code.</span></div>
-      </div>
-    </section>
-
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">45</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">You can nest classes inside classes.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">The outer class can instantiate the inner class inside its <code>__init__</code>.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">You can access it using <code>outer_object.inner_object.property</code>.</span></div>
-      </div>
-      <p class="lede fragment" style="margin-top:24px; color:var(--gold); font-weight:600;">Course Complete! 🎉</p>
+      <div class="eyebrow"><span class="num">40</span> Text vs Binary</div>
+      <h2>Text vs Binary</h2>
+      <p class="lede">In addition to the mode (r, w, a, x), you can specify if the file should be handled as binary or text mode.</p>
+      <ul class="lede fragment" style="margin-left: 40px; margin-top: 20px;">
+        <li style="margin-bottom: 10px;"><code>"t"</code> - Text - Default value. Text mode.</li>
+        <li><code>"b"</code> - Binary - Binary mode (e.g. images).</li>
+      </ul>
+      <a href="41-read-files.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Read Files →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

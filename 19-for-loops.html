@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 29 · RegEx</title>
+<title>Lesson 19 · For Loops</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 29 - RegEx</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 19 - For Loops</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,54 +504,114 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">29</span> Python Programming Series</div>
-      <h1>Python <span class="accent">RegEx</span></h1>
-      <p class="sub">How to search for complex patterns in strings.</p>
+      <div class="eyebrow"><span class="num">19</span> Python Programming Series</div>
+      <h1>Python <span class="accent">For Loops</span></h1>
+      <p class="sub">A for loop is used for iterating over a sequence (that is either a list, a tuple, a dictionary, a set, or a string).</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">29</span> What is it?</div>
-      <h2>Regular Expressions</h2>
-      <p class="lede">A RegEx is a sequence of characters that forms a search pattern. It's used to check if a string contains a specified pattern.</p>
+      <div class="eyebrow"><span class="num">19</span> For Loops</div>
+      <h2>Iterating a List</h2>
+      <p class="lede">This is less like the for keyword in other programming languages, and works more like an iterator method as found in other object-orientated programming languages.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">regex.py</div>
+          <div class="filename">for.py</div>
         </div>
-        <pre><code><span class="k">import</span> re
-
-txt = <span class="s">"The rain in Spain"</span>
-x = re.search(<span class="s">"^The.*Spain$"</span>, txt)
-
-<span class="k">if</span> x:
-    <span class="f">print</span>(<span class="s">"YES! We have a match!"</span>)</code></pre>
+        <pre><code>fruits = [<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>]
+<span class="k">for</span> x <span class="k">in</span> fruits:
+    <span class="f">print</span>(x)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">29</span> Functions</div>
-      <h2>The re module</h2>
-      <p class="lede">The <code>re</code> module offers a set of functions that allows us to search a string for a match.</p>
-      <div class="list-check fragment">
-        <div class="item"><span class="tick">✓</span><span class="type-text"><code>findall</code>: Returns a list containing all matches.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text"><code>search</code>: Returns a Match object if there is a match anywhere in the string.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text"><code>split</code>: Returns a list where the string has been split at each match.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text"><code>sub</code>: Replaces one or many matches with a string.</span></div>
+      <div class="eyebrow"><span class="num">19</span> Looping Strings</div>
+      <h2>Looping Through a String</h2>
+      <p class="lede">Even strings are iterable objects, they contain a sequence of characters.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">string_loop.py</div>
+        </div>
+        <pre><code><span class="k">for</span> x <span class="k">in</span> <span class="s">"banana"</span>:
+    <span class="f">print</span>(x)</code></pre>
       </div>
+      <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">29</span> Summary</div>
+      <div class="eyebrow"><span class="num">19</span> Break and Continue</div>
+      <h2>Break and Continue</h2>
+      <p class="lede">Just like in while loops, you can use <code>break</code> to stop the loop, and <code>continue</code> to skip an iteration.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">break.py</div>
+        </div>
+        <pre><code>fruits = [<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>]
+<span class="k">for</span> x <span class="k">in</span> fruits:
+    <span class="k">if</span> x == <span class="s">"banana"</span>:
+        <span class="k">continue</span>
+    <span class="f">print</span>(x)
+<span class="c"># Prints "apple" then "cherry"</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">19</span> Range Function</div>
+      <h2>The range() Function</h2>
+      <p class="lede">To loop through a set of code a specified number of times, we can use the <code>range()</code> function.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">range.py</div>
+        </div>
+        <pre><code><span class="c"># range(6) generates 0 to 5</span>
+<span class="k">for</span> x <span class="k">in</span> <span class="f">range</span>(<span class="n">6</span>):
+    <span class="f">print</span>(x)
+
+<span class="f">print</span>(<span class="s">"---"</span>)
+
+<span class="c"># range(2, 6) generates 2 to 5</span>
+<span class="k">for</span> x <span class="k">in</span> <span class="f">range</span>(<span class="n">2</span>, <span class="n">6</span>):
+    <span class="f">print</span>(x)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">19</span> Nested Loops</div>
+      <h2>Nested Loops</h2>
+      <p class="lede">A nested loop is a loop inside a loop. The "inner loop" will be executed one time for each iteration of the "outer loop".</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">nested.py</div>
+        </div>
+        <pre><code>adj = [<span class="s">"red"</span>, <span class="s">"big"</span>, <span class="s">"tasty"</span>]
+fruits = [<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>]
+
+<span class="k">for</span> x <span class="k">in</span> adj:
+    <span class="k">for</span> y <span class="k">in</span> fruits:
+        <span class="f">print</span>(x, y)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="6">
+      <div class="eyebrow"><span class="num">19</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">RegEx is a universal programming tool for searching text.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Python supports it via the built-in <code>re</code> module.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">RegEx syntax looks like complete gibberish at first, but is very powerful.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>for item in list:</code> loops through each item in a collection.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>for i in range(5):</code> to run code a specific number of times.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">You can loop through lists, strings, sets, and dictionaries.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Nested loops run the inner loop completely for each outer loop step.</span></div>
       </div>
-      <a href="30-pip.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: PIP →</a>
+      <a href="20-match-case.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Match Case →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

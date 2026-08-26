@@ -506,28 +506,47 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">05</span> Python Programming Series</div>
       <h1>Python <span class="accent">Comments</span></h1>
-      <p class="sub">Leaving notes for humans. How to document your code so others (and future you) understand it.</p>
+      <p class="sub">How to write notes for humans inside your Python code.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">05</span> Single Line</div>
-      <h2>The Hash Symbol</h2>
-      <p class="lede">Comments start with a <code>#</code>. Python ignores everything after the hash on that line.</p>
+      <div class="eyebrow"><span class="num">05</span> Comments</div>
+      <h2>What are Comments?</h2>
+      <p class="lede">Comments are text inside your code that Python ignores. They are used to explain what the code does or to temporarily disable code.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
           <div class="filename">comments.py</div>
         </div>
-        <pre><code><span class="c"># This is a comment</span>
-<span class="f">print</span>(<span class="s">"Hello, World!"</span>) <span class="c"># This is an inline comment</span></code></pre>
+        <pre><code><span class="c"># This is a comment. Python ignores this line.</span>
+<span class="f">print</span>(<span class="s">"Hello, World!"</span>)
+
+<span class="c"># print("This will not print")</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">05</span> Multi-line</div>
-      <h2>Multi-line Comments</h2>
-      <p class="lede">Python doesn't have a specific syntax for multi-line comments. You just use a <code>#</code> for each line.</p>
+      <div class="eyebrow"><span class="num">05</span> Single Line</div>
+      <h2>Single Line Comments</h2>
+      <p class="lede">A single-line comment starts with the hash symbol (<code>#</code>). Anything after the hash on that line is ignored.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">single.py</div>
+        </div>
+        <pre><code><span class="c"># We can place comments on their own line</span>
+x = <span class="n">5</span>
+
+<span class="f">print</span>(x)  <span class="c"># Or we can place them at the end of a line of code</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">05</span> Multi Line</div>
+      <h2>Multi Line Comments</h2>
+      <p class="lede">Python does not have a specific syntax for multi-line comments. You can simply use a <code>#</code> on each line.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
@@ -536,22 +555,43 @@
         <pre><code><span class="c"># This is a comment</span>
 <span class="c"># written in</span>
 <span class="c"># more than just one line</span>
-<span class="f">print</span>(<span class="s">"Hello, World!"</span>)</code></pre>
+<span class="f">print</span>(<span class="s">"Multi-line comments!"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">05</span> Why Comment?</div>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">05</span> Docstrings</div>
+      <h2>String Literals as Comments</h2>
+      <p class="lede">Since Python ignores string literals that are not assigned to a variable, you can use multi-line strings (<code>"""</code>) as comments.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">docstring.py</div>
+        </div>
+        <pre><code><span class="s">"""
+This is a multi-line string.
+Since it is not assigned to a variable,
+Python reads it but ignores it.
+Many developers use this for multi-line comments.
+"""</span>
+<span class="f">print</span>(<span class="s">"It works!"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">05</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Explain why code was written, not what it does.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Temporarily disable code while testing or debugging.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Keep them short and meaningful.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>#</code> for single-line comments.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Comments can go on a new line or at the end of a line.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>"""</code> (triple quotes) for large, multi-line comment blocks.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use comments to explain complex logic or disable code for testing.</span></div>
       </div>
       <a href="06-variables.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Variables →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

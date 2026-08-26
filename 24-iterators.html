@@ -506,61 +506,81 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">24</span> Python Programming Series</div>
       <h1>Python <span class="accent">Iterators</span></h1>
-      <p class="sub">The engine that powers Python's for loops.</p>
+      <p class="sub">An iterator is an object that contains a countable number of values.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">24</span> Iterator vs Iterable</div>
-      <h2>What is it?</h2>
-      <p class="lede">An iterator is an object that contains a countable number of values. You can traverse through it.</p>
-      <div class="step-flow fragment">
-        <div class="step">
-          <div class="circle">1</div>
-          <div class="content">
-            <h4>Iterable</h4>
-            <p>Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable containers.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="circle">2</div>
-          <div class="content">
-            <h4>Iterator</h4>
-            <p>You can get an iterator from an iterable container using the <code>iter()</code> function.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">24</span> Next</div>
-      <h2>The next() function</h2>
-      <p class="lede">Once you have an iterator, you can get its values one by one using <code>next()</code>.</p>
+      <div class="eyebrow"><span class="num">24</span> Iterable vs Iterator</div>
+      <h2>Iterator vs Iterable</h2>
+      <p class="lede">Lists, tuples, dictionaries, and sets are all iterable objects. They are iterable containers which you can get an iterator from.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
           <div class="filename">iter.py</div>
         </div>
         <pre><code>mytuple = (<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>)
+
+<span class="c"># Create an iterator from the tuple</span>
 myit = <span class="f">iter</span>(mytuple)
 
-<span class="f">print</span>(<span class="f">next</span>(myit)) <span class="c"># apple</span>
-<span class="f">print</span>(<span class="f">next</span>(myit)) <span class="c"># banana</span>
-<span class="f">print</span>(<span class="f">next</span>(myit)) <span class="c"># cherry</span></code></pre>
+<span class="f">print</span>(<span class="f">next</span>(myit))
+<span class="f">print</span>(<span class="f">next</span>(myit))
+<span class="f">print</span>(<span class="f">next</span>(myit))</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="eyebrow"><span class="num">24</span> Strings are Iterables</div>
+      <h2>Strings are Iterables</h2>
+      <p class="lede">Even strings are iterable objects, and can return an iterator.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">string_iter.py</div>
+        </div>
+        <pre><code>mystr = <span class="s">"banana"</span>
+myit = <span class="f">iter</span>(mystr)
+
+<span class="f">print</span>(<span class="f">next</span>(myit))
+<span class="f">print</span>(<span class="f">next</span>(myit))
+<span class="f">print</span>(<span class="f">next</span>(myit))
+<span class="f">print</span>(<span class="f">next</span>(myit))
+<span class="f">print</span>(<span class="f">next</span>(myit))
+<span class="f">print</span>(<span class="f">next</span>(myit))</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">24</span> Looping</div>
+      <h2>Looping Through an Iterator</h2>
+      <p class="lede">We can also use a for loop to iterate through an iterable object. The for loop actually creates an iterator object and executes the next() method for each loop.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">loop.py</div>
+        </div>
+        <pre><code>mytuple = (<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>)
+
+<span class="k">for</span> x <span class="k">in</span> mytuple:
+    <span class="f">print</span>(x)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
       <div class="eyebrow"><span class="num">24</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>for</code> loops actually create an iterator object under the hood.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They call the <code>next()</code> function automatically.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They catch the StopIteration error when the sequence is done.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">An iterator implements <code>__iter__()</code> and <code>__next__()</code> methods.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>iter()</code> to get an iterator from a collection.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>next()</code> to get the next item from an iterator.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>for</code> loops handle all of this automatically behind the scenes.</span></div>
       </div>
-      <a href="25-modules.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Modules →</a>
+      <a href="25-lambda.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Lambda →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

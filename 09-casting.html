@@ -506,54 +506,115 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">09</span> Python Programming Series</div>
       <h1>Type <span class="accent">Casting</span></h1>
-      <p class="sub">How to convert data from one type (like a string) into another type (like a number).</p>
+      <p class="sub">How to convert data from one type (like a string) to another type (like an integer).</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">09</span> The Problem</div>
-      <h2>Why do we need casting?</h2>
-      <p class="lede">Sometimes you receive data as text, but you need to do math with it. Python won't let you add text and numbers together.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">error.py</div>
+      <div class="eyebrow"><span class="num">09</span> What is Casting?</div>
+      <h2>What is Casting?</h2>
+      <p class="lede">There may be times when you want to specify a type on to a variable. This is done with casting functions.</p>
+      <div class="card-grid fragment">
+        <div class="card">
+          <span class="k">int()</span>
+          <h3>Integer Casting</h3>
+          <p>Converts a float or a string into an integer (whole number).</p>
         </div>
-        <pre><code>age_text = <span class="s">"25"</span>
-age_next_year = age_text + 1 <span class="c"># Error! string + int</span></code></pre>
+        <div class="card">
+          <span class="k">str()</span>
+          <h3>String Casting</h3>
+          <p>Converts a number into text.</p>
+        </div>
       </div>
-      <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">09</span> Solutions</div>
-      <h2>Constructor Functions</h2>
-      <p class="lede">Use <code>int()</code>, <code>float()</code>, or <code>str()</code> to force a value into a specific data type.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">cast.py</div>
-        </div>
-        <pre><code>x = <span class="f">int</span>(1)     <span class="c"># x will be 1</span>
-y = <span class="f">int</span>(2.8)   <span class="c"># y will be 2 (decimals stripped)</span>
-z = <span class="f">int</span>(<span class="s">"3"</span>)   <span class="c"># z will be 3</span>
 
-a = <span class="f">float</span>(<span class="s">"3"</span>) <span class="c"># a will be 3.0</span>
-b = <span class="f">str</span>(2)     <span class="c"># b will be "2"</span></code></pre>
+    <section class="slide" data-index="2">
+      <div class="eyebrow"><span class="num">09</span> Integer Casting</div>
+      <h2>Casting to Integers</h2>
+      <p class="lede">Use <code>int()</code> to construct an integer number from a float or a string (providing the string represents a whole number).</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">cast_int.py</div>
+        </div>
+        <pre><code>x = <span class="f">int</span>(<span class="n">1</span>)       <span class="c"># x will be 1</span>
+y = <span class="f">int</span>(<span class="n">2.8</span>)     <span class="c"># y will be 2 (decimals are removed)</span>
+z = <span class="f">int</span>(<span class="s">"3"</span>)     <span class="c"># z will be 3</span>
+
+<span class="f">print</span>(x, y, z)
+<span class="f">print</span>(<span class="f">type</span>(z))   <span class="c"># It's an int!</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">09</span> Float Casting</div>
+      <h2>Casting to Floats</h2>
+      <p class="lede">Use <code>float()</code> to construct a float number from an integer, another float, or a string.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">cast_float.py</div>
+        </div>
+        <pre><code>x = <span class="f">float</span>(<span class="n">1</span>)       <span class="c"># x will be 1.0</span>
+y = <span class="f">float</span>(<span class="n">2.8</span>)     <span class="c"># y will be 2.8</span>
+z = <span class="f">float</span>(<span class="s">"3"</span>)     <span class="c"># z will be 3.0</span>
+w = <span class="f">float</span>(<span class="s">"4.2"</span>)   <span class="c"># w will be 4.2</span>
+
+<span class="f">print</span>(x, y, z, w)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">09</span> String Casting</div>
+      <h2>Casting to Strings</h2>
+      <p class="lede">Use <code>str()</code> to construct a string from a wide variety of data types, including numbers.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">cast_str.py</div>
+        </div>
+        <pre><code>x = <span class="f">str</span>(<span class="s">"s1"</span>)    <span class="c"># x will be 's1'</span>
+y = <span class="f">str</span>(<span class="n">2</span>)       <span class="c"># y will be '2'</span>
+z = <span class="f">str</span>(<span class="n">3.0</span>)     <span class="c"># z will be '3.0'</span>
+
+<span class="c"># Now we can concatenate it with other strings</span>
+<span class="f">print</span>(<span class="s">"I have "</span> + y + <span class="s">" apples."</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">09</span> Errors in Casting</div>
+      <h2>Casting Errors</h2>
+      <p class="lede">You can only cast compatible types. Trying to cast letters to an integer will crash your program.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">cast_error.py</div>
+        </div>
+        <pre><code><span class="c"># This works perfectly</span>
+num = <span class="f">int</span>(<span class="s">"150"</span>)
+<span class="f">print</span>(num)
+
+<span class="c"># This will throw a ValueError</span>
+bad_num = <span class="f">int</span>(<span class="s">"hello"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="6">
       <div class="eyebrow"><span class="num">09</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>int()</code> converts to a whole number.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>float()</code> converts to a decimal number.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>str()</code> converts to text.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>int()</code> to turn numbers/strings into whole numbers.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>float()</code> to turn numbers/strings into decimal numbers.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>str()</code> to turn any data into text.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>int(3.9)</code> becomes <code>3</code> (it truncates, it does not round up).</span></div>
       </div>
       <a href="10-strings.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Strings →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 38 · Init Method</title>
+<title>Lesson 31 · Dates</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 38 - Init Method</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 31 - Dates</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,53 +504,98 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">38</span> Python Programming Series</div>
-      <h1>The <span class="accent">__init__()</span> Method</h1>
-      <p class="sub">How to initialize objects when they are created.</p>
+      <div class="eyebrow"><span class="num">31</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Dates</span></h1>
+      <p class="sub">A date in Python is not a data type of its own, but we can import a module named datetime to work with dates as date objects.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">38</span> The Constructor</div>
-      <h2>__init__()</h2>
-      <p class="lede">All classes have a built-in function called <code>__init__()</code>, which is always executed when the class is being initiated.</p>
+      <div class="eyebrow"><span class="num">31</span> Datetime Module</div>
+      <h2>Python Datetime</h2>
+      <p class="lede">Import the datetime module and display the current date.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">init.py</div>
+          <div class="filename">date.py</div>
         </div>
-        <pre><code><span class="k">class</span> <span class="f">Person</span>:
-    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>, name, age):
-        <span class="k">self</span>.name = name
-        <span class="k">self</span>.age = age
+        <pre><code><span class="k">import</span> datetime
 
-<span class="c"># We pass the arguments when creating the object</span>
-p1 = Person(<span class="s">"John"</span>, 36)
-<span class="f">print</span>(p1.name)</code></pre>
+x = datetime.datetime.now()
+<span class="f">print</span>(x)
+<span class="c"># Output will look something like: 2026-08-25 15:30:00.123456</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">38</span> When is it called?</div>
-      <h2>Automatic Execution</h2>
-      <p class="lede">You NEVER call <code>__init__()</code> directly yourself. Python calls it automatically every time a new object is created from a class.</p>
-      <div class="list-check fragment">
-        <div class="item"><span class="tick">✓</span><span class="type-text">Used to assign initial values to object properties.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">Used for operations necessary to do when the object is created.</span></div>
+      <div class="eyebrow"><span class="num">31</span> Date Output</div>
+      <h2>Date Output Analysis</h2>
+      <p class="lede">The date contains year, month, day, hour, minute, second, and microsecond. The datetime module has many methods to return information about the date object.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">date_parts.py</div>
+        </div>
+        <pre><code><span class="k">import</span> datetime
+
+x = datetime.datetime.now()
+
+<span class="f">print</span>(x.year)
+<span class="f">print</span>(x.strftime(<span class="s">"%A"</span>)) <span class="c"># Returns the weekday</span></code></pre>
       </div>
+      <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">38</span> Summary</div>
+      <div class="eyebrow"><span class="num">31</span> Creating Dates</div>
+      <h2>Creating Date Objects</h2>
+      <p class="lede">To create a date, we can use the <code>datetime()</code> class (constructor) of the datetime module. It requires three parameters to create a date: year, month, day.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">create.py</div>
+        </div>
+        <pre><code><span class="k">import</span> datetime
+
+<span class="c"># Year, Month, Day</span>
+x = datetime.datetime(<span class="n">2020</span>, <span class="n">5</span>, <span class="n">17</span>)
+
+<span class="f">print</span>(x)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">31</span> strftime Method</div>
+      <h2>The strftime() Method</h2>
+      <p class="lede">The datetime object has a method for formatting date objects into readable strings. The method is called <code>strftime()</code>, and takes one parameter, format, to specify the format of the returned string.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">format.py</div>
+        </div>
+        <pre><code><span class="k">import</span> datetime
+
+x = datetime.datetime(<span class="n">2018</span>, <span class="n">6</span>, <span class="n">1</span>)
+
+<span class="c"># %B prints the full month name</span>
+<span class="f">print</span>(x.strftime(<span class="s">"%B"</span>))</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">31</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>__init__()</code> is the constructor method.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">It runs immediately when an object is instantiated.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Notice the double underscores on both sides!</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>import datetime</code> to work with dates.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>datetime.datetime.now()</code> for the current time.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>datetime.datetime(year, month, day)</code> to create specific dates.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>strftime("%format")</code> to format a date into a custom string.</span></div>
       </div>
-      <a href="39-self-parameter.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: The Self Parameter →</a>
+      <a href="32-try-except.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Math →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

@@ -506,53 +506,74 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">34</span> Python Programming Series</div>
       <h1>User <span class="accent">Input</span></h1>
-      <p class="sub">How to pause your program and wait for the user to type something into the terminal.</p>
+      <p class="sub">How to ask the user to type information into your program.</p>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">34</span> input()</div>
-      <h2>The input function</h2>
-      <p class="lede">You can ask the user for text input using the built-in <code>input()</code> function.</p>
+      <h2>The input() Function</h2>
+      <p class="lede">Python allows for user input. That means we are able to ask the user for input using the <code>input()</code> function.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">input.py</div>
+          <div class="filename">input_basic.py</div>
         </div>
-        <pre><code>name = <span class="f">input</span>(<span class="s">"Enter your name: "</span>)
-
-<span class="f">print</span>(<span class="s">"Hello, "</span> + name)</code></pre>
+        <pre><code>username = <span class="f">input</span>(<span class="s">"Enter your username: "</span>)
+<span class="f">print</span>(<span class="s">"Welcome back,"</span>, username)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
+      <p class="lede fragment" style="margin-top:14px; font-size:17px;">(When you run this in our web editor, a popup box will ask for your input!)</p>
     </section>
-    
+
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">34</span> Data Types</div>
-      <h2>Input is ALWAYS a string</h2>
-      <p class="lede">Even if the user types a number, <code>input()</code> returns a string. You must cast it if you want to do math.</p>
+      <h2>Input is Always a String</h2>
+      <p class="lede">No matter what the user types, the <code>input()</code> function ALWAYS returns a string. If you want a number, you must cast it.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">math.py</div>
+          <div class="filename">input_types.py</div>
         </div>
-        <pre><code>age_str = <span class="f">input</span>(<span class="s">"How old are you? "</span>)
-age = <span class="f">int</span>(age_str)
+        <pre><code>age = <span class="f">input</span>(<span class="s">"Enter your age: "</span>)
+<span class="f">print</span>(<span class="f">type</span>(age))  <span class="c"># This will be <class 'str'>!</span>
 
-<span class="f">print</span>(<span class="s">"Next year you will be"</span>, age + 1)</code></pre>
+<span class="c"># This will cause an error because age is a string:</span>
+<span class="c"># print(age + 5)</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">34</span> Casting Input</div>
+      <h2>Casting User Input</h2>
+      <p class="lede">Wrap the <code>input()</code> function inside <code>int()</code> or <code>float()</code> to convert the text into a usable number.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">input_cast.py</div>
+        </div>
+        <pre><code><span class="c"># Ask for age and immediately convert to integer</span>
+age = <span class="f">int</span>(<span class="f">input</span>(<span class="s">"Enter your age: "</span>))
+
+<span class="c"># Now math works!</span>
+future_age = age + <span class="n">10</span>
+<span class="f">print</span>(<span class="s">"In 10 years, you will be:"</span>, future_age)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
       <div class="eyebrow"><span class="num">34</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>input("Prompt message")</code> waits for user text and Enter.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">It always returns a string object.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>int()</code> or <code>float()</code> to cast numerical input before calculating.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>input("Prompt: ")</code> to pause and wait for the user.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">The result of <code>input()</code> is ALWAYS a string.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>int(input())</code> to get an integer from the user.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>float(input())</code> to get a decimal from the user.</span></div>
       </div>
-      <a href="35-virtualenv.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: VirtualEnv →</a>
+      <a href="35-math.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Virtual Environments →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

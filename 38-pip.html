@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 43 · Polymorphism</title>
+<title>Lesson 38 · PIP</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 43 - Polymorphism</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 38 - PIP</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,59 +504,94 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">43</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Polymorphism</span></h1>
-      <p class="sub">Many forms, one interface.</p>
+      <div class="eyebrow"><span class="num">38</span> Python Programming Series</div>
+      <h1>Python <span class="accent">PIP</span></h1>
+      <p class="sub">PIP is a package manager for Python packages, or modules if you like.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">43</span> What is it?</div>
-      <h2>Same Name, Different Action</h2>
-      <p class="lede">The word "polymorphism" means "many forms", and in programming it refers to methods/functions/operators with the same name that can be executed on many objects or classes.</p>
+      <div class="eyebrow"><span class="num">38</span> Packages</div>
+      <h2>What is a Package?</h2>
+      <p class="lede">A package contains all the files you need for a module. Modules are Python code libraries you can include in your project. PIP allows you to install them easily.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">poly.py</div>
+          <div class="filename">Terminal</div>
         </div>
-        <pre><code><span class="c"># len() is polymorphic!</span>
-<span class="f">print</span>(<span class="f">len</span>(<span class="s">"Hello"</span>)) <span class="c"># String length: 5</span>
-<span class="f">print</span>(<span class="f">len</span>([1, 2, 3])) <span class="c"># List length: 3</span></code></pre>
+        <pre><code><span class="c"># Check if you have pip installed:</span>
+pip --version
+
+<span class="c"># If not installed, you can get it from pypi.org</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">43</span> Class Polymorphism</div>
-      <h2>Method Overriding</h2>
-      <p class="lede">Multiple distinct classes can have methods with the same name.</p>
+      <div class="eyebrow"><span class="num">38</span> Install</div>
+      <h2>Installing a Package</h2>
+      <p class="lede">Navigate your command line to the location of Python's script directory, and type the following:</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">vehicles.py</div>
+          <div class="filename">Terminal</div>
         </div>
-        <pre><code><span class="k">class</span> <span class="f">Car</span>:
-    <span class="k">def</span> <span class="f">move</span>(<span class="k">self</span>): <span class="f">print</span>(<span class="s">"Drive!"</span>)
+        <pre><code><span class="c"># Download a package named camelcase:</span>
+pip install camelcase
 
-<span class="k">class</span> <span class="f">Boat</span>:
-    <span class="k">def</span> <span class="f">move</span>(<span class="k">self</span>): <span class="f">print</span>(<span class="s">"Sail!"</span>)
-
-<span class="k">class</span> <span class="f">Plane</span>:
-    <span class="k">def</span> <span class="f">move</span>(<span class="k">self</span>): <span class="f">print</span>(<span class="s">"Fly!"</span>)</code></pre>
+<span class="c"># Now you can use it in your code!</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">43</span> Summary</div>
+      <div class="eyebrow"><span class="num">38</span> Using Packages</div>
+      <h2>Using a Package</h2>
+      <p class="lede">Once the package is installed, it is ready to use. Import the "camelcase" package into your project.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">camel.py</div>
+        </div>
+        <pre><code><span class="c"># This will error in our browser editor, but works locally!</span>
+<span class="c"># import camelcase</span>
+<span class="c"># c = camelcase.CamelCase()</span>
+<span class="c"># txt = "hello world"</span>
+<span class="c"># print(c.hump(txt)) # Prints: Hello World</span>
+<span class="f">print</span>(<span class="s">"You must run pip locally to test this!"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">38</span> Uninstalling</div>
+      <h2>Uninstall and List</h2>
+      <p class="lede">Use the <code>uninstall</code> command to remove a package, and the <code>list</code> command to see what you have installed.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">Terminal</div>
+        </div>
+        <pre><code><span class="c"># Remove the camelcase package</span>
+pip uninstall camelcase
+
+<span class="c"># List all installed packages</span>
+pip list</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">38</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Polymorphism allows same method names in different classes.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">You can loop through different objects and call the same method.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Child classes can override parent methods.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">PIP is Python's standard package manager.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>pip install [package]</code> in your terminal.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import installed packages using the standard <code>import</code> statement.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>pip list</code> and <code>pip uninstall</code> to manage packages.</span></div>
       </div>
-      <a href="44-encapsulation.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Encapsulation →</a>
+      <a href="39-string-formatting.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: String Formatting →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

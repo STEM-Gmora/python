@@ -506,65 +506,115 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">14</span> Python Programming Series</div>
       <h1>Python <span class="accent">Tuples</span></h1>
-      <p class="sub">How to store multiple items in a single variable that cannot be changed.</p>
+      <p class="sub">Tuples are used to store multiple items, but unlike lists, they cannot be changed.</p>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">14</span> Tuples</div>
-      <h2>Creating a Tuple</h2>
-      <p class="lede">Tuples are created using round brackets <code>()</code>.</p>
+      <h2>Creating Tuples</h2>
+      <p class="lede">Tuples are written with round brackets <code>()</code>. They are ordered and unchangeable (immutable).</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">tuple.py</div>
+          <div class="filename">tuples.py</div>
         </div>
-        <pre><code>mytuple = (<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>)
-<span class="f">print</span>(mytuple)</code></pre>
+        <pre><code>thistuple = (<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>)
+<span class="f">print</span>(thistuple)
+
+<span class="c"># Tuples allow duplicate values</span>
+dupes = (<span class="s">"apple"</span>, <span class="s">"apple"</span>, <span class="s">"apple"</span>)
+<span class="f">print</span>(dupes)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">14</span> Features</div>
-      <h2>Tuple Characteristics</h2>
-      <p class="lede">Tuples are ordered and unchangeable (immutable).</p>
-      <div class="list-check fragment">
-        <div class="item"><span class="tick">✓</span><span class="type-text"><strong>Ordered:</strong> Like lists, the items have a defined order.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text"><strong>Unchangeable:</strong> We cannot change, add or remove items after it is created.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text"><strong>Duplicates allowed:</strong> Tuples can have items with the same value.</span></div>
+      <div class="eyebrow"><span class="num">14</span> Access Items</div>
+      <h2>Accessing Items</h2>
+      <p class="lede">You can access tuple items by referring to the index number, inside square brackets, exactly like lists.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">access.py</div>
+        </div>
+        <pre><code>thistuple = (<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>)
+<span class="f">print</span>(thistuple[<span class="n">1</span>])
+
+<span class="c"># Negative indexing</span>
+<span class="f">print</span>(thistuple[-<span class="n">1</span>])</code></pre>
       </div>
+      <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">14</span> The Catch</div>
-      <h2>One Item Tuple</h2>
+      <div class="eyebrow"><span class="num">14</span> Unchangeable</div>
+      <h2>Tuples are Unchangeable</h2>
+      <p class="lede">Once a tuple is created, you cannot change its values. Tuples are unchangeable, or immutable as it also is called.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">immutable.py</div>
+        </div>
+        <pre><code>x = (<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>)
+
+<span class="c"># This will cause an error (TypeError)</span>
+<span class="c"># x[1] = "kiwi"</span>
+
+<span class="f">print</span>(x)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">14</span> Workaround</div>
+      <h2>Changing a Tuple (Workaround)</h2>
+      <p class="lede">To change a tuple, you can convert it into a list, change the list, and convert the list back into a tuple.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">workaround.py</div>
+        </div>
+        <pre><code>x = (<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>)
+y = <span class="f">list</span>(x)
+y[<span class="n">1</span>] = <span class="s">"kiwi"</span>
+x = <span class="f">tuple</span>(y)
+
+<span class="f">print</span>(x)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">14</span> One Item Tuple</div>
+      <h2>Create Tuple With One Item</h2>
       <p class="lede">To create a tuple with only one item, you have to add a comma after the item, otherwise Python will not recognize it as a tuple.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">comma.py</div>
+          <div class="filename">one_item.py</div>
         </div>
         <pre><code>thistuple = (<span class="s">"apple"</span>,)
-<span class="f">print</span>(<span class="f">type</span>(thistuple)) <span class="c"># &lt;class 'tuple'&gt;</span>
+<span class="f">print</span>(<span class="f">type</span>(thistuple))
 
 <span class="c"># NOT a tuple</span>
-thistuple = (<span class="s">"apple"</span>)
-<span class="f">print</span>(<span class="f">type</span>(thistuple)) <span class="c"># &lt;class 'str'&gt;</span></code></pre>
+not_a_tuple = (<span class="s">"apple"</span>)
+<span class="f">print</span>(<span class="f">type</span>(not_a_tuple))  <span class="c"># This is a string!</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="4">
+
+    <section class="slide" data-index="6">
       <div class="eyebrow"><span class="num">14</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Created with round brackets <code>()</code>.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They are read-only lists (immutable).</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Single-item tuples require a trailing comma.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Tuples are written with round brackets <code>()</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They are ordered but CANNOT be changed (immutable).</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">You can access items using index numbers, just like lists.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">A one-item tuple must have a trailing comma: <code>("apple",)</code>.</span></div>
       </div>
       <a href="15-sets.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Sets →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

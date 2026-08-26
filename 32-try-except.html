@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 20 · For Loops</title>
+<title>Lesson 32 · Try Except</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 20 - For Loops</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 32 - Try Except</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,75 +504,116 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">20</span> Python Programming Series</div>
-      <h1><span class="accent">For</span> Loops</h1>
-      <p class="sub">How to iterate over a sequence, like a list, a tuple, a dictionary, or a string.</p>
+      <div class="eyebrow"><span class="num">32</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Try Except</span></h1>
+      <p class="sub">The try block lets you test a block of code for errors. The except block lets you handle the error.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">20</span> The For Loop</div>
-      <h2>Iterating</h2>
-      <p class="lede">A <code>for</code> loop is used for iterating over a sequence. Unlike other languages, it works more like an iterator method.</p>
+      <div class="eyebrow"><span class="num">32</span> Exception Handling</div>
+      <h2>Exception Handling</h2>
+      <p class="lede">When an error occurs, or exception as we call it, Python will normally stop and generate an error message. These exceptions can be handled using the try statement.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">for.py</div>
+          <div class="filename">try.py</div>
         </div>
-        <pre><code>fruits = [<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>]
-
-<span class="k">for</span> x <span class="k">in</span> fruits:
-    <span class="f">print</span>(x)</code></pre>
+        <pre><code><span class="k">try</span>:
+    <span class="f">print</span>(variable_that_does_not_exist)
+<span class="k">except</span>:
+    <span class="f">print</span>(<span class="s">"An exception occurred!"</span>)
+    
+<span class="c"># Without the try block, the program would crash here</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">20</span> Strings</div>
-      <h2>Looping through Strings</h2>
-      <p class="lede">Even strings are iterable objects, they contain a sequence of characters.</p>
+      <div class="eyebrow"><span class="num">32</span> Many Exceptions</div>
+      <h2>Many Exceptions</h2>
+      <p class="lede">You can define as many exception blocks as you want, e.g. if you want to execute a special block of code for a special kind of error.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">string.py</div>
+          <div class="filename">many.py</div>
         </div>
-        <pre><code><span class="k">for</span> x <span class="k">in</span> <span class="s">"banana"</span>:
+        <pre><code><span class="k">try</span>:
     <span class="f">print</span>(x)
-<span class="c"># Outputs: b, a, n, a, n, a</span></code></pre>
+<span class="k">except</span> NameError:
+    <span class="f">print</span>(<span class="s">"Variable x is not defined"</span>)
+<span class="k">except</span>:
+    <span class="f">print</span>(<span class="s">"Something else went wrong"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">20</span> Skipping</div>
-      <h2>The Continue Statement</h2>
-      <p class="lede">With the <code>continue</code> statement we can stop the current iteration, and continue with the next one.</p>
+      <div class="eyebrow"><span class="num">32</span> Else</div>
+      <h2>Else Statement</h2>
+      <p class="lede">You can use the <code>else</code> keyword to define a block of code to be executed if no errors were raised.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">continue.py</div>
+          <div class="filename">else.py</div>
         </div>
-        <pre><code>fruits = [<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>]
-
-<span class="k">for</span> x <span class="k">in</span> fruits:
-    <span class="k">if</span> x == <span class="s">"banana"</span>:
-        <span class="k">continue</span>
-    <span class="f">print</span>(x)
-<span class="c"># Outputs: apple, cherry (banana is skipped)</span></code></pre>
+        <pre><code><span class="k">try</span>:
+    <span class="f">print</span>(<span class="s">"Hello"</span>)
+<span class="k">except</span>:
+    <span class="f">print</span>(<span class="s">"Something went wrong"</span>)
+<span class="k">else</span>:
+    <span class="f">print</span>(<span class="s">"Nothing went wrong"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="4">
-      <div class="eyebrow"><span class="num">20</span> Summary</div>
+      <div class="eyebrow"><span class="num">32</span> Finally</div>
+      <h2>Finally Statement</h2>
+      <p class="lede">The <code>finally</code> block, if specified, will be executed regardless if the try block raises an error or not. Useful for closing files/connections.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">finally.py</div>
+        </div>
+        <pre><code><span class="k">try</span>:
+    <span class="f">print</span>(x)
+<span class="k">except</span>:
+    <span class="f">print</span>(<span class="s">"Something went wrong"</span>)
+<span class="k">finally</span>:
+    <span class="f">print</span>(<span class="s">"The 'try except' is finished"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">32</span> Raise</div>
+      <h2>Raise an exception</h2>
+      <p class="lede">As a Python developer you can choose to throw an exception if a condition occurs. To throw (or raise) an exception, use the <code>raise</code> keyword.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">raise.py</div>
+        </div>
+        <pre><code>x = -<span class="n">1</span>
+
+<span class="k">if</span> x < <span class="n">0</span>:
+    <span class="k">raise</span> Exception(<span class="s">"Sorry, no numbers below zero"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="6">
+      <div class="eyebrow"><span class="num">32</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>for item in sequence:</code> to loop over items.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">You don't need to manually manage index variables.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>continue</code> to skip the rest of the loop block and jump to the next item.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>try:</code> to test a block of code for errors.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>except:</code> to handle the error without crashing the program.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>finally:</code> to run cleanup code regardless of success or failure.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>raise Exception("msg")</code> to trigger your own errors.</span></div>
       </div>
-      <a href="21-functions.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Functions →</a>
+      <a href="33-none.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: None →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

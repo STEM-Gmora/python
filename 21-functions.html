@@ -506,13 +506,13 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">21</span> Python Programming Series</div>
       <h1>Python <span class="accent">Functions</span></h1>
-      <p class="sub">How to write code once and reuse it many times.</p>
+      <p class="sub">How to package a block of code so that it only runs when it is called.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">21</span> Introduction</div>
+      <div class="eyebrow"><span class="num">21</span> Functions</div>
       <h2>Creating a Function</h2>
-      <p class="lede">A function is a block of code which only runs when it is called. You define it using the <code>def</code> keyword.</p>
+      <p class="lede">In Python a function is defined using the <code>def</code> keyword.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
@@ -521,60 +521,96 @@
         <pre><code><span class="k">def</span> <span class="f">my_function</span>():
     <span class="f">print</span>(<span class="s">"Hello from a function"</span>)
 
-<span class="c"># Calling the function</span>
+<span class="c"># This won't output anything until we call it!</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="2">
+      <div class="eyebrow"><span class="num">21</span> Calling Functions</div>
+      <h2>Calling a Function</h2>
+      <p class="lede">To call a function, use the function name followed by parenthesis.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">call.py</div>
+        </div>
+        <pre><code><span class="k">def</span> <span class="f">my_function</span>():
+    <span class="f">print</span>(<span class="s">"Hello from a function"</span>)
+
+my_function()
+my_function()
 my_function()</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="2">
+
+    <section class="slide" data-index="3">
       <div class="eyebrow"><span class="num">21</span> Arguments</div>
-      <h2>Passing Data</h2>
-      <p class="lede">Information can be passed into functions as arguments (args).</p>
+      <h2>Arguments (Inputs)</h2>
+      <p class="lede">Information can be passed into functions as arguments. Arguments are specified after the function name, inside the parentheses.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
           <div class="filename">args.py</div>
         </div>
         <pre><code><span class="k">def</span> <span class="f">greet</span>(fname):
-    <span class="f">print</span>(<span class="s">"Hello, "</span> + fname)
+    <span class="f">print</span>(fname + <span class="s">" Johnson"</span>)
 
-greet(<span class="s">"Emil"</span>)
-greet(<span class="s">"Tobias"</span>)
-greet(<span class="s">"Linus"</span>)</code></pre>
+<span class="f">greet</span>(<span class="s">"Emil"</span>)
+<span class="f">greet</span>(<span class="s">"Tobias"</span>)
+<span class="f">greet</span>(<span class="s">"Linus"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
-    <section class="slide" data-index="3">
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">21</span> Multiple Arguments</div>
+      <h2>Multiple Arguments</h2>
+      <p class="lede">You can add as many arguments as you want, just separate them with a comma.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">multi_args.py</div>
+        </div>
+        <pre><code><span class="k">def</span> <span class="f">full_name</span>(fname, lname):
+    <span class="f">print</span>(fname + <span class="s">" "</span> + lname)
+
+<span class="f">full_name</span>(<span class="s">"Emil"</span>, <span class="s">"Refsnes"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
       <div class="eyebrow"><span class="num">21</span> Return Values</div>
-      <h2>Returning Data</h2>
+      <h2>Returning Values</h2>
       <p class="lede">To let a function return a value back to the caller, use the <code>return</code> statement.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
           <div class="filename">return.py</div>
         </div>
-        <pre><code><span class="k">def</span> <span class="f">multiply</span>(x):
-    <span class="k">return</span> 5 * x
+        <pre><code><span class="k">def</span> <span class="f">my_function</span>(x):
+    <span class="k">return</span> <span class="n">5</span> * x
 
-result = multiply(3)
-<span class="f">print</span>(result) <span class="c"># Outputs: 15</span></code></pre>
+<span class="f">print</span>(<span class="f">my_function</span>(<span class="n">3</span>))
+<span class="f">print</span>(<span class="f">my_function</span>(<span class="n">5</span>))</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="4">
+
+    <section class="slide" data-index="6">
       <div class="eyebrow"><span class="num">21</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>def name():</code> to define a function.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Functions can accept inputs (arguments).</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Functions can output data using <code>return</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>def func():</code> to define a new function.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Call it using its name and parentheses: <code>func()</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Add variables inside the parentheses to pass data (arguments).</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>return</code> to send a computed value back out of the function.</span></div>
       </div>
       <a href="22-range.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Range →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

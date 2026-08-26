@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 32 · String Formatting</title>
+<title>Lesson 30 · Scope</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 32 - String Formatting</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 30 - Scope</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,79 +504,107 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">32</span> Python Programming Series</div>
-      <h1>String <span class="accent">Formatting</span></h1>
-      <p class="sub">How to easily inject variables and logic directly into text strings.</p>
+      <div class="eyebrow"><span class="num">30</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Scope</span></h1>
+      <p class="sub">A variable is only available from inside the region it is created. This is called scope.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">32</span> F-Strings</div>
-      <h2>The modern way</h2>
-      <p class="lede">F-Strings (introduced in Python 3.6) allow you to format strings easily by placing an <code>f</code> in front of the string.</p>
+      <div class="eyebrow"><span class="num">30</span> Local Scope</div>
+      <h2>Local Scope</h2>
+      <p class="lede">A variable created inside a function belongs to the local scope of that function, and can only be used inside that function.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">fstring.py</div>
+          <div class="filename">local.py</div>
         </div>
-        <pre><code>name = <span class="s">"John"</span>
-age = 30
+        <pre><code><span class="k">def</span> <span class="f">myfunc</span>():
+    x = <span class="n">300</span>
+    <span class="f">print</span>(<span class="s">"Inside function:"</span>, x)
 
-<span class="c"># Just put variables inside {}</span>
-txt = <span class="f">f</span><span class="s">"My name is {name} and I am {age} years old"</span>
-<span class="f">print</span>(txt)</code></pre>
+myfunc()
+<span class="c"># print(x)  # This will cause an error because x is local!</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">32</span> Expressions</div>
-      <h2>Logic inside strings</h2>
-      <p class="lede">You can put any Python expression, like math or function calls, directly inside the curly brackets.</p>
+      <div class="eyebrow"><span class="num">30</span> Global Scope</div>
+      <h2>Global Scope</h2>
+      <p class="lede">A variable created in the main body of the Python code is a global variable and belongs to the global scope. Global variables are available from within any scope, global and local.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">math.py</div>
+          <div class="filename">global.py</div>
         </div>
-        <pre><code>price = 59
-tax = 0.25
+        <pre><code>x = <span class="n">300</span>
 
-<span class="c"># Calculates the math before creating the string</span>
-txt = <span class="f">f</span><span class="s">"The total price is {price + (price * tax)}"</span>
-<span class="f">print</span>(txt)</code></pre>
+<span class="k">def</span> <span class="f">myfunc</span>():
+    <span class="c"># We can read the global x inside the function</span>
+    <span class="f">print</span>(<span class="s">"Inside function:"</span>, x)
+
+myfunc()
+<span class="f">print</span>(<span class="s">"Outside function:"</span>, x)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">32</span> Modifiers</div>
-      <h2>Formatting Numbers</h2>
-      <p class="lede">You can format numbers directly inside the brackets, like showing exactly 2 decimal places.</p>
+      <div class="eyebrow"><span class="num">30</span> Naming Conflicts</div>
+      <h2>Naming Variables</h2>
+      <p class="lede">If you operate with the same variable name inside and outside of a function, Python will treat them as two separate variables.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">format.py</div>
+          <div class="filename">conflict.py</div>
         </div>
-        <pre><code>price = 59
+        <pre><code>x = <span class="n">300</span>
 
-<span class="c"># :.2f means 2 decimal places float</span>
-txt = <span class="f">f</span><span class="s">"The price is {price:.2f} dollars"</span>
+<span class="k">def</span> <span class="f">myfunc</span>():
+    <span class="c"># This x is local! It doesn't change the global x</span>
+    x = <span class="n">200</span>
+    <span class="f">print</span>(<span class="s">"Local x:"</span>, x)
 
-<span class="f">print</span>(txt) <span class="c"># Outputs: 59.00</span></code></pre>
+myfunc()
+<span class="f">print</span>(<span class="s">"Global x:"</span>, x)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="4">
-      <div class="eyebrow"><span class="num">32</span> Summary</div>
+      <div class="eyebrow"><span class="num">30</span> The Global Keyword</div>
+      <h2>The global Keyword</h2>
+      <p class="lede">If you need to create or change a global variable from inside a function, you can use the <code>global</code> keyword.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">keyword.py</div>
+        </div>
+        <pre><code>x = <span class="n">300</span>
+
+<span class="k">def</span> <span class="f">myfunc</span>():
+    <span class="k">global</span> x
+    <span class="c"># This now modifies the global x!</span>
+    x = <span class="n">200</span>
+
+myfunc()
+<span class="f">print</span>(x)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">30</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Place an <code>f</code> before your quotes.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Put variables or logic inside curly brackets <code>{}</code>.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use modifiers like <code>:.2f</code> to control the output format.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><strong>Local scope:</strong> Variables created inside a function.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><strong>Global scope:</strong> Variables created at the top level of the script.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Local variables take precedence over global variables with the same name.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use the <code>global</code> keyword to modify global variables from within a function.</span></div>
       </div>
-      <a href="33-none.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: None →</a>
+      <a href="31-dates.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Modules →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 31 · Try...Except</title>
+<title>Lesson 43 · Delete Files</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 31 - Try...Except</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 43 - Delete Files</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,79 +504,48 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">31</span> Python Programming Series</div>
-      <h1><span class="accent">Try...Except</span></h1>
-      <p class="sub">How to handle errors gracefully so your program doesn't crash.</p>
+      <div class="eyebrow"><span class="num">43</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Delete Files</span></h1>
+      <p class="sub">How to delete files and folders.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">31</span> Exception Handling</div>
-      <h2>Don't Crash</h2>
-      <p class="lede">When an error occurs, Python will normally stop and generate an error message. These exceptions can be handled using the <code>try</code> statement.</p>
+      <div class="eyebrow"><span class="num">43</span> The OS Module</div>
+      <h2>Delete a File</h2>
+      <p class="lede">To delete a file, you must import the OS module, and run its <code>os.remove()</code> function.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">try.py</div>
+          <div class="filename">delete.py</div>
         </div>
-        <pre><code><span class="k">try</span>:
-    <span class="f">print</span>(x) <span class="c"># x is not defined anywhere</span>
-<span class="k">except</span>:
-    <span class="f">print</span>(<span class="s">"An exception occurred"</span>)
-    
-<span class="c"># The program keeps running!</span></code></pre>
-      </div>
-      <button class="run-btn fragment">▶ Run file</button>
-    </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">31</span> Specific Errors</div>
-      <h2>Catching Specific Errors</h2>
-      <p class="lede">You can define as many exception blocks as you want to handle special kinds of errors.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">errors.py</div>
-        </div>
-        <pre><code><span class="k">try</span>:
-    <span class="f">print</span>(x)
-<span class="k">except</span> NameError:
-    <span class="f">print</span>(<span class="s">"Variable x is not defined"</span>)
-<span class="k">except</span>:
-    <span class="f">print</span>(<span class="s">"Something else went wrong"</span>)</code></pre>
-      </div>
-      <button class="run-btn fragment">▶ Run file</button>
-    </section>
-    
-    <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">31</span> Finally</div>
-      <h2>The Finally Block</h2>
-      <p class="lede">The <code>finally</code> block, if specified, will be executed regardless if the try block raises an error or not.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">finally.py</div>
-        </div>
-        <pre><code><span class="k">try</span>:
-    <span class="f">print</span>(x)
-<span class="k">except</span>:
-    <span class="f">print</span>(<span class="s">"Something went wrong"</span>)
-<span class="k">finally</span>:
-    <span class="f">print</span>(<span class="s">"The 'try except' is finished"</span>)</code></pre>
+        <pre><code><span class="k">import</span> os
+<span class="c"># os.remove("demofile.txt")</span>
+<span class="f">print</span>(<span class="s">"File deletion requires the 'os' module."</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
-    <section class="slide" data-index="4">
-      <div class="eyebrow"><span class="num">31</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>try:</code> to wrap dangerous code (like file I/O or network requests).</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>except:</code> to catch errors and prevent crashes.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>finally:</code> to clean up resources afterwards.</span></div>
+    <section class="slide" data-index="2">
+      <div class="eyebrow"><span class="num">43</span> Check if Exists</div>
+      <h2>Check if File Exist</h2>
+      <p class="lede">To avoid getting an error, you might want to check if the file exists before you try to delete it.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">check.py</div>
+        </div>
+        <pre><code><span class="k">import</span> os
+
+<span class="k">if</span> os.path.exists(<span class="s">"demofile.txt"</span>):
+    <span class="c"># os.remove("demofile.txt")</span>
+    <span class="f">print</span>(<span class="s">"Deleting file..."</span>)
+<span class="k">else</span>:
+    <span class="f">print</span>(<span class="s">"The file does not exist"</span>)</code></pre>
       </div>
-      <a href="32-string-formatting.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: String Formatting →</a>
+      <button class="run-btn fragment">▶ Run file</button>
+      <a href="44-requests.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Requests →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 30 · PIP</title>
+<title>Lesson 44 · Requests</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 30 - PIP</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 44 - Requests</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,70 +504,33 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">30</span> Python Programming Series</div>
-      <h1>Python <span class="accent">PIP</span></h1>
-      <p class="sub">How to install third-party libraries created by the global Python community.</p>
+      <div class="eyebrow"><span class="num">44</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Requests</span></h1>
+      <p class="sub">The requests module allows you to send HTTP requests using Python.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">30</span> What is PIP?</div>
-      <h2>Package Installer</h2>
-      <p class="lede">PIP is a package manager for Python packages (or modules). If you have Python version 3.4 or later, PIP is included by default.</p>
+      <div class="eyebrow"><span class="num">44</span> Requests Module</div>
+      <h2>The Requests Module</h2>
+      <p class="lede">The HTTP request returns a Response Object with all the response data (content, encoding, status, etc).</p>
+      <p class="lede fragment">Note: <code>requests</code> is a third-party library. You must install it using <code>pip install requests</code> first!</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">Terminal</div>
+          <div class="filename">req.py</div>
         </div>
-        <pre><code><span class="c"># Check your pip version</span>
-pip --version</code></pre>
-      </div>
-      <button class="run-btn fragment">▶ Run file</button>
-    </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">30</span> Installing Packages</div>
-      <h2>PyPI - The Python Package Index</h2>
-      <p class="lede">You can download thousands of free packages from <code>pypi.org</code> using your terminal.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">Terminal</div>
-        </div>
-        <pre><code><span class="c"># Install the popular 'requests' library</span>
-pip install requests</code></pre>
-      </div>
-      <button class="run-btn fragment">▶ Run file</button>
-    </section>
+        <pre><code><span class="c"># This will error in our browser environment,</span>
+<span class="c"># but works in your local Python installation!</span>
+<span class="c"># import requests</span>
 
-    <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">30</span> Using a Package</div>
-      <h2>Just import it</h2>
-      <p class="lede">Once a package is installed via PIP, you can import it exactly like a built-in module.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">api.py</div>
-        </div>
-        <pre><code><span class="k">import</span> requests
-
-<span class="c"># Fetch data from the internet</span>
-response = requests.get(<span class="s">"https://api.github.com"</span>)
-<span class="f">print</span>(response.status_code)</code></pre>
+<span class="c"># x = requests.get('https://w3schools.com/python/demopage.htm')</span>
+<span class="c"># print(x.text)</span>
+<span class="f">print</span>(<span class="s">"Try this locally!"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
+      <a href="45-next-steps.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Next Steps →</a>
     </section>
-    
-    <section class="slide" data-index="4">
-      <div class="eyebrow"><span class="num">30</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">PIP installs code written by other people.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>pip install [package]</code> in your terminal.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import the package in your Python file to use it.</span></div>
-      </div>
-      <a href="31-try-except.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Try...Except →</a>
-    </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 28 · JSON</title>
+<title>Lesson 25 · Lambda</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 28 - JSON</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 25 - Lambda</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,80 +504,102 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">28</span> Python Programming Series</div>
-      <h1>Python <span class="accent">JSON</span></h1>
-      <p class="sub">How to parse JSON data and convert dictionaries into JSON text.</p>
+      <div class="eyebrow"><span class="num">25</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Lambda</span></h1>
+      <p class="sub">A lambda function is a small anonymous function. It can take any number of arguments, but can only have one expression.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">28</span> Introduction</div>
-      <h2>What is JSON?</h2>
-      <p class="lede">JSON is syntax for storing and exchanging data. It is text, written with JavaScript object notation.</p>
-      <div class="list-check fragment">
-        <div class="item"><span class="tick">✓</span><span class="type-text">It is the universal language of the internet.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">When your Python code talks to a web API, it receives JSON.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">Python has a built-in package called <code>json</code>.</span></div>
-      </div>
-    </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">28</span> Parsing</div>
-      <h2>JSON to Dictionary</h2>
-      <p class="lede">If you have a JSON string, you can parse it by using the <code>json.loads()</code> method.</p>
+      <div class="eyebrow"><span class="num">25</span> Syntax</div>
+      <h2>Lambda Syntax</h2>
+      <p class="lede">The expression is executed and the result is returned automatically.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">parse.py</div>
+          <div class="filename">lambda.py</div>
         </div>
-        <pre><code><span class="k">import</span> json
+        <pre><code><span class="c"># lambda arguments : expression</span>
 
-<span class="c"># some JSON:</span>
-x =  <span class="s">'{ "name":"John", "age":30, "city":"New York"}'</span>
-
-<span class="c"># parse x:</span>
-y = json.loads(x)
-
-<span class="c"># the result is a Python dictionary:</span>
-<span class="f">print</span>(y[<span class="s">"age"</span>])</code></pre>
+x = <span class="k">lambda</span> a: a + <span class="n">10</span>
+<span class="f">print</span>(x(<span class="n">5</span>))</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">28</span> Stringify</div>
-      <h2>Dictionary to JSON</h2>
-      <p class="lede">If you have a Python object, you can convert it into a JSON string by using the <code>json.dumps()</code> method.</p>
+
+    <section class="slide" data-index="2">
+      <div class="eyebrow"><span class="num">25</span> Multiple Arguments</div>
+      <h2>Multiple Arguments</h2>
+      <p class="lede">Lambda functions can take any number of arguments.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">dump.py</div>
+          <div class="filename">multi.py</div>
         </div>
-        <pre><code><span class="k">import</span> json
+        <pre><code><span class="c"># Multiply argument a with argument b and return the result</span>
+x = <span class="k">lambda</span> a, b: a * b
+<span class="f">print</span>(x(<span class="n">5</span>, <span class="n">6</span>))
 
-<span class="c"># a Python object (dict):</span>
-x = {
-  <span class="s">"name"</span>: <span class="s">"John"</span>,
-  <span class="s">"age"</span>: 30
-}
+<span class="c"># Summarize argument a, b, and c and return the result</span>
+y = <span class="k">lambda</span> a, b, c: a + b + c
+<span class="f">print</span>(y(<span class="n">5</span>, <span class="n">6</span>, <span class="n">2</span>))</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
 
-<span class="c"># convert into JSON:</span>
-y = json.dumps(x)
-<span class="f">print</span>(y)</code></pre>
+    <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">25</span> Why Use Lambda?</div>
+      <h2>Why Use Lambda Functions?</h2>
+      <p class="lede">The power of lambda is better shown when you use them as an anonymous function inside another function.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">why.py</div>
+        </div>
+        <pre><code><span class="k">def</span> <span class="f">myfunc</span>(n):
+    <span class="k">return</span> <span class="k">lambda</span> a: a * n
+
+<span class="c"># Make a function that always doubles the number you send in</span>
+mydoubler = <span class="f">myfunc</span>(<span class="n">2</span>)
+
+<span class="f">print</span>(mydoubler(<span class="n">11</span>))</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="4">
-      <div class="eyebrow"><span class="num">28</span> Summary</div>
+      <div class="eyebrow"><span class="num">25</span> Use with Maps/Filters</div>
+      <h2>Lambdas in Higher-Order Functions</h2>
+      <p class="lede">They are often used with functions like <code>filter()</code> and <code>map()</code>.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">map_filter.py</div>
+        </div>
+        <pre><code>nums = [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>]
+
+<span class="c"># Map: double every number</span>
+doubled = <span class="f">list</span>(<span class="f">map</span>(<span class="k">lambda</span> x: x * <span class="n">2</span>, nums))
+<span class="f">print</span>(<span class="s">"Doubled:"</span>, doubled)
+
+<span class="c"># Filter: keep only even numbers</span>
+evens = <span class="f">list</span>(<span class="f">filter</span>(<span class="k">lambda</span> x: x % <span class="n">2</span> == <span class="n">0</span>, nums))
+<span class="f">print</span>(<span class="s">"Evens:"</span>, evens)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">25</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import the <code>json</code> module.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>json.loads(string)</code> to read JSON text into a Dictionary.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>json.dumps(dict)</code> to convert a Dictionary into JSON text.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Lambdas are written as: <code>lambda args: expression</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They are limited to a single expression (no multi-line blocks).</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They automatically return the result of the expression.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Best used when passing a simple function into another function like <code>map()</code>.</span></div>
       </div>
-      <a href="29-regex.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: RegEx →</a>
+      <a href="26-classes-objects.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Iterators →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 25 · Modules</title>
+<title>Lesson 41 · Read Files</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 25 - Modules</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 41 - Read Files</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,71 +504,68 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">25</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Modules</span></h1>
-      <p class="sub">How to organize your code across multiple files and use built-in libraries.</p>
+      <div class="eyebrow"><span class="num">41</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Read Files</span></h1>
+      <p class="sub">How to read the contents of a file.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">25</span> What is it?</div>
-      <h2>Code Libraries</h2>
-      <p class="lede">A module is just a file containing a set of functions you want to include in your application.</p>
+      <div class="eyebrow"><span class="num">41</span> Reading</div>
+      <h2>Read a File</h2>
+      <p class="lede">The <code>open()</code> function returns a file object, which has a <code>read()</code> method for reading the content of the file.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">mymodule.py</div>
+          <div class="filename">read.py</div>
         </div>
-        <pre><code><span class="c"># Save this code in a file named mymodule.py</span>
-<span class="k">def</span> <span class="f">greeting</span>(name):
-    <span class="f">print</span>(<span class="s">"Hello, "</span> + name)</code></pre>
+        <pre><code><span class="c"># Example code (run this locally)</span>
+<span class="c"># f = open("demofile.txt", "r")</span>
+<span class="c"># print(f.read())</span>
+<span class="c"># f.close()</span>
+<span class="f">print</span>(<span class="s">"File reading works locally!"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">25</span> Using a Module</div>
-      <h2>The Import Statement</h2>
-      <p class="lede">You can use the module we just created by using the <code>import</code> statement in another file.</p>
+      <div class="eyebrow"><span class="num">41</span> Read Lines</div>
+      <h2>Read Lines</h2>
+      <p class="lede">You can return one line by using the <code>readline()</code> method. By calling <code>readline()</code> two times, you can read the two first lines.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">main.py</div>
+          <div class="filename">lines.py</div>
         </div>
-        <pre><code><span class="k">import</span> mymodule
-
-mymodule.greeting(<span class="s">"Jonathan"</span>)</code></pre>
+        <pre><code><span class="c"># Example code</span>
+<span class="c"># f = open("demofile.txt", "r")</span>
+<span class="c"># print(f.readline())</span>
+<span class="c"># print(f.readline())</span>
+<span class="c"># f.close()</span>
+<span class="f">print</span>(<span class="s">"Use readline() for one line at a time."</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">25</span> Built-in Modules</div>
-      <h2>Batteries Included</h2>
-      <p class="lede">Python comes with a huge standard library of modules that you can import immediately.</p>
+      <div class="eyebrow"><span class="num">41</span> Loop Through Lines</div>
+      <h2>Looping Lines</h2>
+      <p class="lede">By looping through the lines of the file, you can read the whole file, line by line. This is the most efficient way to read large files.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">platform.py</div>
+          <div class="filename">loop_lines.py</div>
         </div>
-        <pre><code><span class="k">import</span> platform
-
-x = platform.system()
-<span class="f">print</span>(x) <span class="c"># Prints your OS (e.g. Windows, Darwin, Linux)</span></code></pre>
+        <pre><code><span class="c"># Example code</span>
+<span class="c"># f = open("demofile.txt", "r")</span>
+<span class="c"># for x in f:</span>
+<span class="c">#   print(x)</span>
+<span class="c"># f.close()</span>
+<span class="f">print</span>(<span class="s">"For loop reads lines efficiently."</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
+      <a href="42-write-create-files.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Write/Create Files →</a>
     </section>
-    
-    <section class="slide" data-index="4">
-      <div class="eyebrow"><span class="num">25</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Any <code>.py</code> file is a module.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>import module_name</code> to bring its code into your file.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use dot notation (<code>module.function()</code>) to access it.</span></div>
-      </div>
-      <a href="26-dates.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Dates →</a>
-    </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

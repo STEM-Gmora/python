@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 41 · Class Methods</title>
+<title>Lesson 42 · Write/Create Files</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 41 - Class Methods</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 42 - Write/Create Files</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,60 +504,35 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">41</span> Python Programming Series</div>
-      <h1>Class <span class="accent">Methods</span></h1>
-      <p class="sub">Functions that belong to an object.</p>
+      <div class="eyebrow"><span class="num">42</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Write Files</span></h1>
+      <p class="sub">How to write to an existing file, or create a new file.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">41</span> Methods</div>
-      <h2>Object Methods</h2>
-      <p class="lede">Objects can also contain methods. Methods in objects are functions that belong to the object.</p>
+      <div class="eyebrow"><span class="num">42</span> Append vs Write</div>
+      <h2>Write to an Existing File</h2>
+      <p class="lede">To write to an existing file, you must add a parameter to the <code>open()</code> function: <code>"a"</code> (Append) or <code>"w"</code> (Write - overwrites content).</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">methods.py</div>
+          <div class="filename">write.py</div>
         </div>
-        <pre><code><span class="k">class</span> <span class="f">Person</span>:
-    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>, name, age):
-        <span class="k">self</span>.name = name
-        <span class="k">self</span>.age = age
+        <pre><code><span class="c"># Example of Appending</span>
+<span class="c"># f = open("demofile2.txt", "a")</span>
+<span class="c"># f.write("Now the file has more content!")</span>
+<span class="c"># f.close()</span>
 
-    <span class="k">def</span> <span class="f">myfunc</span>(<span class="k">self</span>):
-        <span class="f">print</span>(<span class="s">"Hello my name is "</span> + <span class="k">self</span>.name)
-
-p1 = Person(<span class="s">"John"</span>, 36)
-p1.myfunc()</code></pre>
+<span class="c"># Example of Overwriting</span>
+<span class="c"># f = open("demofile3.txt", "w")</span>
+<span class="c"># f.write("Woops! I have deleted the content!")</span>
+<span class="c"># f.close()</span>
+<span class="f">print</span>(<span class="s">"Remember to always close() files!"</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
+      <a href="43-delete-files.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Delete Files →</a>
     </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">41</span> Self Rules</div>
-      <h2>Remember the Self!</h2>
-      <p class="lede">The <code>self</code> parameter is a reference to the current instance of the class, and is used to access variables that belong to the class.</p>
-      <div class="step-flow fragment">
-        <div class="step">
-          <div class="circle" style="background:var(--red); color:white;">!</div>
-          <div class="content">
-            <h4>Common Error</h4>
-            <p>If you forget to add <code>self</code> as the first argument in a method, you will get a TypeError when you try to call it.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">41</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Methods are functions defined inside a class body.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They always take <code>self</code> as the first parameter.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Call them using dot notation: <code>object.method()</code>.</span></div>
-      </div>
-      <a href="42-inheritance.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Inheritance →</a>
-    </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

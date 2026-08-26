@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 42 · Inheritance</title>
+<title>Lesson 35 · Math</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 42 - Inheritance</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 35 - Math</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,81 +504,118 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">42</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Inheritance</span></h1>
-      <p class="sub">How to create a class that inherits all methods and properties from another class.</p>
+      <div class="eyebrow"><span class="num">35</span> Python Programming Series</div>
+      <h1>Python <span class="accent">Math</span></h1>
+      <p class="sub">Python has a set of built-in math functions, including an extensive math module, that allows you to perform mathematical tasks on numbers.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">42</span> Concepts</div>
-      <h2>Parents and Children</h2>
-      <p class="lede">Inheritance allows us to define a class that takes all the functionality from a parent class and allows us to add more.</p>
-      <div class="step-flow fragment">
-        <div class="step">
-          <div class="circle">1</div>
-          <div class="content">
-            <h4>Parent Class</h4>
-            <p>The class being inherited from, also called base class.</p>
-          </div>
-        </div>
-        <div class="step">
-          <div class="circle">2</div>
-          <div class="content">
-            <h4>Child Class</h4>
-            <p>The class that inherits from another class, also called derived class.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">42</span> Syntax</div>
-      <h2>Create a Child Class</h2>
-      <p class="lede">To create a class that inherits the functionality from another class, send the parent class as a parameter.</p>
+      <div class="eyebrow"><span class="num">35</span> Min and Max</div>
+      <h2>Built-in Math Functions</h2>
+      <p class="lede">The <code>min()</code> and <code>max()</code> functions can be used to find the lowest or highest value in an iterable.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">student.py</div>
+          <div class="filename">minmax.py</div>
         </div>
-        <pre><code><span class="k">class</span> <span class="f">Person</span>:
-    <span class="k">pass</span> <span class="c"># (parent logic)</span>
+        <pre><code>x = <span class="f">min</span>(<span class="n">5</span>, <span class="n">10</span>, <span class="n">25</span>)
+y = <span class="f">max</span>(<span class="n">5</span>, <span class="n">10</span>, <span class="n">25</span>)
 
-<span class="c"># Student inherits from Person</span>
-<span class="k">class</span> <span class="f">Student</span>(Person):
-    <span class="k">pass</span></code></pre>
+<span class="f">print</span>(<span class="s">"Minimum is:"</span>, x)
+<span class="f">print</span>(<span class="s">"Maximum is:"</span>, y)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">42</span> Super</div>
-      <h2>The super() Function</h2>
-      <p class="lede">Python has a <code>super()</code> function that will make the child class inherit all the methods and properties from its parent.</p>
+
+    <section class="slide" data-index="2">
+      <div class="eyebrow"><span class="num">35</span> Abs and Pow</div>
+      <h2>Abs and Pow</h2>
+      <p class="lede">The <code>abs()</code> function returns the absolute (positive) value. The <code>pow()</code> function returns the value of x to the power of y.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">super.py</div>
+          <div class="filename">abspow.py</div>
         </div>
-        <pre><code><span class="k">class</span> <span class="f">Student</span>(Person):
-    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>, fname, lname, year):
-        <span class="c"># Call the parent's init function</span>
-        <span class="f">super</span>().__init__(fname, lname)
-        <span class="k">self</span>.graduationyear = year</code></pre>
+        <pre><code>x = <span class="f">abs</span>(-<span class="n">7.25</span>)
+<span class="f">print</span>(x)
+
+<span class="c"># Return the value of 4 to the power of 3 (same as 4 * 4 * 4)</span>
+y = <span class="f">pow</span>(<span class="n">4</span>, <span class="n">3</span>)
+<span class="f">print</span>(y)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">35</span> The Math Module</div>
+      <h2>The Math Module</h2>
+      <p class="lede">Python has also a built-in module called <code>math</code>, which extends the list of mathematical functions.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">mathmod.py</div>
+        </div>
+        <pre><code><span class="k">import</span> math
+
+<span class="c"># Square root</span>
+x = math.sqrt(<span class="n">64</span>)
+<span class="f">print</span>(x)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="4">
-      <div class="eyebrow"><span class="num">42</span> Summary</div>
+      <div class="eyebrow"><span class="num">35</span> Ceil and Floor</div>
+      <h2>Rounding Up and Down</h2>
+      <p class="lede">The <code>math.ceil()</code> method rounds a number upwards to its nearest integer, and <code>math.floor()</code> rounds down.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">round.py</div>
+        </div>
+        <pre><code><span class="k">import</span> math
+
+x = math.ceil(<span class="n">1.4</span>)
+y = math.floor(<span class="n">1.4</span>)
+
+<span class="f">print</span>(x) <span class="c"># Returns 2</span>
+<span class="f">print</span>(y) <span class="c"># Returns 1</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">35</span> Constants</div>
+      <h2>Math Constants</h2>
+      <p class="lede">The math module also contains useful mathematical constants, such as Pi.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">const.py</div>
+        </div>
+        <pre><code><span class="k">import</span> math
+
+<span class="c"># Print the value of pi</span>
+<span class="f">print</span>(math.pi)
+
+<span class="c"># Print Euler's number</span>
+<span class="f">print</span>(math.e)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="6">
+      <div class="eyebrow"><span class="num">35</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Inheritance promotes code reuse.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Syntax: <code>class Child(Parent):</code></span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>super()</code> to trigger the parent's logic.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Core built-in functions: <code>min()</code>, <code>max()</code>, <code>abs()</code>, <code>pow()</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import the <code>math</code> module for advanced functions.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>math.sqrt()</code> calculates the square root.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>math.ceil()</code> to round up and <code>math.floor()</code> to round down.</span></div>
       </div>
-      <a href="43-polymorphism.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Polymorphism →</a>
+      <a href="36-json.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: JSON →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

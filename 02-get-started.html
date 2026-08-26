@@ -503,68 +503,120 @@
   <!-- ============ SLIDES ============ -->
   <main id="slides">
 
-    <!-- SLIDE 1 -->
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">02</span> Python Programming Series</div>
       <h1>Get <span class="accent">Started</span></h1>
       <p class="sub">Setting up your environment and running your very first script on your own machine.</p>
     </section>
     
-    <!-- SLIDE 2 -->
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">02</span> Installation</div>
       <h2>Installing Python</h2>
-      <p class="lede">Before you can write Python code, you need the Python interpreter installed on your computer.</p>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Go to <strong>python.org</strong> and download the latest version.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><strong>Important:</strong> Check the box that says "Add Python to PATH" during installation.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Open your terminal or command prompt and type <span class="pill">python --version</span></span></div>
+      <p class="lede">Before you can write Python code, you need to install the Python interpreter on your computer.</p>
+      <div class="list-check fragment">
+        <div class="item"><span class="tick">✓</span><span class="type-text">Go to <strong>python.org/downloads</strong></span></div>
+        <div class="item"><span class="tick">✓</span><span class="type-text">Download the latest version for your OS (Windows/Mac/Linux).</span></div>
+        <div class="item"><span class="tick">✓</span><span class="type-text"><strong>Important:</strong> On Windows, make sure to check "Add Python to PATH" during installation.</span></div>
       </div>
     </section>
 
-    <!-- SLIDE 3 -->
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">02</span> Your First Script</div>
-      <h2>Writing Code</h2>
-      <p class="lede">You can write Python in any text editor (like Notepad), but a code editor like VS Code makes it much easier.</p>
-      <div class="step-flow">
-        <div class="step fragment">
-          <div class="circle">1</div>
-          <div class="content">
-            <h4>Create a file</h4>
-            <p>Make a new file and name it <code>hello.py</code></p>
-          </div>
+      <div class="eyebrow"><span class="num">02</span> Verification</div>
+      <h2>Checking Your Installation</h2>
+      <p class="lede">Open your terminal or command prompt and type the following command to check if Python is installed correctly.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">Terminal</div>
         </div>
-        <div class="step fragment">
-          <div class="circle">2</div>
-          <div class="content">
-            <h4>Write the code</h4>
-            <p>Type <code>print("Hello World!")</code> inside the file and save it.</p>
-          </div>
+        <pre><code>python --version
+<span class="c"># or on some Macs/Linux:</span>
+python3 --version</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">02</span> Code Editors</div>
+      <h2>Choosing an IDE</h2>
+      <p class="lede">An IDE (Integrated Development Environment) is software for writing your code. You can use simple text editors, but IDEs have features like syntax highlighting and autocompletion.</p>
+      <div class="card-grid fragment">
+        <div class="card">
+          <span class="k">VS Code</span>
+          <h3>Visual Studio Code</h3>
+          <p>Free, lightweight, and very popular. Recommended for beginners.</p>
         </div>
-        <div class="step fragment">
-          <div class="circle">3</div>
-          <div class="content">
-            <h4>Run it</h4>
-            <p>In your terminal, type <code>python hello.py</code></p>
-          </div>
+        <div class="card">
+          <span class="k">PyCharm</span>
+          <h3>JetBrains PyCharm</h3>
+          <p>A powerful IDE designed specifically for Python. Has a free community edition.</p>
         </div>
       </div>
     </section>
 
-    <!-- SLIDE 4 -->
-    <section class="slide" data-index="3">
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">02</span> First Program</div>
+      <h2>Your First Program</h2>
+      <p class="lede">In Python, we can display text to the screen using the <code>print()</code> function.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">hello.py</div>
+        </div>
+        <pre><code><span class="f">print</span>(<span class="s">"Hello, World!"</span>)
+<span class="f">print</span>(<span class="s">"I am learning Python!"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+    
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">02</span> Running Code</div>
+      <h2>Running Python Scripts</h2>
+      <p class="lede">Once you save your code in a file ending in <code>.py</code>, you can run it from the terminal.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">Terminal</div>
+        </div>
+        <pre><code><span class="c"># Navigate to your folder</span>
+cd path/to/folder
+
+<span class="c"># Run the script</span>
+python hello.py</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="6">
+      <div class="eyebrow"><span class="num">02</span> REPL</div>
+      <h2>Interactive Python (REPL)</h2>
+      <p class="lede">If you type <code>python</code> in the terminal without a filename, it opens the REPL (Read-Eval-Print Loop). It's great for quick tests.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">Terminal</div>
+        </div>
+        <pre><code>>>> <span class="f">print</span>(<span class="s">"Hello from REPL"</span>)
+Hello from REPL
+>>> 5 + 7
+12
+>>> <span class="f">exit</span>()  <span class="c"># To leave the REPL</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="7">
       <div class="eyebrow"><span class="num">02</span> Summary</div>
       <h2>Recap</h2>
-      <p class="lede">You are now fully set up to write and execute Python code.</p>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Installed the Python interpreter</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Verified the installation via terminal</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Created a <code>.py</code> file and ran it</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Install Python from python.org.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Choose a code editor like VS Code or PyCharm.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Python files must end with the <code>.py</code> extension.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Run files from the terminal using <code>python filename.py</code>.</span></div>
       </div>
-      <a href="03-syntax.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Python Syntax →</a>
+      <a href="04-output.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Syntax →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

@@ -506,44 +506,106 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">10</span> Python Programming Series</div>
       <h1>Python <span class="accent">Strings</span></h1>
-      <p class="sub">How to store, manipulate, and analyze text.</p>
+      <p class="sub">How to store, manipulate, and format text data in Python.</p>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">10</span> Strings</div>
-      <h2>Quotes</h2>
-      <p class="lede">Strings in Python are surrounded by either single quotation marks, or double quotation marks.</p>
+      <h2>What are Strings?</h2>
+      <p class="lede">Strings in python are surrounded by either single quotation marks, or double quotation marks.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
           <div class="filename">strings.py</div>
         </div>
-        <pre><code><span class="c"># These are identical</span>
-<span class="f">print</span>(<span class="s">"Hello"</span>)
-<span class="f">print</span>(<span class="s">'Hello'</span>)</code></pre>
+        <pre><code><span class="f">print</span>(<span class="s">"Hello"</span>)
+<span class="f">print</span>(<span class="s">'Hello'</span>)
+
+<span class="c"># Both are identical in Python</span>
+a = <span class="s">"Hello"</span>
+b = <span class="s">'Hello'</span>
+<span class="f">print</span>(a == b)  <span class="c"># Returns True</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">10</span> Accessing Characters</div>
-      <h2>Strings are Arrays</h2>
-      <p class="lede">Square brackets can be used to access elements of the string.</p>
+      <div class="eyebrow"><span class="num">10</span> Quotes Inside Quotes</div>
+      <h2>Quotes Inside Quotes</h2>
+      <p class="lede">You can use quotes inside a string, as long as they don't match the quotes surrounding the string.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">arrays.py</div>
+          <div class="filename">quotes.py</div>
         </div>
-        <pre><code>a = <span class="s">"Hello, World!"</span>
-<span class="c"># Get the character at position 1 (remember that the first character is at position 0)</span>
-<span class="f">print</span>(a[1]) <span class="c"># Outputs: e</span></code></pre>
+        <pre><code><span class="f">print</span>(<span class="s">"It's alright"</span>)
+<span class="f">print</span>(<span class="s">"He is called 'Johnny'"</span>)
+<span class="f">print</span>(<span class="s">'He is called "Johnny"'</span>)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">10</span> String Methods</div>
-      <h2>Modifying Strings</h2>
+      <div class="eyebrow"><span class="num">10</span> Arrays</div>
+      <h2>Strings are Arrays</h2>
+      <p class="lede">Like many other languages, strings in Python are arrays of bytes representing unicode characters. You can access elements using square brackets.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">array.py</div>
+        </div>
+        <pre><code>a = <span class="s">"Hello, World!"</span>
+
+<span class="c"># Get the character at position 1 (remember that the first character has the position 0)</span>
+<span class="f">print</span>(a[<span class="n">1</span>])
+
+<span class="c"># Get the first character</span>
+<span class="f">print</span>(a[<span class="n">0</span>])</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">10</span> Length</div>
+      <h2>String Length</h2>
+      <p class="lede">To get the length of a string, use the <code>len()</code> function.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">len.py</div>
+        </div>
+        <pre><code>a = <span class="s">"Hello, World!"</span>
+<span class="f">print</span>(<span class="f">len</span>(a))  <span class="c"># Returns 13 (including space and punctuation)</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">10</span> Slicing</div>
+      <h2>Slicing Strings</h2>
+      <p class="lede">You can return a range of characters by using the slice syntax. Specify the start index and the end index, separated by a colon.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">slice.py</div>
+        </div>
+        <pre><code>b = <span class="s">"Hello, World!"</span>
+
+<span class="c"># Get characters from position 2 to position 5 (not included)</span>
+<span class="f">print</span>(b[<span class="n">2</span>:<span class="n">5</span>])
+
+<span class="c"># Get characters from the start to position 5 (not included)</span>
+<span class="f">print</span>(b[:<span class="n">5</span>])
+
+<span class="c"># Get characters from position 7 to the end</span>
+<span class="f">print</span>(b[<span class="n">7</span>:])</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="6">
+      <div class="eyebrow"><span class="num">10</span> Methods</div>
+      <h2>String Methods</h2>
       <p class="lede">Python has a set of built-in methods that you can use on strings.</p>
       <div class="code-block fragment">
         <div class="header">
@@ -551,24 +613,49 @@
           <div class="filename">methods.py</div>
         </div>
         <pre><code>a = <span class="s">" Hello, World! "</span>
-<span class="f">print</span>(a.strip()) <span class="c"># Removes whitespace from beginning/end</span>
-<span class="f">print</span>(a.lower()) <span class="c"># Returns " hello, world! "</span>
-<span class="f">print</span>(a.replace(<span class="s">"H"</span>, <span class="s">"J"</span>)) <span class="c"># Returns " Jello, World! "</span></code></pre>
+
+<span class="f">print</span>(a.upper())      <span class="c"># " HELLO, WORLD! "</span>
+<span class="f">print</span>(a.lower())      <span class="c"># " hello, world! "</span>
+<span class="f">print</span>(a.strip())      <span class="c"># "Hello, World!" (removes whitespace)</span>
+<span class="f">print</span>(a.replace(<span class="s">"H"</span>, <span class="s">"J"</span>)) <span class="c"># " Jello, World! "</span></code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="4">
+
+    <section class="slide" data-index="7">
+      <div class="eyebrow"><span class="num">10</span> F-Strings</div>
+      <h2>F-Strings (Formatting)</h2>
+      <p class="lede">To combine strings and numbers, we use f-strings. Put an <code>f</code> in front of the string, and use curly brackets <code>{}</code> for variables.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">fstrings.py</div>
+        </div>
+        <pre><code>age = <span class="n">36</span>
+name = <span class="s">"John"</span>
+
+<span class="c"># Use f before the quote</span>
+txt = f<span class="s">"My name is {name}, and I am {age}"</span>
+<span class="f">print</span>(txt)
+
+<span class="c"># You can even do math inside!</span>
+<span class="f">print</span>(f<span class="s">"Next year I will be {age + 1}"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="8">
       <div class="eyebrow"><span class="num">10</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use single or double quotes for strings.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Strings are arrays of characters starting at index 0.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use dot notation to call string methods like <code>.upper()</code> or <code>.strip()</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Strings are arrays of characters, index starts at 0.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>[start:end]</code> to slice strings.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use methods like <code>upper()</code>, <code>lower()</code>, and <code>replace()</code> to modify.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use f-strings <code>f"Text {var}"</code> to easily format strings and numbers.</span></div>
       </div>
       <a href="11-booleans.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Booleans →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

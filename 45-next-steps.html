@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 44 · Encapsulation</title>
+<title>Lesson 45 · Next Steps</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 44 - Encapsulation</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 45 - Next Steps</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,54 +504,24 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">44</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Encapsulation</span></h1>
-      <p class="sub">Protecting your data from unauthorized access.</p>
+      <div class="eyebrow"><span class="num">45</span> Python Programming Series</div>
+      <h1>Next <span class="accent">Steps</span></h1>
+      <p class="sub">Congratulations! You've learned the basics of Python.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">44</span> The Concept</div>
-      <h2>Data Hiding</h2>
-      <p class="lede">Encapsulation is the bundling of data and the methods that act on that data such that access to that data is restricted from outside the class.</p>
+      <div class="eyebrow"><span class="num">45</span> Where to Go Now</div>
+      <h2>What's Next?</h2>
+      <p class="lede">You now know enough Python to build real projects. The best way to learn is by doing.</p>
       <div class="list-check fragment">
-        <div class="item"><span class="tick">✓</span><span class="type-text">Public: Accessible from anywhere.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">Protected: Accessible within the class and its subclasses (starts with <code>_</code>).</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">Private: Accessible ONLY within the class (starts with <code>__</code>).</span></div>
+        <div class="item"><span class="tick">✓</span><span class="type-text">Build a web scraper using <code>BeautifulSoup</code>.</span></div>
+        <div class="item"><span class="tick">✓</span><span class="type-text">Build a web API using <code>FastAPI</code> or <code>Flask</code>.</span></div>
+        <div class="item"><span class="tick">✓</span><span class="type-text">Automate a boring task (like renaming files in a folder).</span></div>
+        <div class="item"><span class="tick">✓</span><span class="type-text">Analyze data with <code>Pandas</code>.</span></div>
       </div>
+      <h2 class="fragment" style="margin-top:40px; font-size:24px;">Thank you for watching!</h2>
     </section>
-    
-    <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">44</span> Syntax</div>
-      <h2>Private Variables</h2>
-      <p class="lede">Python uses name mangling (double underscore prefix) to make variables private.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">private.py</div>
-        </div>
-        <pre><code><span class="k">class</span> <span class="f">Bank</span>:
-    <span class="k">def</span> <span class="f">__init__</span>(<span class="k">self</span>):
-        <span class="k">self</span>.public_data = 10
-        <span class="k">self</span>.__private_data = 20 <span class="c"># Cannot be accessed outside!</span>
-
-b = Bank()
-<span class="f">print</span>(b.public_data)
-<span class="c"># print(b.__private_data) &lt;-- This will throw an error</span></code></pre>
-      </div>
-      <button class="run-btn fragment">▶ Run file</button>
-    </section>
-
-    <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">44</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Encapsulation protects internal object state.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>_var</code> to indicate a protected variable (convention only).</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>__var</code> to make a private variable (enforced by Python).</span></div>
-      </div>
-      <a href="45-inner-classes.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Inner Classes →</a>
-    </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

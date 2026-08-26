@@ -506,30 +506,69 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">06</span> Python Programming Series</div>
       <h1>Python <span class="accent">Variables</span></h1>
-      <p class="sub">How to store information, give it a name, and retrieve it later.</p>
+      <p class="sub">How to store data values in computer memory so you can use them later.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">06</span> Creating Variables</div>
-      <h2>Boxes in memory</h2>
-      <p class="lede">Variables are containers for storing data values. In Python, a variable is created the moment you first assign a value to it.</p>
+      <div class="eyebrow"><span class="num">06</span> Variables</div>
+      <h2>What is a Variable?</h2>
+      <p class="lede">Variables are containers for storing data values. Think of a variable as a labeled box where you can put information.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
           <div class="filename">variables.py</div>
         </div>
-        <pre><code>x = 5
+        <pre><code><span class="c"># Creating variables</span>
+x = <span class="n">5</span>
 y = <span class="s">"John"</span>
+
 <span class="f">print</span>(x)
 <span class="f">print</span>(y)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">06</span> Rules</div>
-      <h2>Naming Rules</h2>
-      <p class="lede">A variable name must start with a letter or the underscore character. It cannot start with a number.</p>
+      <div class="eyebrow"><span class="num">06</span> No Command</div>
+      <h2>No Declaration Command</h2>
+      <p class="lede">Unlike other programming languages (like C++ or Java), Python has no command for declaring a variable. A variable is created the moment you first assign a value to it.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">no_decl.py</div>
+        </div>
+        <pre><code><span class="c"># In Java you would write: int age = 25;</span>
+<span class="c"># In Python, just write the name and the value:</span>
+age = <span class="n">25</span>
+name = <span class="s">"Alice"</span>
+
+<span class="f">print</span>(name, <span class="s">"is"</span>, age)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">06</span> Reassigning</div>
+      <h2>Changing Variable Values</h2>
+      <p class="lede">Variables do not need to be declared with any particular type, and can even change type after they have been set.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">change.py</div>
+        </div>
+        <pre><code>x = <span class="n">4</span>       <span class="c"># x is of type int</span>
+<span class="f">print</span>(x)
+
+x = <span class="s">"Sally"</span> <span class="c"># x is now of type str</span>
+<span class="f">print</span>(x)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">06</span> Naming Rules</div>
+      <h2>Variable Names</h2>
+      <p class="lede">A variable can have a short name (like x and y) or a more descriptive name (age, carname, total_volume). But there are rules.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
@@ -540,41 +579,61 @@ myvar = <span class="s">"John"</span>
 my_var = <span class="s">"John"</span>
 _my_var = <span class="s">"John"</span>
 
-<span class="c"># Illegal names</span>
-2myvar = <span class="s">"John"</span>
-my-var = <span class="s">"John"</span>
-my var = <span class="s">"John"</span></code></pre>
+<span class="c"># Illegal names (these will cause a SyntaxError)</span>
+<span class="c"># 2myvar = "John"</span>
+<span class="c"># my-var = "John"</span>
+<span class="c"># my var = "John"</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+      <p class="lede fragment" style="margin-top:14px; font-size:17px;">Variables must start with a letter or underscore, and can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ ).</p>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">06</span> Multiple Variables</div>
+      <h2>Many Values to Multiple Variables</h2>
+      <p class="lede">Python allows you to assign values to multiple variables in one line.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">multiple.py</div>
+        </div>
+        <pre><code>x, y, z = <span class="s">"Orange"</span>, <span class="s">"Banana"</span>, <span class="s">"Cherry"</span>
+<span class="f">print</span>(x)
+<span class="f">print</span>(y)
+<span class="f">print</span>(z)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
 
-    <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">06</span> Re-assignment</div>
-      <h2>Changing values</h2>
-      <p class="lede">Variables can change type after they have been set.</p>
+    <section class="slide" data-index="6">
+      <div class="eyebrow"><span class="num">06</span> One Value</div>
+      <h2>One Value to Multiple Variables</h2>
+      <p class="lede">And you can assign the same value to multiple variables in one line.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">types.py</div>
+          <div class="filename">one_val.py</div>
         </div>
-        <pre><code>x = 4       <span class="c"># x is of type int</span>
-x = <span class="s">"Sally"</span> <span class="c"># x is now of type str</span>
-<span class="f">print</span>(x)</code></pre>
+        <pre><code>x = y = z = <span class="s">"Orange"</span>
+<span class="f">print</span>(x)
+<span class="f">print</span>(y)
+<span class="f">print</span>(z)</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
-    <section class="slide" data-index="4">
+
+    <section class="slide" data-index="7">
       <div class="eyebrow"><span class="num">06</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>=</code> to assign a value to a variable.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Names cannot start with a number or contain spaces.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Variables are case-sensitive (<code>a</code> and <code>A</code> are different).</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Variables are created the moment you assign a value to them.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Variables can change their data type at any time.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Variable names cannot start with a number or contain spaces/dashes.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">You can assign multiple variables in a single line.</span></div>
       </div>
       <a href="07-data-types.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Data Types →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

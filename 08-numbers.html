@@ -506,21 +506,21 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">08</span> Python Programming Series</div>
       <h1>Python <span class="accent">Numbers</span></h1>
-      <p class="sub">Ints, floats, and complex numbers.</p>
+      <p class="sub">Learn about the three numeric types in Python: int, float, and complex.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">08</span> Integer</div>
-      <h2>Int</h2>
-      <p class="lede">Int, or integer, is a whole number, positive or negative, without decimals, of unlimited length.</p>
+      <div class="eyebrow"><span class="num">08</span> Numeric Types</div>
+      <h2>Three Numeric Types</h2>
+      <p class="lede">There are three numeric types in Python. Variables of numeric types are created when you assign a value to them.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">int.py</div>
+          <div class="filename">numbers.py</div>
         </div>
-        <pre><code>x = 1
-y = 35656222554887711
-z = -3255522
+        <pre><code>x = <span class="n">1</span>    <span class="c"># int</span>
+y = <span class="n">2.8</span>  <span class="c"># float</span>
+z = <span class="n">1j</span>   <span class="c"># complex</span>
 
 <span class="f">print</span>(<span class="f">type</span>(x))
 <span class="f">print</span>(<span class="f">type</span>(y))
@@ -528,38 +528,98 @@ z = -3255522
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">08</span> Floating Point</div>
-      <h2>Float</h2>
-      <p class="lede">Float is a number, positive or negative, containing one or more decimals.</p>
+      <div class="eyebrow"><span class="num">08</span> Integers</div>
+      <h2>Int</h2>
+      <p class="lede">Int, or integer, is a whole number, positive or negative, without decimals, of unlimited length.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">float.py</div>
+          <div class="filename">ints.py</div>
         </div>
-        <pre><code>x = 1.10
-y = 1.0
-z = -35.59
+        <pre><code>x = <span class="n">1</span>
+y = <span class="n">35656222554887711</span>
+z = -<span class="n">3255522</span>
 
-<span class="c"># Scientific notation (e)</span>
-a = 35e3
-b = 12E4</code></pre>
+<span class="f">print</span>(<span class="f">type</span>(x))
+<span class="f">print</span>(<span class="f">type</span>(y))
+<span class="f">print</span>(<span class="f">type</span>(z))</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">08</span> Floats</div>
+      <h2>Float</h2>
+      <p class="lede">Float, or "floating point number" is a number, positive or negative, containing one or more decimals.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">floats.py</div>
+        </div>
+        <pre><code>x = <span class="n">1.10</span>
+y = <span class="n">1.0</span>
+z = -<span class="n">35.59</span>
+
+<span class="f">print</span>(<span class="f">type</span>(x))
+<span class="f">print</span>(<span class="f">type</span>(y))
+<span class="f">print</span>(<span class="f">type</span>(z))</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">08</span> Floats (Scientific)</div>
+      <h2>Scientific Notation</h2>
+      <p class="lede">Float can also be scientific numbers with an "e" to indicate the power of 10.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">scientific.py</div>
+        </div>
+        <pre><code>x = <span class="n">35e3</span>
+y = <span class="n">12E4</span>
+z = -<span class="n">87.7e100</span>
+
+<span class="f">print</span>(x)
+<span class="f">print</span>(<span class="f">type</span>(x))
+<span class="f">print</span>(<span class="f">type</span>(z))</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">08</span> Random</div>
+      <h2>Random Numbers</h2>
+      <p class="lede">Python does not have a <code>random()</code> function built into the core, but it has a built-in module called <code>random</code>.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">random_num.py</div>
+        </div>
+        <pre><code><span class="k">import</span> random
+
+<span class="c"># Random integer between 1 and 9</span>
+<span class="f">print</span>(random.randrange(<span class="n">1</span>, <span class="n">10</span>))
+
+<span class="c"># Try running this multiple times!</span></code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="6">
       <div class="eyebrow"><span class="num">08</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>int</code> is for whole numbers.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>float</code> is for decimal numbers.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Scientific notation (<code>e</code>) creates float types.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>int</code> is for whole numbers (e.g. 5, -10).</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>float</code> is for decimal numbers (e.g. 3.14, -0.5).</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>complex</code> numbers are written with a "j" (e.g. 3+5j).</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import the <code>random</code> module to generate random numbers.</span></div>
       </div>
       <a href="09-casting.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Casting →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

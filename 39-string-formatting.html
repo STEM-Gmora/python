@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 36 · OOP Intro</title>
+<title>Lesson 39 · String Formatting</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -495,7 +495,7 @@
 
   <!-- ============ HEADER: brand + progress ============ -->
   <header class="deck-header">
-    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 36 - OOP Intro</div>
+    <div class="brand"><span class="dot"></span><span class="hide-mobile">Python Series &middot; </span>Lesson 39 - String Formatting</div>
     <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
     <div class="step-counter" id="stepCounter">1 / 8</div>
   </header>
@@ -504,56 +504,101 @@
   <main id="slides">
 
     <section class="slide cover" data-index="0">
-      <div class="eyebrow"><span class="num">36</span> Python Programming Series</div>
-      <h1>Object Oriented <span class="accent">Programming</span></h1>
-      <p class="sub">A paradigm shift in how we write and structure our code.</p>
+      <div class="eyebrow"><span class="num">39</span> Python Programming Series</div>
+      <h1>String <span class="accent">Formatting</span></h1>
+      <p class="sub">To make sure a string will display as expected, we can format the result with the format() method or f-strings.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">36</span> What is it?</div>
-      <h2>The Object Concept</h2>
-      <p class="lede">Python is an object oriented programming language. Almost everything in Python is an object, with its properties and methods.</p>
-      <div class="step-flow fragment">
-        <div class="step">
-          <div class="circle">1</div>
-          <div class="content">
-            <h4>Procedural</h4>
-            <p>Writing functions or procedures that operate on data.</p>
-          </div>
+      <div class="eyebrow"><span class="num">39</span> F-Strings</div>
+      <h2>F-Strings</h2>
+      <p class="lede">F-String was introduced in Python 3.6, and is now the preferred way of formatting strings.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">fstring.py</div>
         </div>
-        <div class="step">
-          <div class="circle">2</div>
-          <div class="content">
-            <h4>Object-Oriented</h4>
-            <p>Creating objects that contain both data AND the functions that modify them.</p>
-          </div>
-        </div>
+        <pre><code>txt = f<span class="s">"The price is 49 dollars"</span>
+<span class="f">print</span>(txt)
+
+price = <span class="n">59</span>
+txt = f<span class="s">"The price is {price} dollars"</span>
+<span class="f">print</span>(txt)</code></pre>
       </div>
+      <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">36</span> Why OOP?</div>
-      <h2>Benefits of OOP</h2>
-      <p class="lede">OOP provides a clear structure for the programs and helps keep the Python code DRY (Don't Repeat Yourself).</p>
-      <div class="list-check fragment">
-        <div class="item"><span class="tick">✓</span><span class="type-text">Faster and easier to execute.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">Provides clear structure for programs.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">Makes code easier to maintain, modify, and debug.</span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">Creates fully reusable applications with less code.</span></div>
+      <div class="eyebrow"><span class="num">39</span> Modifiers</div>
+      <h2>Formatting Modifiers</h2>
+      <p class="lede">A modifier is included by adding a colon <code>:</code> followed by a legal formatting type, like <code>.2f</code> which means fixed point number with 2 decimals.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">mod.py</div>
+        </div>
+        <pre><code>price = <span class="n">59</span>
+<span class="c"># Add two decimals to the price</span>
+txt = f<span class="s">"The price is {price:.2f} dollars"</span>
+<span class="f">print</span>(txt)</code></pre>
       </div>
+      <button class="run-btn fragment">▶ Run file</button>
     </section>
 
     <section class="slide" data-index="3">
-      <div class="eyebrow"><span class="num">36</span> Summary</div>
+      <div class="eyebrow"><span class="num">39</span> Math Operations</div>
+      <h2>Perform Math Operations</h2>
+      <p class="lede">You can perform math operations within the placeholders, and return the result.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">math.py</div>
+        </div>
+        <pre><code>txt = f<span class="s">"The price is {20 * 59} dollars"</span>
+<span class="f">print</span>(txt)
+
+price = <span class="n">59</span>
+tax = <span class="n">0.25</span>
+txt = f<span class="s">"The total is {price + (price * tax)} dollars"</span>
+<span class="f">print</span>(txt)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">39</span> String format()</div>
+      <h2>The format() Method</h2>
+      <p class="lede">Before Python 3.6 we used the <code>format()</code> method to format strings. It is still heavily used today.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">format.py</div>
+        </div>
+        <pre><code>price = <span class="n">49</span>
+txt = <span class="s">"The price is {:.2f} dollars"</span>
+<span class="f">print</span>(txt.format(price))
+
+quantity = <span class="n">3</span>
+itemno = <span class="n">567</span>
+price = <span class="n">49</span>
+myorder = <span class="s">"I want {} pieces of item number {} for {:.2f} dollars."</span>
+<span class="f">print</span>(myorder.format(quantity, itemno, price))</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
+      <div class="eyebrow"><span class="num">39</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">OOP is a programming paradigm.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">It models real-world entities as "objects".</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">It is the standard way large Python projects are built.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use F-strings <code>f"Text {var}"</code> for modern, clean formatting.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use format modifiers like <code>{price:.2f}</code> for decimal precision.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">You can perform math and call functions directly inside F-strings.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">The older <code>.format()</code> method is still valid and useful in older codebases.</span></div>
       </div>
-      <a href="37-classes-objects.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Classes & Objects →</a>
+      <a href="40-file-handling.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: File Handling →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">

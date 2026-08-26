@@ -506,50 +506,110 @@
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">07</span> Python Programming Series</div>
       <h1>Data <span class="accent">Types</span></h1>
-      <p class="sub">The different kinds of data Python can store in memory, from numbers to text to collections.</p>
+      <p class="sub">Different kinds of data in Python and how to check them.</p>
     </section>
     
     <section class="slide" data-index="1">
-      <div class="eyebrow"><span class="num">07</span> Introduction</div>
-      <h2>Built-in Types</h2>
+      <div class="eyebrow"><span class="num">07</span> Data Types</div>
+      <h2>Built-in Data Types</h2>
       <p class="lede">Variables can store data of different types, and different types can do different things.</p>
-      <div class="list-check fragment">
-        <div class="item"><span class="tick">✓</span><span class="type-text">Text Type: <code>str</code></span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">Numeric Types: <code>int</code>, <code>float</code>, <code>complex</code></span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">Sequence Types: <code>list</code>, <code>tuple</code>, <code>range</code></span></div>
-        <div class="item"><span class="tick">✓</span><span class="type-text">Boolean Type: <code>bool</code></span></div>
+      <div class="card-grid fragment">
+        <div class="card">
+          <span class="k">Text</span>
+          <h3>str</h3>
+          <p>Strings are used to store text. e.g. <code>"Hello"</code></p>
+        </div>
+        <div class="card">
+          <span class="k">Numeric</span>
+          <h3>int, float, complex</h3>
+          <p>Used to store numbers. e.g. <code>10</code> or <code>3.14</code></p>
+        </div>
+        <div class="card">
+          <span class="k">Sequence</span>
+          <h3>list, tuple, range</h3>
+          <p>Used to store a collection of items.</p>
+        </div>
+        <div class="card">
+          <span class="k">Mapping</span>
+          <h3>dict</h3>
+          <p>Used to store key-value pairs (like a dictionary).</p>
+        </div>
       </div>
     </section>
-    
+
     <section class="slide" data-index="2">
-      <div class="eyebrow"><span class="num">07</span> Getting the Type</div>
-      <h2>The type() function</h2>
+      <div class="eyebrow"><span class="num">07</span> type()</div>
+      <h2>Getting the Data Type</h2>
       <p class="lede">You can get the data type of any object by using the <code>type()</code> function.</p>
       <div class="code-block fragment">
         <div class="header">
           <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
           <div class="filename">types.py</div>
         </div>
-        <pre><code>x = 5
-<span class="f">print</span>(<span class="f">type</span>(x)) <span class="c"># &lt;class 'int'&gt;</span>
+        <pre><code>x = <span class="n">5</span>
+<span class="f">print</span>(<span class="f">type</span>(x))
 
 y = <span class="s">"Hello World"</span>
-<span class="f">print</span>(<span class="f">type</span>(y)) <span class="c"># &lt;class 'str'&gt;</span></code></pre>
+<span class="f">print</span>(<span class="f">type</span>(y))
+
+z = <span class="n">3.14</span>
+<span class="f">print</span>(<span class="f">type</span>(z))</code></pre>
       </div>
       <button class="run-btn fragment">▶ Run file</button>
     </section>
-    
+
     <section class="slide" data-index="3">
+      <div class="eyebrow"><span class="num">07</span> Setting Types</div>
+      <h2>Setting the Data Type</h2>
+      <p class="lede">In Python, the data type is set automatically when you assign a value to a variable.</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">set_types.py</div>
+        </div>
+        <pre><code>x = <span class="s">"Hello World"</span>    <span class="c"># str</span>
+x = <span class="n">20</span>               <span class="c"># int</span>
+x = <span class="n">20.5</span>             <span class="c"># float</span>
+x = [<span class="s">"apple"</span>, <span class="s">"banana"</span>]  <span class="c"># list</span>
+x = (<span class="s">"apple"</span>, <span class="s">"banana"</span>)  <span class="c"># tuple</span>
+x = {<span class="s">"name"</span>: <span class="s">"John"</span>} <span class="c"># dict</span>
+x = <span class="n">True</span>             <span class="c"># bool</span>
+<span class="f">print</span>(<span class="s">"Done!"</span>)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="4">
+      <div class="eyebrow"><span class="num">07</span> Explicit Types</div>
+      <h2>Setting Specific Data Type</h2>
+      <p class="lede">If you want to specify the data type, you can use the constructor functions (casting).</p>
+      <div class="code-block fragment">
+        <div class="header">
+          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+          <div class="filename">explicit.py</div>
+        </div>
+        <pre><code>x = <span class="f">str</span>(<span class="s">"Hello World"</span>)
+y = <span class="f">int</span>(<span class="n">20</span>)
+z = <span class="f">float</span>(<span class="n">20.5</span>)
+w = <span class="f">list</span>((<span class="s">"apple"</span>, <span class="s">"banana"</span>))
+
+<span class="f">print</span>(x, y, z, w)</code></pre>
+      </div>
+      <button class="run-btn fragment">▶ Run file</button>
+    </section>
+
+    <section class="slide" data-index="5">
       <div class="eyebrow"><span class="num">07</span> Summary</div>
       <h2>Recap</h2>
       <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Python sets the data type dynamically when you assign a value.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>type(variable)</code> to see what type of data you're working with.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Understanding types is crucial because different types have different behaviors.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Python automatically determines the data type of a variable.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">You can use <code>type(var)</code> to see what data type a variable is holding.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">The most common basic types are: <code>str</code>, <code>int</code>, <code>float</code>, <code>bool</code>.</span></div>
+        <div class="item fragment"><span class="tick">✓</span><span class="type-text">The most common collection types are: <code>list</code>, <code>dict</code>, <code>tuple</code>.</span></div>
       </div>
       <a href="08-numbers.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Numbers →</a>
     </section>
-  </main>
+</main>
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">
