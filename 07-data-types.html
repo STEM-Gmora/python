@@ -789,13 +789,13 @@ y = <span class="s">"Hello World"</span>
         outLine.textContent = '';
         
         // Capture output
-        pyodide.setStdout({ batched: (msg) => { outLine.textContent += msg + '\\n'; } });
-        pyodide.setStderr({ batched: (msg) => { outLine.textContent += msg + '\\n'; } });
+        pyodide.setStdout({ batched: (msg) => { outLine.textContent += msg + '\n'; } });
+        pyodide.setStderr({ batched: (msg) => { outLine.textContent += msg + '\n'; } });
         
         await pyodide.runPythonAsync(codeText);
         
         // Remove the extra trailing newline added by the batched callback
-        if (outLine.textContent.endsWith('\\n')) {
+        if (outLine.textContent.endsWith('\n')) {
           outLine.textContent = outLine.textContent.slice(0, -1);
         }
         
