@@ -523,6 +523,15 @@
     transform: translateY(0);
     transition: opacity .5s var(--ease), transform .5s var(--ease);
   }
+
+  /* Hide scrollbars globally but keep scrollability */
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  * {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 </style>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
 </head>
