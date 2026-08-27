@@ -256,7 +256,7 @@
     margin-top:22px;
     margin-left: auto;
     margin-right: auto;
-    max-width:900px;
+    max-width:720px;
     width: 100%;
     background:var(--code-bg);
     border-radius:var(--radius);
@@ -337,7 +337,7 @@
     margin-top:22px;
     margin-left: auto;
     margin-right: auto;
-    max-width:900px;
+    max-width:720px;
     width: 100%;
     background:var(--code-bg);
     border-radius:var(--radius);
@@ -498,6 +498,9 @@
       margin: 4px 0;
     }
   }
+
+  .arrow-btn:hover:not(:disabled) { opacity: 0.6; }
+  .arrow-btn:disabled { opacity: 0.25; cursor: default !important; }
 </style>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
 </head>
@@ -612,14 +615,14 @@
 </main>
 
   <!-- ============ FOOTER: navigation ============ -->
-  <footer class="controls">
-    <div class="watermark"><strong style="font-weight: 800;"><span style="color: #ef6a5f;">S</span><span style="color: #f4bf50;">T</span><span style="color: #4285F4;">E</span><span style="color: #61c454;">M</span> <span style="color: black;">Gmora</span></strong></div>
-    <div class="dots" id="dots"></div>
-    <div class="nav-buttons">
-      
-      <button id="prevBtn">←</button>
-      <button id="nextBtn" class="primary">→</button>
+    <footer class="controls">
+    <div style="flex: 1;"></div>
+    <div class="nav-wrapper" style="display: flex; align-items: center; gap: 14px;">
+      <button id="prevBtn" class="arrow-btn" style="background: transparent; border: none; font-size: 24px; cursor: pointer; color: var(--ink); padding: 4px;">←</button>
+      <div class="dots" id="dots"></div>
+      <button id="nextBtn" class="arrow-btn" style="background: transparent; border: none; font-size: 24px; cursor: pointer; color: var(--ink); padding: 4px;">→</button>
     </div>
+    <div class="watermark" style="text-align: right;"><strong style="font-weight: 800;"><span style="color: #ef6a5f;">S</span><span style="color: #f4bf50;">T</span><span style="color: #4285F4;">E</span><span style="color: #61c454;">M</span> <span style="color: black;">Gmora</span></strong></div>
   </footer>
 
 </div>
