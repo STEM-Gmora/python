@@ -323,7 +323,7 @@
   }
   .run-btn-wrap {
     width: 100%;
-    max-width: 1050px;
+    max-width: 720px;
     margin: 8px auto 0;
     display: flex;
     justify-content: flex-end;
@@ -501,6 +501,19 @@
 
   .arrow-btn:hover:not(:disabled) { opacity: 0.6; }
   .arrow-btn:disabled { opacity: 0.25; cursor: default !important; }
+
+  /* Tie run button visibility to its preceding code block if the code block is a fragment */
+  .code-block.fragment:not(.visible) + .run-btn-wrap {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(10px);
+  }
+  .code-block.fragment.visible + .run-btn-wrap {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition: opacity .5s var(--ease), transform .5s var(--ease);
+  }
 </style>
 <script src="https://cdn.jsdelivr.net/pyodide/v0.25.0/full/pyodide.js"></script>
 </head>
@@ -541,7 +554,7 @@ a = <span class="s">"Hello"</span>
 b = <span class="s">'Hello'</span>
 <span class="f">print</span>(a == b)  <span class="c"># Returns True</span></code></pre>
       </div>
-      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
+      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
@@ -557,7 +570,7 @@ b = <span class="s">'Hello'</span>
 <span class="f">print</span>(<span class="s">"He is called 'Johnny'"</span>)
 <span class="f">print</span>(<span class="s">'He is called "Johnny"'</span>)</code></pre>
       </div>
-      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
+      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
@@ -577,7 +590,7 @@ b = <span class="s">'Hello'</span>
 <span class="c"># Get the first character</span>
 <span class="f">print</span>(a[<span class="n">0</span>])</code></pre>
       </div>
-      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
+      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="4">
@@ -592,7 +605,7 @@ b = <span class="s">'Hello'</span>
         <pre><code>a = <span class="s">"Hello, World!"</span>
 <span class="f">print</span>(<span class="f">len</span>(a))  <span class="c"># Returns 13 (including space and punctuation)</span></code></pre>
       </div>
-      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
+      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="5">
@@ -615,7 +628,7 @@ b = <span class="s">'Hello'</span>
 <span class="c"># Get characters from position 7 to the end</span>
 <span class="f">print</span>(b[<span class="n">7</span>:])</code></pre>
       </div>
-      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
+      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="6">
@@ -634,7 +647,7 @@ b = <span class="s">'Hello'</span>
 <span class="f">print</span>(a.strip())      <span class="c"># "Hello, World!" (removes whitespace)</span>
 <span class="f">print</span>(a.replace(<span class="s">"H"</span>, <span class="s">"J"</span>)) <span class="c"># " Jello, World! "</span></code></pre>
       </div>
-      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
+      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="7">
@@ -656,7 +669,7 @@ txt = f<span class="s">"My name is {name}, and I am {age}"</span>
 <span class="c"># You can even do math inside!</span>
 <span class="f">print</span>(f<span class="s">"Next year I will be {age + 1}"</span>)</code></pre>
       </div>
-      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
+      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="8">
@@ -675,12 +688,21 @@ txt = f<span class="s">"My name is {name}, and I am {age}"</span>
   <!-- ============ FOOTER: navigation ============ -->
     <footer class="controls">
     <div style="flex: 1;"></div>
-    <div class="nav-wrapper" style="display: flex; align-items: center; gap: 14px;">
+    <div class="nav-wrapper" style="display: none; align-items: center; gap: 14px;">
       <button id="prevBtn" class="arrow-btn" style="background: transparent; border: none; font-size: 24px; cursor: pointer; color: var(--ink); padding: 4px;">←</button>
       <div class="dots" id="dots"></div>
       <button id="nextBtn" class="arrow-btn" style="background: transparent; border: none; font-size: 24px; cursor: pointer; color: var(--ink); padding: 4px;">→</button>
     </div>
-    <div class="watermark" style="text-align: right;"><strong style="font-weight: 800;"><span style="color: #ef6a5f;">S</span><span style="color: #f4bf50;">T</span><span style="color: #4285F4;">E</span><span style="color: #61c454;">M</span> <span style="color: black;">Gmora</span></strong></div>
+    <div class="watermark" style="text-align: right; display: flex; align-items: center; justify-content: flex-end; flex: 1;">
+      <svg viewBox="0 0 320 120" height="26" xmlns="http://www.w3.org/2000/svg">
+        <g font-family="'Arial Black', Impact, sans-serif" font-weight="900" text-anchor="middle">
+          <text x="160" y="48" font-size="52" letter-spacing="4">
+            <tspan fill="#EA4335">S</tspan><tspan fill="#FBBC04">T</tspan><tspan fill="#4285F4">E</tspan><tspan fill="#34A853">M</tspan>
+          </text>
+          <text x="160" y="110" font-size="72" letter-spacing="-2" fill="var(--ink, #111)">GMORA</text>
+        </g>
+      </svg>
+    </div>
   </footer>
 
 </div>
