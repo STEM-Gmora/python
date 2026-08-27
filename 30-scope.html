@@ -256,7 +256,8 @@
     margin-top:22px;
     margin-left: auto;
     margin-right: auto;
-    max-width:560px;
+    max-width:1050px;
+    width: 100%;
     background:var(--code-bg);
     border-radius:var(--radius);
     overflow:hidden;
@@ -304,15 +305,12 @@
   }
   @keyframes blink{ 50%{ opacity:0; } }
 
-  .run-btn{
-    margin-top:8px;
-    margin-left: auto;
-    margin-right: auto;
+      .run-btn{
     display:flex;
     align-items:center;
     justify-content:flex-start;
     gap:8px;
-    background:#1f2e45; /* Dark blue to match image */
+    background:#1f2e45;
     color:#fff;
     border:none;
     border-radius:8px;
@@ -322,7 +320,13 @@
     cursor:pointer;
     transition:background .2s ease, transform .1s ease;
     width: 100%;
-    max-width: 560px;
+  }
+  .run-btn-wrap {
+    width: 100%;
+    max-width: 720px;
+    margin: 8px auto 0;
+    display: flex;
+    justify-content: flex-end;
   }
   .run-btn:hover{ background:#2a3d59; }
   .run-btn:active{ transform:scale(.99); }
@@ -333,7 +337,8 @@
     margin-top:22px;
     margin-left: auto;
     margin-right: auto;
-    max-width:560px;
+    max-width:1050px;
+    width: 100%;
     background:var(--code-bg);
     border-radius:var(--radius);
     overflow:hidden;
@@ -409,10 +414,10 @@
     align-items:center;
     justify-content:space-between;
     gap:20px;
-    padding:14px clamp(25px, 7.5vw, 113px) 22px;
-    border-top:1px solid var(--line);
-    max-width:1120px;
-    margin:0 auto;
+    padding: 14px 30px 22px;
+    
+    
+    
     width:100%;
   }
   .dots{ display:flex; gap:7px; }
@@ -463,7 +468,7 @@
     width:100%;
   }
     .controls{ 
-      padding:16px 18px 22px; 
+      padding: 14px 30px 22px; 
       flex-direction: column; 
       gap: 20px; 
     }
@@ -531,7 +536,7 @@
 myfunc()
 <span class="c"># print(x)  # This will cause an error because x is local!</span></code></pre>
       </div>
-      <button class="run-btn fragment">▶ Run file</button>
+      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
@@ -552,7 +557,7 @@ myfunc()
 myfunc()
 <span class="f">print</span>(<span class="s">"Outside function:"</span>, x)</code></pre>
       </div>
-      <button class="run-btn fragment">▶ Run file</button>
+      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
@@ -574,7 +579,7 @@ myfunc()
 myfunc()
 <span class="f">print</span>(<span class="s">"Global x:"</span>, x)</code></pre>
       </div>
-      <button class="run-btn fragment">▶ Run file</button>
+      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="4">
@@ -596,7 +601,7 @@ myfunc()
 myfunc()
 <span class="f">print</span>(x)</code></pre>
       </div>
-      <button class="run-btn fragment">▶ Run file</button>
+      <div class="run-btn-wrap fragment"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="5">
@@ -614,7 +619,7 @@ myfunc()
 
   <!-- ============ FOOTER: navigation ============ -->
   <footer class="controls">
-    <div class="watermark">STEM Gmora</div>
+    <div class="watermark"><strong style="font-weight: 800;"><span style="color: #ef6a5f;">S</span><span style="color: #f4bf50;">T</span><span style="color: #4285F4;">E</span><span style="color: #61c454;">M</span> <span style="color: black;">Gmora</span></strong></div>
     <div class="dots" id="dots"></div>
     <div class="nav-buttons">
       
@@ -811,7 +816,7 @@ myfunc()
       btn.disabled = true;
       btn.textContent = 'Running...';
       
-      const codeBlock = btn.previousElementSibling;
+      const codeBlock = btn.parentElement.previousElementSibling;
       if (!codeBlock) {
         btn.textContent = '↻ Run again';
         btn.disabled = false;
