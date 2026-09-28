@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,110 +584,124 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">15</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Sets</span></h1>
-      <p class="sub">Sets are used to store multiple items, but they are unordered and do not allow duplicate values.</p>
+      <div class="center-block">
+                <h1>Python <span class="accent">Sets</span></h1>
+        <p class="sub">Sets are used to store multiple items, but they are unordered and do not allow duplicate values.</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">15</span> Sets</div>
-      <h2>Creating Sets</h2>
-      <p class="lede">Sets are written with curly brackets <code>{}</code>. They are unordered, unchangeable*, and unindexed.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">sets.py</div>
+      <div class="center-block">
+                <h2>Creating Sets</h2>
+        <p class="lede">Sets are written with curly brackets <code>{}</code>. They are unordered, unchangeable*, and unindexed.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">sets.py</div>
+          </div>
+          <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
+  <span class="f">print</span>(thisset)
+  <span class="c"># Note: the items will appear in a random order!</span></code></pre>
         </div>
-        <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
-<span class="f">print</span>(thisset)
-<span class="c"># Note: the items will appear in a random order!</span></code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">15</span> Duplicates</div>
-      <h2>No Duplicates Allowed</h2>
-      <p class="lede">Sets cannot have two items with the same value. Duplicate values will be ignored.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">dupes.py</div>
-        </div>
-        <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"apple"</span>}
+      <div class="center-block">
+                <h2>No Duplicates Allowed</h2>
+        <p class="lede">Sets cannot have two items with the same value. Duplicate values will be ignored.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">dupes.py</div>
+          </div>
+          <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"apple"</span>}
 
-<span class="f">print</span>(thisset)
-<span class="c"># "apple" will only appear once</span></code></pre>
+  <span class="f">print</span>(thisset)
+  <span class="c"># "apple" will only appear once</span></code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
       <div class="eyebrow"><span class="num">15</span> Access Items</div>
-      <h2>Accessing Items</h2>
-      <p class="lede">You cannot access items in a set by referring to an index or a key. You must use a <code>for</code> loop.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">access.py</div>
+      <div class="center-block">
+                <h2>Accessing Items</h2>
+        <p class="lede">You cannot access items in a set by referring to an index or a key. You must use a <code>for</code> loop.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">access.py</div>
+          </div>
+          <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
+
+  <span class="k">for</span> x <span class="k">in</span> thisset:
+      <span class="f">print</span>(x)
+
+  <span class="c"># Check if "banana" is in the set</span>
+  <span class="f">print</span>(<span class="s">"banana"</span> <span class="k">in</span> thisset)</code></pre>
         </div>
-        <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
-
-<span class="k">for</span> x <span class="k">in</span> thisset:
-    <span class="f">print</span>(x)
-
-<span class="c"># Check if "banana" is in the set</span>
-<span class="f">print</span>(<span class="s">"banana"</span> <span class="k">in</span> thisset)</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="4">
       <div class="eyebrow"><span class="num">15</span> Add Items</div>
-      <h2>Adding Items</h2>
-      <p class="lede">Once a set is created, you cannot change its items, but you can add new items using the <code>add()</code> method.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">add.py</div>
-        </div>
-        <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
+      <div class="center-block">
+                <h2>Adding Items</h2>
+        <p class="lede">Once a set is created, you cannot change its items, but you can add new items using the <code>add()</code> method.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">add.py</div>
+          </div>
+          <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
 
-thisset.add(<span class="s">"orange"</span>)
-<span class="f">print</span>(thisset)</code></pre>
+  thisset.add(<span class="s">"orange"</span>)
+  <span class="f">print</span>(thisset)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="5">
       <div class="eyebrow"><span class="num">15</span> Remove Items</div>
-      <h2>Removing Items</h2>
-      <p class="lede">To remove an item in a set, use the <code>remove()</code>, or the <code>discard()</code> method.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">remove.py</div>
+      <div class="center-block">
+                <h2>Removing Items</h2>
+        <p class="lede">To remove an item in a set, use the <code>remove()</code>, or the <code>discard()</code> method.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">remove.py</div>
+          </div>
+          <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
+
+  thisset.remove(<span class="s">"banana"</span>)
+  <span class="f">print</span>(thisset)
+
+  thisset.discard(<span class="s">"apple"</span>)
+  <span class="f">print</span>(thisset)</code></pre>
         </div>
-        <pre><code>thisset = {<span class="s">"apple"</span>, <span class="s">"banana"</span>, <span class="s">"cherry"</span>}
-
-thisset.remove(<span class="s">"banana"</span>)
-<span class="f">print</span>(thisset)
-
-thisset.discard(<span class="s">"apple"</span>)
-<span class="f">print</span>(thisset)</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="6">
       <div class="eyebrow"><span class="num">15</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Sets are written with curly brackets <code>{}</code>.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They are unordered (no index numbers) and do not allow duplicates.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>add()</code> to insert an item into a set.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>remove()</code> or <code>discard()</code> to take an item out.</span></div>
+      <div class="center-block">
+                <h2>Recap</h2>
+        <div class="list-check">
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Sets are written with curly brackets <code>{}</code>.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">They are unordered (no index numbers) and do not allow duplicates.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>add()</code> to insert an item into a set.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>remove()</code> or <code>discard()</code> to take an item out.</span></div>
+        </div>
+        <a href="16-dictionaries.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Dictionaries →</a>
       </div>
-      <a href="16-dictionaries.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Dictionaries →</a>
     </section>
 </main>
 

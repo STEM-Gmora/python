@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,50 +584,58 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">03</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Syntax</span></h1>
-      <p class="sub">The rules of the language. How Python uses whitespace and indentation to understand your code.</p>
+      <div class="center-block">
+                <h1>Python <span class="accent">Syntax</span></h1>
+        <p class="sub">The rules of the language. How Python uses whitespace and indentation to understand your code.</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">03</span> Indentation</div>
-      <h2>Whitespace Matters</h2>
-      <p class="lede">Unlike other languages that use curly brackets <code>{}</code>, Python uses indentation (spaces) to define blocks of code.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">syntax.py</div>
+      <div class="center-block">
+                <h2>Whitespace Matters</h2>
+        <p class="lede">Unlike other languages that use curly brackets <code>{}</code>, Python uses indentation (spaces) to define blocks of code.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">syntax.py</div>
+          </div>
+          <pre><code><span class="k">if</span> 5 > 2:
+      <span class="c"># This is indented, so it belongs to the if statement</span>
+      <span class="f">print</span>(<span class="s">"Five is greater than two!"</span>)</code></pre>
         </div>
-        <pre><code><span class="k">if</span> 5 > 2:
-    <span class="c"># This is indented, so it belongs to the if statement</span>
-    <span class="f">print</span>(<span class="s">"Five is greater than two!"</span>)</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">03</span> Errors</div>
-      <h2>IndentationError</h2>
-      <p class="lede">If you skip the indentation, Python will throw an error and refuse to run.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">error.py</div>
+      <div class="center-block">
+                <h2>IndentationError</h2>
+        <p class="lede">If you skip the indentation, Python will throw an error and refuse to run.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">error.py</div>
+          </div>
+          <pre><code><span class="k">if</span> 5 > 2:
+  <span class="f">print</span>(<span class="s">"Five is greater than two!"</span>) <span class="c"># Error! Missing indentation</span></code></pre>
         </div>
-        <pre><code><span class="k">if</span> 5 > 2:
-<span class="f">print</span>(<span class="s">"Five is greater than two!"</span>) <span class="c"># Error! Missing indentation</span></code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
       <div class="eyebrow"><span class="num">03</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Python uses new lines to complete a command.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Indentation defines scope (loops, functions, classes).</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">You must be consistent with the number of spaces you use.</span></div>
+      <div class="center-block">
+                <h2>Recap</h2>
+        <div class="list-check">
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Python uses new lines to complete a command.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Indentation defines scope (loops, functions, classes).</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">You must be consistent with the number of spaces you use.</span></div>
+        </div>
+        <a href="04-output.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Output →</a>
       </div>
-      <a href="04-output.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Output →</a>
     </section>
   </main>
 

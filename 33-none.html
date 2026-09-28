@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,93 +584,105 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">33</span> Python Programming Series</div>
-      <h1>The <span class="accent">None</span> Keyword</h1>
-      <p class="sub">Understanding Python's way of representing "nothing" or "no value".</p>
+      <div class="center-block">
+                <h1>The <span class="accent">None</span> Keyword</h1>
+        <p class="sub">Understanding Python's way of representing "nothing" or "no value".</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">33</span> What is None?</div>
-      <h2>What is None?</h2>
-      <p class="lede">The <code>None</code> keyword is used to define a null variable or an object. In Python, <code>None</code> is its own unique data type (<code>NoneType</code>).</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">none_basic.py</div>
+      <div class="center-block">
+                <h2>What is None?</h2>
+        <p class="lede">The <code>None</code> keyword is used to define a null variable or an object. In Python, <code>None</code> is its own unique data type (<code>NoneType</code>).</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">none_basic.py</div>
+          </div>
+          <pre><code>x = <span class="n">None</span>
+  <span class="f">print</span>(x)
+  <span class="f">print</span>(<span class="f">type</span>(x))</code></pre>
         </div>
-        <pre><code>x = <span class="n">None</span>
-<span class="f">print</span>(x)
-<span class="f">print</span>(<span class="f">type</span>(x))</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">33</span> None is not Zero</div>
-      <h2>None vs Empty/Zero</h2>
-      <p class="lede"><code>None</code> is not the same as <code>0</code>, <code>False</code>, or an empty string. <code>None</code> is literally nothing.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">none_vs_zero.py</div>
-        </div>
-        <pre><code>x = <span class="n">None</span>
+      <div class="center-block">
+                <h2>None vs Empty/Zero</h2>
+        <p class="lede"><code>None</code> is not the same as <code>0</code>, <code>False</code>, or an empty string. <code>None</code> is literally nothing.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">none_vs_zero.py</div>
+          </div>
+          <pre><code>x = <span class="n">None</span>
 
-<span class="f">print</span>(x == <span class="n">0</span>)       <span class="c"># False</span>
-<span class="f">print</span>(x == <span class="s">""</span>)      <span class="c"># False</span>
-<span class="f">print</span>(x == <span class="n">False</span>)   <span class="c"># False</span>
-<span class="f">print</span>(x == <span class="n">None</span>)    <span class="c"># True</span></code></pre>
+  <span class="f">print</span>(x == <span class="n">0</span>)       <span class="c"># False</span>
+  <span class="f">print</span>(x == <span class="s">""</span>)      <span class="c"># False</span>
+  <span class="f">print</span>(x == <span class="n">False</span>)   <span class="c"># False</span>
+  <span class="f">print</span>(x == <span class="n">None</span>)    <span class="c"># True</span></code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
       <div class="eyebrow"><span class="num">33</span> is Keyword</div>
-      <h2>Checking for None</h2>
-      <p class="lede">Because <code>None</code> is a unique singleton object in Python, the best way to check if a variable is <code>None</code> is by using the <code>is</code> operator.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">is_none.py</div>
-        </div>
-        <pre><code>x = <span class="n">None</span>
+      <div class="center-block">
+                <h2>Checking for None</h2>
+        <p class="lede">Because <code>None</code> is a unique singleton object in Python, the best way to check if a variable is <code>None</code> is by using the <code>is</code> operator.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">is_none.py</div>
+          </div>
+          <pre><code>x = <span class="n">None</span>
 
-<span class="k">if</span> x <span class="k">is</span> <span class="n">None</span>:
-    <span class="f">print</span>(<span class="s">"Yes, x is None"</span>)
-<span class="k">else</span>:
-    <span class="f">print</span>(<span class="s">"No, x has a value"</span>)</code></pre>
+  <span class="k">if</span> x <span class="k">is</span> <span class="n">None</span>:
+      <span class="f">print</span>(<span class="s">"Yes, x is None"</span>)
+  <span class="k">else</span>:
+      <span class="f">print</span>(<span class="s">"No, x has a value"</span>)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="4">
       <div class="eyebrow"><span class="num">33</span> Functions</div>
-      <h2>None from Functions</h2>
-      <p class="lede">If a function doesn't explicitly return a value, it automatically returns <code>None</code>.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">func_none.py</div>
-        </div>
-        <pre><code><span class="k">def</span> <span class="f">my_function</span>():
-    <span class="f">print</span>(<span class="s">"I am doing work, but returning nothing."</span>)
-    <span class="c"># Notice there is no 'return' statement here</span>
+      <div class="center-block">
+                <h2>None from Functions</h2>
+        <p class="lede">If a function doesn't explicitly return a value, it automatically returns <code>None</code>.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">func_none.py</div>
+          </div>
+          <pre><code><span class="k">def</span> <span class="f">my_function</span>():
+      <span class="f">print</span>(<span class="s">"I am doing work, but returning nothing."</span>)
+      <span class="c"># Notice there is no 'return' statement here</span>
 
-result = <span class="f">my_function</span>()
-<span class="f">print</span>(<span class="s">"The result is:"</span>, result)</code></pre>
+  result = <span class="f">my_function</span>()
+  <span class="f">print</span>(<span class="s">"The result is:"</span>, result)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="5">
       <div class="eyebrow"><span class="num">33</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>None</code> represents the absence of a value (null).</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>None</code> is NOT the same as <code>0</code> or <code>""</code> or <code>False</code>.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>x is None</code> to check for it, rather than <code>==</code>.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Functions return <code>None</code> if no <code>return</code> statement is provided.</span></div>
+      <div class="center-block">
+                <h2>Recap</h2>
+        <div class="list-check">
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>None</code> represents the absence of a value (null).</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>None</code> is NOT the same as <code>0</code> or <code>""</code> or <code>False</code>.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>x is None</code> to check for it, rather than <code>==</code>.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Functions return <code>None</code> if no <code>return</code> statement is provided.</span></div>
+        </div>
+        <a href="34-user-input.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: User Input →</a>
       </div>
-      <a href="34-user-input.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: User Input →</a>
     </section>
 </main>
 

@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,115 +584,129 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">35</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Math</span></h1>
-      <p class="sub">Python has a set of built-in math functions, including an extensive math module, that allows you to perform mathematical tasks on numbers.</p>
+      <div class="center-block">
+                <h1>Python <span class="accent">Math</span></h1>
+        <p class="sub">Python has a set of built-in math functions, including an extensive math module, that allows you to perform mathematical tasks on numbers.</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">35</span> Min and Max</div>
-      <h2>Built-in Math Functions</h2>
-      <p class="lede">The <code>min()</code> and <code>max()</code> functions can be used to find the lowest or highest value in an iterable.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">minmax.py</div>
-        </div>
-        <pre><code>x = <span class="f">min</span>(<span class="n">5</span>, <span class="n">10</span>, <span class="n">25</span>)
-y = <span class="f">max</span>(<span class="n">5</span>, <span class="n">10</span>, <span class="n">25</span>)
+      <div class="center-block">
+                <h2>Built-in Math Functions</h2>
+        <p class="lede">The <code>min()</code> and <code>max()</code> functions can be used to find the lowest or highest value in an iterable.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">minmax.py</div>
+          </div>
+          <pre><code>x = <span class="f">min</span>(<span class="n">5</span>, <span class="n">10</span>, <span class="n">25</span>)
+  y = <span class="f">max</span>(<span class="n">5</span>, <span class="n">10</span>, <span class="n">25</span>)
 
-<span class="f">print</span>(<span class="s">"Minimum is:"</span>, x)
-<span class="f">print</span>(<span class="s">"Maximum is:"</span>, y)</code></pre>
+  <span class="f">print</span>(<span class="s">"Minimum is:"</span>, x)
+  <span class="f">print</span>(<span class="s">"Maximum is:"</span>, y)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">35</span> Abs and Pow</div>
-      <h2>Abs and Pow</h2>
-      <p class="lede">The <code>abs()</code> function returns the absolute (positive) value. The <code>pow()</code> function returns the value of x to the power of y.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">abspow.py</div>
-        </div>
-        <pre><code>x = <span class="f">abs</span>(-<span class="n">7.25</span>)
-<span class="f">print</span>(x)
+      <div class="center-block">
+                <h2>Abs and Pow</h2>
+        <p class="lede">The <code>abs()</code> function returns the absolute (positive) value. The <code>pow()</code> function returns the value of x to the power of y.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">abspow.py</div>
+          </div>
+          <pre><code>x = <span class="f">abs</span>(-<span class="n">7.25</span>)
+  <span class="f">print</span>(x)
 
-<span class="c"># Return the value of 4 to the power of 3 (same as 4 * 4 * 4)</span>
-y = <span class="f">pow</span>(<span class="n">4</span>, <span class="n">3</span>)
-<span class="f">print</span>(y)</code></pre>
+  <span class="c"># Return the value of 4 to the power of 3 (same as 4 * 4 * 4)</span>
+  y = <span class="f">pow</span>(<span class="n">4</span>, <span class="n">3</span>)
+  <span class="f">print</span>(y)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
       <div class="eyebrow"><span class="num">35</span> The Math Module</div>
-      <h2>The Math Module</h2>
-      <p class="lede">Python has also a built-in module called <code>math</code>, which extends the list of mathematical functions.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">mathmod.py</div>
-        </div>
-        <pre><code><span class="k">import</span> math
+      <div class="center-block">
+                <h2>The Math Module</h2>
+        <p class="lede">Python has also a built-in module called <code>math</code>, which extends the list of mathematical functions.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">mathmod.py</div>
+          </div>
+          <pre><code><span class="k">import</span> math
 
-<span class="c"># Square root</span>
-x = math.sqrt(<span class="n">64</span>)
-<span class="f">print</span>(x)</code></pre>
+  <span class="c"># Square root</span>
+  x = math.sqrt(<span class="n">64</span>)
+  <span class="f">print</span>(x)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="4">
       <div class="eyebrow"><span class="num">35</span> Ceil and Floor</div>
-      <h2>Rounding Up and Down</h2>
-      <p class="lede">The <code>math.ceil()</code> method rounds a number upwards to its nearest integer, and <code>math.floor()</code> rounds down.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">round.py</div>
+      <div class="center-block">
+                <h2>Rounding Up and Down</h2>
+        <p class="lede">The <code>math.ceil()</code> method rounds a number upwards to its nearest integer, and <code>math.floor()</code> rounds down.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">round.py</div>
+          </div>
+          <pre><code><span class="k">import</span> math
+
+  x = math.ceil(<span class="n">1.4</span>)
+  y = math.floor(<span class="n">1.4</span>)
+
+  <span class="f">print</span>(x) <span class="c"># Returns 2</span>
+  <span class="f">print</span>(y) <span class="c"># Returns 1</span></code></pre>
         </div>
-        <pre><code><span class="k">import</span> math
-
-x = math.ceil(<span class="n">1.4</span>)
-y = math.floor(<span class="n">1.4</span>)
-
-<span class="f">print</span>(x) <span class="c"># Returns 2</span>
-<span class="f">print</span>(y) <span class="c"># Returns 1</span></code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="5">
       <div class="eyebrow"><span class="num">35</span> Constants</div>
-      <h2>Math Constants</h2>
-      <p class="lede">The math module also contains useful mathematical constants, such as Pi.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">const.py</div>
+      <div class="center-block">
+                <h2>Math Constants</h2>
+        <p class="lede">The math module also contains useful mathematical constants, such as Pi.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">const.py</div>
+          </div>
+          <pre><code><span class="k">import</span> math
+
+  <span class="c"># Print the value of pi</span>
+  <span class="f">print</span>(math.pi)
+
+  <span class="c"># Print Euler's number</span>
+  <span class="f">print</span>(math.e)</code></pre>
         </div>
-        <pre><code><span class="k">import</span> math
-
-<span class="c"># Print the value of pi</span>
-<span class="f">print</span>(math.pi)
-
-<span class="c"># Print Euler's number</span>
-<span class="f">print</span>(math.e)</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="6">
       <div class="eyebrow"><span class="num">35</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Core built-in functions: <code>min()</code>, <code>max()</code>, <code>abs()</code>, <code>pow()</code>.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import the <code>math</code> module for advanced functions.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>math.sqrt()</code> calculates the square root.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>math.ceil()</code> to round up and <code>math.floor()</code> to round down.</span></div>
+      <div class="center-block">
+                <h2>Recap</h2>
+        <div class="list-check">
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Core built-in functions: <code>min()</code>, <code>max()</code>, <code>abs()</code>, <code>pow()</code>.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import the <code>math</code> module for advanced functions.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>math.sqrt()</code> calculates the square root.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>math.ceil()</code> to round up and <code>math.floor()</code> to round down.</span></div>
+        </div>
+        <a href="36-json.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: JSON →</a>
       </div>
-      <a href="36-json.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: JSON →</a>
     </section>
 </main>
 

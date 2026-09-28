@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,89 +584,99 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">36</span> Python Programming Series</div>
-      <h1>Python <span class="accent">JSON</span></h1>
-      <p class="sub">JSON is a syntax for storing and exchanging data. Python has a built-in package called json to work with JSON data.</p>
+      <div class="center-block">
+                <h1>Python <span class="accent">JSON</span></h1>
+        <p class="sub">JSON is a syntax for storing and exchanging data. Python has a built-in package called json to work with JSON data.</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">36</span> Parse JSON</div>
-      <h2>JSON to Python</h2>
-      <p class="lede">If you have a JSON string, you can parse it by using the <code>json.loads()</code> method. The result will be a Python dictionary.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">parse.py</div>
+      <div class="center-block">
+                <h2>JSON to Python</h2>
+        <p class="lede">If you have a JSON string, you can parse it by using the <code>json.loads()</code> method. The result will be a Python dictionary.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">parse.py</div>
+          </div>
+          <pre><code><span class="k">import</span> json
+
+  <span class="c"># some JSON string:</span>
+  x =  <span class="s">'{ "name":"John", "age":30, "city":"New York"}'</span>
+
+  <span class="c"># parse x:</span>
+  y = json.loads(x)
+
+  <span class="c"># the result is a Python dictionary:</span>
+  <span class="f">print</span>(y[<span class="s">"age"</span>])</code></pre>
         </div>
-        <pre><code><span class="k">import</span> json
-
-<span class="c"># some JSON string:</span>
-x =  <span class="s">'{ "name":"John", "age":30, "city":"New York"}'</span>
-
-<span class="c"># parse x:</span>
-y = json.loads(x)
-
-<span class="c"># the result is a Python dictionary:</span>
-<span class="f">print</span>(y[<span class="s">"age"</span>])</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">36</span> Convert to JSON</div>
-      <h2>Python to JSON</h2>
-      <p class="lede">If you have a Python object, you can convert it into a JSON string by using the <code>json.dumps()</code> method.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">convert.py</div>
+      <div class="center-block">
+                <h2>Python to JSON</h2>
+        <p class="lede">If you have a Python object, you can convert it into a JSON string by using the <code>json.dumps()</code> method.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">convert.py</div>
+          </div>
+          <pre><code><span class="k">import</span> json
+
+  <span class="c"># a Python object (dict):</span>
+  x = {
+    <span class="s">"name"</span>: <span class="s">"John"</span>,
+    <span class="s">"age"</span>: <span class="n">30</span>,
+    <span class="s">"city"</span>: <span class="s">"New York"</span>
+  }
+
+  <span class="c"># convert into JSON:</span>
+  y = json.dumps(x)
+
+  <span class="c"># the result is a JSON string:</span>
+  <span class="f">print</span>(y)</code></pre>
         </div>
-        <pre><code><span class="k">import</span> json
-
-<span class="c"># a Python object (dict):</span>
-x = {
-  <span class="s">"name"</span>: <span class="s">"John"</span>,
-  <span class="s">"age"</span>: <span class="n">30</span>,
-  <span class="s">"city"</span>: <span class="s">"New York"</span>
-}
-
-<span class="c"># convert into JSON:</span>
-y = json.dumps(x)
-
-<span class="c"># the result is a JSON string:</span>
-<span class="f">print</span>(y)</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
       <div class="eyebrow"><span class="num">36</span> Formatting</div>
-      <h2>Format the Result</h2>
-      <p class="lede">The <code>json.dumps()</code> method has parameters to make it easier to read the result.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">format.py</div>
+      <div class="center-block">
+                <h2>Format the Result</h2>
+        <p class="lede">The <code>json.dumps()</code> method has parameters to make it easier to read the result.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">format.py</div>
+          </div>
+          <pre><code><span class="k">import</span> json
+
+  x = {<span class="s">"name"</span>: <span class="s">"John"</span>, <span class="s">"age"</span>: <span class="n">30</span>, <span class="s">"city"</span>: <span class="s">"New York"</span>}
+
+  <span class="c"># use four indents to make it easier to read</span>
+  <span class="f">print</span>(json.dumps(x, indent=<span class="n">4</span>))</code></pre>
         </div>
-        <pre><code><span class="k">import</span> json
-
-x = {<span class="s">"name"</span>: <span class="s">"John"</span>, <span class="s">"age"</span>: <span class="n">30</span>, <span class="s">"city"</span>: <span class="s">"New York"</span>}
-
-<span class="c"># use four indents to make it easier to read</span>
-<span class="f">print</span>(json.dumps(x, indent=<span class="n">4</span>))</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="4">
       <div class="eyebrow"><span class="num">36</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import the <code>json</code> module to work with JSON.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>json.loads()</code> to parse a JSON string into a Python Dictionary.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>json.dumps()</code> to convert a Python Dictionary into a JSON string.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use the <code>indent</code> parameter in dumps() for pretty-printing.</span></div>
+      <div class="center-block">
+                <h2>Recap</h2>
+        <div class="list-check">
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Import the <code>json</code> module to work with JSON.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>json.loads()</code> to parse a JSON string into a Python Dictionary.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>json.dumps()</code> to convert a Python Dictionary into a JSON string.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use the <code>indent</code> parameter in dumps() for pretty-printing.</span></div>
+        </div>
+        <a href="37-regex.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: RegEx →</a>
       </div>
-      <a href="37-regex.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: RegEx →</a>
     </section>
 </main>
 

@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,113 +584,127 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">29</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Modules</span></h1>
-      <p class="sub">Consider a module to be the same as a code library, a file containing a set of functions you want to include in your application.</p>
+      <div class="center-block">
+                <h1>Python <span class="accent">Modules</span></h1>
+        <p class="sub">Consider a module to be the same as a code library, a file containing a set of functions you want to include in your application.</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">29</span> What is a Module?</div>
-      <h2>What is a Module?</h2>
-      <p class="lede">To create a module just save the code you want in a file with the file extension <code>.py</code>.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">mymodule.py</div>
-        </div>
-        <pre><code><span class="c"># Save this in mymodule.py</span>
-<span class="k">def</span> <span class="f">greeting</span>(name):
-    <span class="f">print</span>(<span class="s">"Hello, "</span> + name)
+      <div class="center-block">
+                <h2>What is a Module?</h2>
+        <p class="lede">To create a module just save the code you want in a file with the file extension <code>.py</code>.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">mymodule.py</div>
+          </div>
+          <pre><code><span class="c"># Save this in mymodule.py</span>
+  <span class="k">def</span> <span class="f">greeting</span>(name):
+      <span class="f">print</span>(<span class="s">"Hello, "</span> + name)
     
-person1 = {
-  <span class="s">"name"</span>: <span class="s">"John"</span>,
-  <span class="s">"age"</span>: <span class="n">36</span>,
-  <span class="s">"country"</span>: <span class="s">"Norway"</span>
-}</code></pre>
+  person1 = {
+    <span class="s">"name"</span>: <span class="s">"John"</span>,
+    <span class="s">"age"</span>: <span class="n">36</span>,
+    <span class="s">"country"</span>: <span class="s">"Norway"</span>
+  }</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">29</span> Importing Modules</div>
-      <h2>Using a Module</h2>
-      <p class="lede">Now we can use the module we just created, by using the <code>import</code> statement.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">main.py</div>
+      <div class="center-block">
+                <h2>Using a Module</h2>
+        <p class="lede">Now we can use the module we just created, by using the <code>import</code> statement.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">main.py</div>
+          </div>
+          <pre><code><span class="k">import</span> math
+
+  <span class="c"># Here we import a built-in module 'math'</span>
+  <span class="c"># But you would import 'mymodule' the exact same way!</span>
+
+  <span class="f">print</span>(math.pi)</code></pre>
         </div>
-        <pre><code><span class="k">import</span> math
-
-<span class="c"># Here we import a built-in module 'math'</span>
-<span class="c"># But you would import 'mymodule' the exact same way!</span>
-
-<span class="f">print</span>(math.pi)</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
       <div class="eyebrow"><span class="num">29</span> Renaming Modules</div>
-      <h2>Re-naming a Module</h2>
-      <p class="lede">You can create an alias when you import a module, by using the <code>as</code> keyword.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">alias.py</div>
-        </div>
-        <pre><code><span class="k">import</span> math <span class="k">as</span> m
+      <div class="center-block">
+                <h2>Re-naming a Module</h2>
+        <p class="lede">You can create an alias when you import a module, by using the <code>as</code> keyword.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">alias.py</div>
+          </div>
+          <pre><code><span class="k">import</span> math <span class="k">as</span> m
 
-<span class="f">print</span>(m.pi)
-<span class="f">print</span>(m.sqrt(<span class="n">16</span>))</code></pre>
+  <span class="f">print</span>(m.pi)
+  <span class="f">print</span>(m.sqrt(<span class="n">16</span>))</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="4">
       <div class="eyebrow"><span class="num">29</span> Built-in Modules</div>
-      <h2>Built-in Modules</h2>
-      <p class="lede">There are several built-in modules in Python, which you can import whenever you like. Like the <code>platform</code> module.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">platform_mod.py</div>
-        </div>
-        <pre><code><span class="k">import</span> platform
+      <div class="center-block">
+                <h2>Built-in Modules</h2>
+        <p class="lede">There are several built-in modules in Python, which you can import whenever you like. Like the <code>platform</code> module.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">platform_mod.py</div>
+          </div>
+          <pre><code><span class="k">import</span> platform
 
-x = platform.system()
-<span class="f">print</span>(<span class="s">"You are running on:"</span>, x)</code></pre>
+  x = platform.system()
+  <span class="f">print</span>(<span class="s">"You are running on:"</span>, x)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="5">
       <div class="eyebrow"><span class="num">29</span> From... Import</div>
-      <h2>Import From Module</h2>
-      <p class="lede">You can choose to import only parts from a module, by using the <code>from</code> keyword.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">from.py</div>
-        </div>
-        <pre><code><span class="c"># Import just the pi variable from math</span>
-<span class="k">from</span> math <span class="k">import</span> pi
+      <div class="center-block">
+                <h2>Import From Module</h2>
+        <p class="lede">You can choose to import only parts from a module, by using the <code>from</code> keyword.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">from.py</div>
+          </div>
+          <pre><code><span class="c"># Import just the pi variable from math</span>
+  <span class="k">from</span> math <span class="k">import</span> pi
 
-<span class="f">print</span>(pi)
-<span class="c"># Notice we don't need to write math.pi anymore!</span></code></pre>
+  <span class="f">print</span>(pi)
+  <span class="c"># Notice we don't need to write math.pi anymore!</span></code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="6">
       <div class="eyebrow"><span class="num">29</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>import module_name</code> to bring in external code.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>import module as alias</code> to rename it for convenience.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>from module import specific_part</code> to import just one piece.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Any Python file you create can be imported as a module!</span></div>
+      <div class="center-block">
+                <h2>Recap</h2>
+        <div class="list-check">
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>import module_name</code> to bring in external code.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>import module as alias</code> to rename it for convenience.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>from module import specific_part</code> to import just one piece.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Any Python file you create can be imported as a module!</span></div>
+        </div>
+        <a href="30-scope.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Scope →</a>
       </div>
-      <a href="30-scope.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Scope →</a>
     </section>
 </main>
 

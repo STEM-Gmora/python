@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,32 +584,36 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">42</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Write Files</span></h1>
-      <p class="sub">How to write to an existing file, or create a new file.</p>
+      <div class="center-block">
+                <h1>Python <span class="accent">Write Files</span></h1>
+        <p class="sub">How to write to an existing file, or create a new file.</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">42</span> Append vs Write</div>
-      <h2>Write to an Existing File</h2>
-      <p class="lede">To write to an existing file, you must add a parameter to the <code>open()</code> function: <code>"a"</code> (Append) or <code>"w"</code> (Write - overwrites content).</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">write.py</div>
-        </div>
-        <pre><code><span class="c"># Example of Appending</span>
-<span class="c"># f = open("demofile2.txt", "a")</span>
-<span class="c"># f.write("Now the file has more content!")</span>
-<span class="c"># f.close()</span>
+      <div class="center-block">
+                <h2>Write to an Existing File</h2>
+        <p class="lede">To write to an existing file, you must add a parameter to the <code>open()</code> function: <code>"a"</code> (Append) or <code>"w"</code> (Write - overwrites content).</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">write.py</div>
+          </div>
+          <pre><code><span class="c"># Example of Appending</span>
+  <span class="c"># f = open("demofile2.txt", "a")</span>
+  <span class="c"># f.write("Now the file has more content!")</span>
+  <span class="c"># f.close()</span>
 
-<span class="c"># Example of Overwriting</span>
-<span class="c"># f = open("demofile3.txt", "w")</span>
-<span class="c"># f.write("Woops! I have deleted the content!")</span>
-<span class="c"># f.close()</span>
-<span class="f">print</span>(<span class="s">"Remember to always close() files!"</span>)</code></pre>
+  <span class="c"># Example of Overwriting</span>
+  <span class="c"># f = open("demofile3.txt", "w")</span>
+  <span class="c"># f.write("Woops! I have deleted the content!")</span>
+  <span class="c"># f.close()</span>
+  <span class="f">print</span>(<span class="s">"Remember to always close() files!"</span>)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
+        <a href="43-delete-files.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Delete Files →</a>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
-      <a href="43-delete-files.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Delete Files →</a>
     </section>
 </main>
 

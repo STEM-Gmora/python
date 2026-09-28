@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,99 +584,111 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">25</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Lambda</span></h1>
-      <p class="sub">A lambda function is a small anonymous function. It can take any number of arguments, but can only have one expression.</p>
+      <div class="center-block">
+                <h1>Python <span class="accent">Lambda</span></h1>
+        <p class="sub">A lambda function is a small anonymous function. It can take any number of arguments, but can only have one expression.</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">25</span> Syntax</div>
-      <h2>Lambda Syntax</h2>
-      <p class="lede">The expression is executed and the result is returned automatically.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">lambda.py</div>
-        </div>
-        <pre><code><span class="c"># lambda arguments : expression</span>
+      <div class="center-block">
+                <h2>Lambda Syntax</h2>
+        <p class="lede">The expression is executed and the result is returned automatically.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">lambda.py</div>
+          </div>
+          <pre><code><span class="c"># lambda arguments : expression</span>
 
-x = <span class="k">lambda</span> a: a + <span class="n">10</span>
-<span class="f">print</span>(x(<span class="n">5</span>))</code></pre>
+  x = <span class="k">lambda</span> a: a + <span class="n">10</span>
+  <span class="f">print</span>(x(<span class="n">5</span>))</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">25</span> Multiple Arguments</div>
-      <h2>Multiple Arguments</h2>
-      <p class="lede">Lambda functions can take any number of arguments.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">multi.py</div>
-        </div>
-        <pre><code><span class="c"># Multiply argument a with argument b and return the result</span>
-x = <span class="k">lambda</span> a, b: a * b
-<span class="f">print</span>(x(<span class="n">5</span>, <span class="n">6</span>))
+      <div class="center-block">
+                <h2>Multiple Arguments</h2>
+        <p class="lede">Lambda functions can take any number of arguments.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">multi.py</div>
+          </div>
+          <pre><code><span class="c"># Multiply argument a with argument b and return the result</span>
+  x = <span class="k">lambda</span> a, b: a * b
+  <span class="f">print</span>(x(<span class="n">5</span>, <span class="n">6</span>))
 
-<span class="c"># Summarize argument a, b, and c and return the result</span>
-y = <span class="k">lambda</span> a, b, c: a + b + c
-<span class="f">print</span>(y(<span class="n">5</span>, <span class="n">6</span>, <span class="n">2</span>))</code></pre>
+  <span class="c"># Summarize argument a, b, and c and return the result</span>
+  y = <span class="k">lambda</span> a, b, c: a + b + c
+  <span class="f">print</span>(y(<span class="n">5</span>, <span class="n">6</span>, <span class="n">2</span>))</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
       <div class="eyebrow"><span class="num">25</span> Why Use Lambda?</div>
-      <h2>Why Use Lambda Functions?</h2>
-      <p class="lede">The power of lambda is better shown when you use them as an anonymous function inside another function.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">why.py</div>
+      <div class="center-block">
+                <h2>Why Use Lambda Functions?</h2>
+        <p class="lede">The power of lambda is better shown when you use them as an anonymous function inside another function.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">why.py</div>
+          </div>
+          <pre><code><span class="k">def</span> <span class="f">myfunc</span>(n):
+      <span class="k">return</span> <span class="k">lambda</span> a: a * n
+
+  <span class="c"># Make a function that always doubles the number you send in</span>
+  mydoubler = <span class="f">myfunc</span>(<span class="n">2</span>)
+
+  <span class="f">print</span>(mydoubler(<span class="n">11</span>))</code></pre>
         </div>
-        <pre><code><span class="k">def</span> <span class="f">myfunc</span>(n):
-    <span class="k">return</span> <span class="k">lambda</span> a: a * n
-
-<span class="c"># Make a function that always doubles the number you send in</span>
-mydoubler = <span class="f">myfunc</span>(<span class="n">2</span>)
-
-<span class="f">print</span>(mydoubler(<span class="n">11</span>))</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="4">
       <div class="eyebrow"><span class="num">25</span> Use with Maps/Filters</div>
-      <h2>Lambdas in Higher-Order Functions</h2>
-      <p class="lede">They are often used with functions like <code>filter()</code> and <code>map()</code>.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">map_filter.py</div>
+      <div class="center-block">
+                <h2>Lambdas in Higher-Order Functions</h2>
+        <p class="lede">They are often used with functions like <code>filter()</code> and <code>map()</code>.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">map_filter.py</div>
+          </div>
+          <pre><code>nums = [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>]
+
+  <span class="c"># Map: double every number</span>
+  doubled = <span class="f">list</span>(<span class="f">map</span>(<span class="k">lambda</span> x: x * <span class="n">2</span>, nums))
+  <span class="f">print</span>(<span class="s">"Doubled:"</span>, doubled)
+
+  <span class="c"># Filter: keep only even numbers</span>
+  evens = <span class="f">list</span>(<span class="f">filter</span>(<span class="k">lambda</span> x: x % <span class="n">2</span> == <span class="n">0</span>, nums))
+  <span class="f">print</span>(<span class="s">"Evens:"</span>, evens)</code></pre>
         </div>
-        <pre><code>nums = [<span class="n">1</span>, <span class="n">2</span>, <span class="n">3</span>, <span class="n">4</span>, <span class="n">5</span>]
-
-<span class="c"># Map: double every number</span>
-doubled = <span class="f">list</span>(<span class="f">map</span>(<span class="k">lambda</span> x: x * <span class="n">2</span>, nums))
-<span class="f">print</span>(<span class="s">"Doubled:"</span>, doubled)
-
-<span class="c"># Filter: keep only even numbers</span>
-evens = <span class="f">list</span>(<span class="f">filter</span>(<span class="k">lambda</span> x: x % <span class="n">2</span> == <span class="n">0</span>, nums))
-<span class="f">print</span>(<span class="s">"Evens:"</span>, evens)</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="5">
       <div class="eyebrow"><span class="num">25</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Lambdas are written as: <code>lambda args: expression</code>.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They are limited to a single expression (no multi-line blocks).</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">They automatically return the result of the expression.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Best used when passing a simple function into another function like <code>map()</code>.</span></div>
+      <div class="center-block">
+                <h2>Recap</h2>
+        <div class="list-check">
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Lambdas are written as: <code>lambda args: expression</code>.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">They are limited to a single expression (no multi-line blocks).</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">They automatically return the result of the expression.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Best used when passing a simple function into another function like <code>map()</code>.</span></div>
+        </div>
+        <a href="26-classes-objects.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Iterators →</a>
       </div>
-      <a href="26-classes-objects.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Iterators →</a>
     </section>
 </main>
 

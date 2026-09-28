@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,101 +584,113 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">37</span> Python Programming Series</div>
-      <h1>Python <span class="accent">RegEx</span></h1>
-      <p class="sub">A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.</p>
+      <div class="center-block">
+                <h1>Python <span class="accent">RegEx</span></h1>
+        <p class="sub">A RegEx, or Regular Expression, is a sequence of characters that forms a search pattern.</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">37</span> The re Module</div>
-      <h2>The re Module</h2>
-      <p class="lede">Python has a built-in package called <code>re</code>, which can be used to work with Regular Expressions.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">regex.py</div>
+      <div class="center-block">
+                <h2>The re Module</h2>
+        <p class="lede">Python has a built-in package called <code>re</code>, which can be used to work with Regular Expressions.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">regex.py</div>
+          </div>
+          <pre><code><span class="k">import</span> re
+
+  txt = <span class="s">"The rain in Spain"</span>
+  <span class="c"># Check if the string starts with "The" and ends with "Spain":</span>
+  x = re.search(<span class="s">"^The.*Spain$"</span>, txt)
+
+  <span class="k">if</span> x:
+    <span class="f">print</span>(<span class="s">"YES! We have a match!"</span>)
+  <span class="k">else</span>:
+    <span class="f">print</span>(<span class="s">"No match"</span>)</code></pre>
         </div>
-        <pre><code><span class="k">import</span> re
-
-txt = <span class="s">"The rain in Spain"</span>
-<span class="c"># Check if the string starts with "The" and ends with "Spain":</span>
-x = re.search(<span class="s">"^The.*Spain$"</span>, txt)
-
-<span class="k">if</span> x:
-  <span class="f">print</span>(<span class="s">"YES! We have a match!"</span>)
-<span class="k">else</span>:
-  <span class="f">print</span>(<span class="s">"No match"</span>)</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">37</span> Findall</div>
-      <h2>The findall() Function</h2>
-      <p class="lede">The <code>findall()</code> function returns a list containing all matches.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">findall.py</div>
-        </div>
-        <pre><code><span class="k">import</span> re
+      <div class="center-block">
+                <h2>The findall() Function</h2>
+        <p class="lede">The <code>findall()</code> function returns a list containing all matches.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">findall.py</div>
+          </div>
+          <pre><code><span class="k">import</span> re
 
-txt = <span class="s">"The rain in Spain"</span>
-<span class="c"># Find all lower case characters alphabetically between "a" and "m"</span>
-x = re.findall(<span class="s">"[a-m]"</span>, txt)
-<span class="f">print</span>(x)</code></pre>
+  txt = <span class="s">"The rain in Spain"</span>
+  <span class="c"># Find all lower case characters alphabetically between "a" and "m"</span>
+  x = re.findall(<span class="s">"[a-m]"</span>, txt)
+  <span class="f">print</span>(x)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
       <div class="eyebrow"><span class="num">37</span> Sub</div>
-      <h2>The sub() Function</h2>
-      <p class="lede">The <code>sub()</code> function replaces the matches with the text of your choice.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">sub.py</div>
-        </div>
-        <pre><code><span class="k">import</span> re
+      <div class="center-block">
+                <h2>The sub() Function</h2>
+        <p class="lede">The <code>sub()</code> function replaces the matches with the text of your choice.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">sub.py</div>
+          </div>
+          <pre><code><span class="k">import</span> re
 
-txt = <span class="s">"The rain in Spain"</span>
-<span class="c"># Replace every white-space character with the number 9:</span>
-x = re.sub(<span class="s">"s"</span>, <span class="s">"9"</span>, txt)
-<span class="f">print</span>(x)</code></pre>
+  txt = <span class="s">"The rain in Spain"</span>
+  <span class="c"># Replace every white-space character with the number 9:</span>
+  x = re.sub(<span class="s">"s"</span>, <span class="s">"9"</span>, txt)
+  <span class="f">print</span>(x)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="4">
       <div class="eyebrow"><span class="num">37</span> Match Object</div>
-      <h2>Match Object</h2>
-      <p class="lede">A Match Object is an object containing information about the search and the result. If there is no match, the value None will be returned.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">match.py</div>
-        </div>
-        <pre><code><span class="k">import</span> re
+      <div class="center-block">
+                <h2>Match Object</h2>
+        <p class="lede">A Match Object is an object containing information about the search and the result. If there is no match, the value None will be returned.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">match.py</div>
+          </div>
+          <pre><code><span class="k">import</span> re
 
-txt = <span class="s">"The rain in Spain"</span>
-x = re.search(r<span class="s">"Sw+"</span>, txt)
-<span class="f">print</span>(x.span())  <span class="c"># Tuple containing start and end positions</span>
-<span class="f">print</span>(x.string)  <span class="c"># The string passed into the function</span>
-<span class="f">print</span>(x.group()) <span class="c"># The part of the string where there was a match</span></code></pre>
+  txt = <span class="s">"The rain in Spain"</span>
+  x = re.search(r<span class="s">"Sw+"</span>, txt)
+  <span class="f">print</span>(x.span())  <span class="c"># Tuple containing start and end positions</span>
+  <span class="f">print</span>(x.string)  <span class="c"># The string passed into the function</span>
+  <span class="f">print</span>(x.group()) <span class="c"># The part of the string where there was a match</span></code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="5">
       <div class="eyebrow"><span class="num">37</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>import re</code> for regular expressions.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>re.search()</code> finds the first match.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>re.findall()</code> returns a list of all matches.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>re.sub()</code> replaces matches with a new string.</span></div>
+      <div class="center-block">
+                <h2>Recap</h2>
+        <div class="list-check">
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>import re</code> for regular expressions.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>re.search()</code> finds the first match.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>re.findall()</code> returns a list of all matches.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text"><code>re.sub()</code> replaces matches with a new string.</span></div>
+        </div>
+        <a href="38-pip.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: PIP →</a>
       </div>
-      <a href="38-pip.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: PIP →</a>
     </section>
 </main>
 

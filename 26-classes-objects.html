@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,107 +584,119 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">26</span> Python Programming Series</div>
-      <h1>Classes & <span class="accent">Objects</span></h1>
-      <p class="sub">Python is an object oriented programming language. Almost everything in Python is an object, with its properties and methods.</p>
+      <div class="center-block">
+                <h1>Classes & <span class="accent">Objects</span></h1>
+        <p class="sub">Python is an object oriented programming language. Almost everything in Python is an object, with its properties and methods.</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">26</span> Classes</div>
-      <h2>Create a Class</h2>
-      <p class="lede">A Class is like an object constructor, or a "blueprint" for creating objects. To create a class, use the keyword <code>class</code>.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">class.py</div>
-        </div>
-        <pre><code><span class="k">class</span> <span class="f">MyClass</span>:
-    x = <span class="n">5</span>
+      <div class="center-block">
+                <h2>Create a Class</h2>
+        <p class="lede">A Class is like an object constructor, or a "blueprint" for creating objects. To create a class, use the keyword <code>class</code>.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">class.py</div>
+          </div>
+          <pre><code><span class="k">class</span> <span class="f">MyClass</span>:
+      x = <span class="n">5</span>
 
-<span class="c"># Now we can use the class named MyClass to create objects</span>
-p1 = <span class="f">MyClass</span>()
-<span class="f">print</span>(p1.x)</code></pre>
+  <span class="c"># Now we can use the class named MyClass to create objects</span>
+  p1 = <span class="f">MyClass</span>()
+  <span class="f">print</span>(p1.x)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">26</span> __init__() Function</div>
-      <h2>The __init__() Function</h2>
-      <p class="lede">All classes have a function called <code>__init__()</code>, which is always executed when the class is being initiated. Use it to assign values to object properties.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">init.py</div>
+      <div class="center-block">
+                <h2>The __init__() Function</h2>
+        <p class="lede">All classes have a function called <code>__init__()</code>, which is always executed when the class is being initiated. Use it to assign values to object properties.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">init.py</div>
+          </div>
+          <pre><code><span class="k">class</span> <span class="f">Person</span>:
+      <span class="k">def</span> <span class="f">__init__</span>(self, name, age):
+          self.name = name
+          self.age = age
+
+  p1 = <span class="f">Person</span>(<span class="s">"John"</span>, <span class="n">36</span>)
+
+  <span class="f">print</span>(p1.name)
+  <span class="f">print</span>(p1.age)</code></pre>
         </div>
-        <pre><code><span class="k">class</span> <span class="f">Person</span>:
-    <span class="k">def</span> <span class="f">__init__</span>(self, name, age):
-        self.name = name
-        self.age = age
-
-p1 = <span class="f">Person</span>(<span class="s">"John"</span>, <span class="n">36</span>)
-
-<span class="f">print</span>(p1.name)
-<span class="f">print</span>(p1.age)</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="3">
       <div class="eyebrow"><span class="num">26</span> Object Methods</div>
-      <h2>Object Methods</h2>
-      <p class="lede">Objects can also contain methods. Methods in objects are functions that belong to the object.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">methods.py</div>
+      <div class="center-block">
+                <h2>Object Methods</h2>
+        <p class="lede">Objects can also contain methods. Methods in objects are functions that belong to the object.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">methods.py</div>
+          </div>
+          <pre><code><span class="k">class</span> <span class="f">Person</span>:
+      <span class="k">def</span> <span class="f">__init__</span>(self, name, age):
+          self.name = name
+          self.age = age
+
+      <span class="k">def</span> <span class="f">myfunc</span>(self):
+          <span class="f">print</span>(<span class="s">"Hello my name is "</span> + self.name)
+
+  p1 = <span class="f">Person</span>(<span class="s">"John"</span>, <span class="n">36</span>)
+  p1.myfunc()</code></pre>
         </div>
-        <pre><code><span class="k">class</span> <span class="f">Person</span>:
-    <span class="k">def</span> <span class="f">__init__</span>(self, name, age):
-        self.name = name
-        self.age = age
-
-    <span class="k">def</span> <span class="f">myfunc</span>(self):
-        <span class="f">print</span>(<span class="s">"Hello my name is "</span> + self.name)
-
-p1 = <span class="f">Person</span>(<span class="s">"John"</span>, <span class="n">36</span>)
-p1.myfunc()</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="4">
       <div class="eyebrow"><span class="num">26</span> The self Parameter</div>
-      <h2>The self Parameter</h2>
-      <p class="lede">The <code>self</code> parameter is a reference to the current instance of the class, and is used to access variables that belong to the class. It does not have to be named self, but it has to be the first parameter.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">self.py</div>
+      <div class="center-block">
+                <h2>The self Parameter</h2>
+        <p class="lede">The <code>self</code> parameter is a reference to the current instance of the class, and is used to access variables that belong to the class. It does not have to be named self, but it has to be the first parameter.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">self.py</div>
+          </div>
+          <pre><code><span class="k">class</span> <span class="f">Person</span>:
+      <span class="k">def</span> <span class="f">__init__</span>(mysillyobject, name, age):
+          mysillyobject.name = name
+          mysillyobject.age = age
+
+      <span class="k">def</span> <span class="f">myfunc</span>(abc):
+          <span class="f">print</span>(<span class="s">"Hello my name is "</span> + abc.name)
+
+  p1 = <span class="f">Person</span>(<span class="s">"John"</span>, <span class="n">36</span>)
+  p1.myfunc()</code></pre>
         </div>
-        <pre><code><span class="k">class</span> <span class="f">Person</span>:
-    <span class="k">def</span> <span class="f">__init__</span>(mysillyobject, name, age):
-        mysillyobject.name = name
-        mysillyobject.age = age
-
-    <span class="k">def</span> <span class="f">myfunc</span>(abc):
-        <span class="f">print</span>(<span class="s">"Hello my name is "</span> + abc.name)
-
-p1 = <span class="f">Person</span>(<span class="s">"John"</span>, <span class="n">36</span>)
-p1.myfunc()</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="5">
       <div class="eyebrow"><span class="num">26</span> Summary</div>
-      <h2>Recap</h2>
-      <div class="list-check">
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>class Name:</code> to create a blueprint.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>__init__(self)</code> to initialize object properties.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">Methods are functions defined inside the class.</span></div>
-        <div class="item fragment"><span class="tick">✓</span><span class="type-text">The first parameter of methods is always the instance itself (usually <code>self</code>).</span></div>
+      <div class="center-block">
+                <h2>Recap</h2>
+        <div class="list-check">
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>class Name:</code> to create a blueprint.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Use <code>__init__(self)</code> to initialize object properties.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">Methods are functions defined inside the class.</span></div>
+          <div class="item fragment"><span class="tick">✓</span><span class="type-text">The first parameter of methods is always the instance itself (usually <code>self</code>).</span></div>
+        </div>
+        <a href="27-inheritance.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Inheritance →</a>
       </div>
-      <a href="27-inheritance.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Inheritance →</a>
     </section>
 </main>
 

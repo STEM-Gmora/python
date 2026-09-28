@@ -140,6 +140,35 @@
   }
   .eyebrow .num{ color:var(--blue); font-weight:600; }
 
+  .center-block{
+    flex:1;
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+  }
+  .center-block h1,
+  .center-block h2{ text-align:center; }
+  .center-block .lede,
+  .center-block .sub{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .card-grid,
+  .center-block .steps-row,
+  .center-block .terminal,
+  .center-block .code-block,
+  .center-block .run-btn-wrap,
+  .center-block .cover-art{
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .center-block .list-check{
+    align-self:flex-start;
+  }
+
   .slide h2{
     font-size:clamp(33px, 4.5vw, 53px);
     line-height:1.15;
@@ -555,45 +584,51 @@
 
     <section class="slide cover" data-index="0">
       <div class="eyebrow"><span class="num">43</span> Python Programming Series</div>
-      <h1>Python <span class="accent">Delete Files</span></h1>
-      <p class="sub">How to delete files and folders.</p>
+      <div class="center-block">
+                <h1>Python <span class="accent">Delete Files</span></h1>
+        <p class="sub">How to delete files and folders.</p>
+      </div>
     </section>
     
     <section class="slide" data-index="1">
       <div class="eyebrow"><span class="num">43</span> The OS Module</div>
-      <h2>Delete a File</h2>
-      <p class="lede">To delete a file, you must import the OS module, and run its <code>os.remove()</code> function.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">delete.py</div>
+      <div class="center-block">
+                <h2>Delete a File</h2>
+        <p class="lede">To delete a file, you must import the OS module, and run its <code>os.remove()</code> function.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">delete.py</div>
+          </div>
+          <pre><code><span class="k">import</span> os
+  <span class="c"># os.remove("demofile.txt")</span>
+  <span class="f">print</span>(<span class="s">"File deletion requires the 'os' module."</span>)</code></pre>
         </div>
-        <pre><code><span class="k">import</span> os
-<span class="c"># os.remove("demofile.txt")</span>
-<span class="f">print</span>(<span class="s">"File deletion requires the 'os' module."</span>)</code></pre>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
     </section>
 
     <section class="slide" data-index="2">
       <div class="eyebrow"><span class="num">43</span> Check if Exists</div>
-      <h2>Check if File Exist</h2>
-      <p class="lede">To avoid getting an error, you might want to check if the file exists before you try to delete it.</p>
-      <div class="code-block fragment">
-        <div class="header">
-          <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
-          <div class="filename">check.py</div>
-        </div>
-        <pre><code><span class="k">import</span> os
+      <div class="center-block">
+                <h2>Check if File Exist</h2>
+        <p class="lede">To avoid getting an error, you might want to check if the file exists before you try to delete it.</p>
+        <div class="code-block fragment">
+          <div class="header">
+            <div class="dots"><span class="red"></span><span class="yellow"></span><span class="green"></span></div>
+            <div class="filename">check.py</div>
+          </div>
+          <pre><code><span class="k">import</span> os
 
-<span class="k">if</span> os.path.exists(<span class="s">"demofile.txt"</span>):
-    <span class="c"># os.remove("demofile.txt")</span>
-    <span class="f">print</span>(<span class="s">"Deleting file..."</span>)
-<span class="k">else</span>:
-    <span class="f">print</span>(<span class="s">"The file does not exist"</span>)</code></pre>
+  <span class="k">if</span> os.path.exists(<span class="s">"demofile.txt"</span>):
+      <span class="c"># os.remove("demofile.txt")</span>
+      <span class="f">print</span>(<span class="s">"Deleting file..."</span>)
+  <span class="k">else</span>:
+      <span class="f">print</span>(<span class="s">"The file does not exist"</span>)</code></pre>
+        </div>
+        <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
+        <a href="44-requests.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Requests →</a>
       </div>
-      <div class="run-btn-wrap"><button class="run-btn">▶ Run file</button></div>
-      <a href="44-requests.html" class="lede fragment" style="display:inline-block; margin-top:24px; color:var(--gold); font-weight:600; text-decoration:none;">Next lesson: Requests →</a>
     </section>
 </main>
 
